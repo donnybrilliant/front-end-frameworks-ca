@@ -14,7 +14,7 @@ function isOnSale(product) {
   }
 }
 
-const SingleProduct = ({ product }) => {
+const SingleProduct = ({ product, addToCart }) => {
   return (
     <>
       {/* Is another check better here? */}
