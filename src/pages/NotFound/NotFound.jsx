@@ -1,5 +1,13 @@
+import { Link } from "react-router-dom";
+import { StyledH1 } from "./NotFound.styled";
+
 const NotFound = () => {
-  return <div>NotFound</div>;
+  return (
+    <>
+      <StyledH1>404: Not Found</StyledH1>
+      <Link to="/">Go Home</Link>
+    </>
+  );
 };
 
 export default NotFound;
