@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Button from "../Button";
 import { ProductContainer, StyledDiv } from "./ProductCard.styled";
+import Rating from "../Rating";
 
 function isOnSale(product) {
   if (product.discountedPrice < product.price) {
@@ -18,7 +19,7 @@ const ProductCard = ({ product }) => {
       </div>
 
       <img src={product.imageUrl} alt={product.title} />
-      {/* Render the ratings */}
+      <Rating rating={product.rating} />
       {isOnSale(product) && <s>${product.price}</s>}
       <StyledDiv>
         <p>

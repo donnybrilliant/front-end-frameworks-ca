@@ -6,6 +6,7 @@ import {
   Tags,
   Reviews,
 } from "./SingleProduct.styled";
+import Rating from "../Rating";
 
 function isOnSale(product) {
   if (product.discountedPrice < product.price) {
@@ -25,7 +26,7 @@ const SingleProduct = ({ product }) => {
           </div>
           <Container>
             {/* Render the ratings */}
-
+            <Rating rating={product.rating} />
             {/* Render the tags */}
             <Tags>
               <h4>Tags:</h4>
