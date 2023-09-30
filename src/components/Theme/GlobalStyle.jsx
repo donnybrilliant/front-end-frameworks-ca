@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Inter&display=swap");
+
 
 :root {
   color: #213547;
@@ -148,9 +148,9 @@ label {
   font-weight: 400;
 }
 
-h2:hover {
+/* h2:hover {
   transform: scale(1.05);
-}
+} */
 
 `;
 
