@@ -5,25 +5,25 @@ function useApi(url) {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  const getData = async () => {
-    try {
-      setIsLoading(true);
-      setIsError(false);
-      const response = await fetch(url);
-      const data = await response.json();
-      setData(data);
-    } catch (error) {
-      console.log(error);
-      setIsError(true);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   useEffect(() => {
-    getData();
-  }, [getData, url]);
+    async function getData() {
+      try {
+        setIsLoading(true);
+        setIsError(false);
+        const fetchedData = await fetch(url);
+        const json = await fetchedData.json();
+        setData(json);
+      } catch (error) {
+        console.log(error);
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
+      }
+    }
 
+    getData();
+    //why url?
+  }, [url]);
   return { data, isLoading, isError };
 }
 
