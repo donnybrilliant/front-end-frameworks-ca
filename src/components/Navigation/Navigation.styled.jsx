@@ -12,7 +12,7 @@ export const Nav = styled.nav`
   background-color: #fff;
   padding-block: ${(props) => props.$extend && "1rem"};
   border-bottom: 2px solid black;
-  font-family: "IBM Plex Mono", Arial, Helvetica, sans-serif;
+  font-family: ${({ theme }) => theme.fonts.heading};
   text-transform: uppercase;
 
   @media (min-width: 600px) {
@@ -40,6 +40,6 @@ export const NavItem = styled.li`
 export const StyledLink = styled(NavLink)`
   text-decoration: none;
   &.active {
-    color: red;
+    color: ${({ theme }) => theme.colors.warning};
   }
 `;

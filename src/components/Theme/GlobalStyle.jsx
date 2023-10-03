@@ -9,7 +9,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: ${({ theme }) => theme.fonts.body};
   font-weight: 200;
 }
 
@@ -18,7 +18,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "IBM Plex Mono", sans-serif;
+  font-family: ${({ theme }) => theme.fonts.heading};
   text-transform: uppercase;
 }
 
@@ -30,7 +30,8 @@ h5 {
 }
 
 header {
-  border-bottom: 2px solid ${({ theme }) => theme.colors.black};
+  border-bottom: ${({ theme }) =>
+    `${theme.borders.regular} ${theme.colors.black}`};
 }
 
 main {
@@ -42,7 +43,8 @@ main {
 
 footer {
   background-color: ${({ theme }) => theme.colors.white};
-  border-top: 2px solid ${({ theme }) => theme.colors.black};
+  border-top: ${({ theme }) =>
+    `${theme.borders.regular} ${theme.colors.black}`};
 }
 
 /* .active {
@@ -69,11 +71,11 @@ input:not([type="checkbox"]),
 select,
 textarea {
   padding: 0.25rem;
-  border: 2px solid ${({ theme }) => theme.colors.black};
+  border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
   border-radius: 10px;
   margin-block: 0.2rem;
   width: 100%;
-  box-shadow: 5px 5px 0 ${({ theme }) => theme.colors.black};
+  box-shadow: ${({ theme }) => `${theme.shadows.small} ${theme.colors.black}`};
 }
 
 input:optional {
@@ -81,7 +83,8 @@ input:optional {
 }
 input:required:valid,
 textarea:required:valid {
-  box-shadow: 5px 5px 0 ${({ theme }) => theme.colors.secondary};
+  box-shadow: ${({ theme }) =>
+    `${theme.shadows.small} ${theme.colors.secondary}`};
 }
 
 input[type="checkbox"] {
@@ -89,12 +92,14 @@ input[type="checkbox"] {
 }
 
 textarea:focus {
-  box-shadow: 10px 10px 0 ${({ theme }) => theme.colors.black};
-  border: 2px solid ${({ theme }) => theme.colors.black};
+  box-shadow: ${({ theme }) =>
+    `${theme.shadows.regular} ${theme.colors.black}`};
+  border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
 }
 
 input:not([type="checkbox"]):focus {
-  box-shadow: 10px 10px 0 ${({ theme }) => theme.colors.black};
+  box-shadow: ${({ theme }) =>
+    `${theme.shadows.regular} ${theme.colors.black}`};
 }
 
 input:required:focus:valid {
@@ -122,21 +127,21 @@ input:focus:invalid {
   margin-inline: 0.5rem;
   display: inline-block; /* For applying styles like borders, etc. */
   font-size: 2rem;
-  border: 2px solid ${({ theme }) => theme.colors.black};
-  border-radius: 15px;
-  box-shadow: 5px 5px 0 ${({ theme }) => theme.colors.black};
+  border:${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
+  border-radius: ${({ theme }) => theme.borderRadius.regular};
+  box-shadow: ${({ theme }) => `${theme.shadows.small} ${theme.colors.black}`};
   width: 40px;
   text-align: center;
   background-color: ${({ theme }) => theme.colors.white};
 }
 
 .payment-icons label:hover {
-  box-shadow: 8px 8px 0 ${({ theme }) => theme.colors.black};
+  box-shadow: ${({ theme }) => `${theme.shadows.medium} ${theme.colors.black}`};
 }
 
 .payment-icons input[type="radio"]:checked + label {
   background-color: ${({ theme }) => theme.colors.secondary};
-  box-shadow: 8px 8px 0 ${({ theme }) => theme.colors.black};
+  box-shadow: ${({ theme }) => `${theme.shadows.medium} ${theme.colors.black}`};
 }
 
 label {

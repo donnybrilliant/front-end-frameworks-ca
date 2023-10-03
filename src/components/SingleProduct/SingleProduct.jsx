@@ -7,6 +7,7 @@ import {
   Reviews,
 } from "./SingleProduct.styled";
 import Rating from "../Rating";
+import NotFound from "../../pages/NotFound";
 
 function isOnSale(product) {
   if (product.discountedPrice < product.price) {
@@ -75,7 +76,7 @@ const SingleProduct = ({ product, addToCart }) => {
           </Reviews>
         </ProductContainer>
       ) : (
-        <h1>Product not found.</h1>
+        <NotFound />
       )}
     </>
   );

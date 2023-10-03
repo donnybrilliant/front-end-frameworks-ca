@@ -2,15 +2,17 @@ import styled from "styled-components";
 
 export const StyledButton = styled.button`
   background-color: ${({ theme }) => theme.colors.tertiary};
-  border: 2px solid ${({ theme }) => theme.colors.black};
+  border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
   padding: 1rem;
-  border-radius: 15px;
-  box-shadow: 5px 5px 0 ${({ theme }) => theme.colors.black};
+  border-radius: ${({ theme }) => theme.borderRadius.regular};
+  box-shadow: ${({ theme }) => `${theme.shadows.small} ${theme.colors.black}`};
   font-size: 1.2rem;
 
   cursor: pointer;
   &:hover {
     background-color: ${({ theme }) => theme.colors.attention};
-    box-shadow: 10px 10px 0 ${({ theme }) => theme.colors.black};
+    box-shadow: ${({ theme }) =>
+      `${theme.shadows.regular} ${theme.colors.black}`};
+    translate: ${({ theme }) => theme.translate.small};
   }
 `;

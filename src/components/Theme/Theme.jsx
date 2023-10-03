@@ -9,7 +9,7 @@ const theme = {
     warning: "#FF4E4E",
     black: "#000000",
     white: "#FFFFFF",
-    grey: "#F2F2F2",
+    grey: "#d2d2d2",
     lightGrey: "#F2F2F2",
     darkGrey: "#333333",
     lightBlue: "#4EFFAE",
@@ -26,11 +26,25 @@ const theme = {
     regular: "10px 10px 0",
     large: "15px 15px 0",
     xl: "20px 20px 0",
-    translate: "-10px -10px",
+  },
+  translate: {
+    small: "-5px -5px",
+    regular: "-10px -10px",
   },
   borderRadius: {
-    none: "0",
+    small: "10px",
     regular: "15px",
+  },
+  fonts: {
+    heading: "IBM Plex Mono, Arial, Helvetica, sans-serif",
+    body: "Inter, Arial, Helvetica, sans-serif",
+  },
+};
+
+const theme2 = {
+  ...theme,
+  borderRadius: {
+    regular: "0",
   },
 };
 

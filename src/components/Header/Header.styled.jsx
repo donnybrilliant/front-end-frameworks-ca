@@ -21,7 +21,7 @@ export const Logo = styled(Link)`
     margin-right: 0.5rem;
   }
   span {
-    font-family: "IBM Plex Mono", Arial, Helvetica, sans-serif;
+    font-family: ${({ theme }) => theme.fonts.heading};
 
     @media (max-width: 270px) {
       display: none;

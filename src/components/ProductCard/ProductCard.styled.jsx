@@ -2,14 +2,15 @@ import styled from "styled-components";
 
 export const ProductContainer = styled.li`
   background-color: ${({ theme }) => theme.colors.secondary};
-  border: 2px solid ${({ theme }) => theme.colors.black};
-  border-radius: 15px;
+  border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
+  border-radius: ${({ theme }) => theme.borderRadius.regular};
   padding-left: 1rem;
   padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 10px 10px 0 ${({ theme }) => theme.colors.black};
+  box-shadow: ${({ theme }) =>
+    `${theme.shadows.regular} ${theme.colors.black}`};
 
   h2 {
     margin-right: 1rem;
@@ -19,8 +20,8 @@ export const ProductContainer = styled.li`
   }
 
   &:hover {
-    box-shadow: 20px 20px 0 ${({ theme }) => theme.colors.black};
-    translate: -10px -10px;
+    box-shadow: ${({ theme }) =>
+      `${theme.shadows.large} ${theme.colors.black}`};
   }
 
   img {
@@ -46,7 +47,7 @@ export const ProductContainer = styled.li`
     }
   }
   s {
-    color: red;
+    color: ${({ theme }) => theme.colors.warning};
     margin-bottom: -1rem;
   }
 `;

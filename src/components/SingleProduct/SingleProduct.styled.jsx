@@ -10,15 +10,16 @@ export const ProductContainer = styled.div`
     span {
       background-color: ${({ theme }) => theme.colors.attention};
       padding: 0.5rem;
-      border-radius: 15px;
+      border-radius: ${({ theme }) => theme.borderRadius.regular};
     }
   }
 
   img {
     max-width: 100%;
-    border: 2px solid ${({ theme }) => theme.colors.black};
-    border-radius: 15px;
-    box-shadow: 10px 10px 0 ${({ theme }) => theme.colors.black};
+    border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
+    border-radius: ${({ theme }) => theme.borderRadius.regular};
+    box-shadow: ${({ theme }) =>
+      `${theme.shadows.regular} ${theme.colors.black}`};
     margin-block: 2rem;
   }
 
@@ -61,21 +62,23 @@ export const Tags = styled.div`
 
   span {
     padding: 0.5rem;
-    border: 2px solid ${({ theme }) => theme.colors.black};
-    border-radius: 15px;
+    border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
+    border-radius: ${({ theme }) => theme.borderRadius.regular};
     margin-inline-start: 0.5rem;
-    box-shadow: 5px 5px 0 ${({ theme }) => theme.colors.black};
+    box-shadow: ${({ theme }) =>
+      `${theme.shadows.small} ${theme.colors.black}`};
     background-color: ${({ theme }) => theme.colors.white};
   }
 `;
 
 export const Reviews = styled.div`
   li {
-    border: 2px solid ${({ theme }) => theme.colors.black};
-    border-radius: 15px;
+    border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
+    border-radius: ${({ theme }) => theme.borderRadius.regular};
     padding: 1rem;
     margin-bottom: 1rem;
-    box-shadow: 10px 10px 0 ${({ theme }) => theme.colors.black};
+    box-shadow: ${({ theme }) =>
+      `${theme.shadows.regular} ${theme.colors.black}`};
     background-color: ${({ theme }) => theme.colors.secondary};
   }
   div {

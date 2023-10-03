@@ -16,13 +16,15 @@ export const StyledLi = styled.li`
   align-items: center;
   margin-block: 2rem;
   padding-right: 2rem;
-  border: 2px solid ${({ theme }) => theme.colors.black};
-  border-radius: 15px;
-  box-shadow: 10px 10px 0 ${({ theme }) => theme.colors.black};
+  border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
+  border-radius: ${({ theme }) => theme.borderRadius.regular};
+  box-shadow: ${({ theme }) =>
+    `${theme.shadows.regular} ${theme.colors.black}`};
   background-color: ${({ theme }) => theme.colors.secondary};
 
   &:hover {
-    box-shadow: 15px 15px 0 ${({ theme }) => theme.colors.black};
+    box-shadow: ${({ theme }) =>
+      `${theme.shadows.large} ${theme.colors.black}`};
     background-color: ${({ theme }) => theme.colors.white};
   }
 `;
