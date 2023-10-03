@@ -1,12 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-
-
 :root {
-  color: #213547;
-  background-color: #ffffff;
-  --color-primary: #213547;
+  background-color: ${({ theme }) => theme.colors.white};
 }
 
 body {
@@ -27,27 +23,26 @@ h5 {
 }
 
 #root {
-  height: 100vh;
-
+  height: 100dvh;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
 }
 
 header {
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid ${({ theme }) => theme.colors.black};
 }
 
 main {
-  background-color: lightcoral;
+  background-color: ${({ theme }) => theme.colors.primary};
   /* Adds fixed footer*/
   overflow: auto;
   padding: 2rem;
 }
 
 footer {
-  background-color: #fff;
-  border-top: 2px solid black;
+  background-color: ${({ theme }) => theme.colors.white};
+  border-top: 2px solid ${({ theme }) => theme.colors.black};
 }
 
 /* .active {
@@ -56,7 +51,7 @@ footer {
 
 .disabled-link {
   /* Add your disabled link styles here. For example: */
-  color: gray;
+  color: ${({ theme }) => theme.colors.grey};
   pointer-events: none;
 }
 
@@ -67,18 +62,18 @@ ul {
 
 a {
   text-decoration: none;
-  color: #000;
+  color: ${({ theme }) => theme.colors.black};
 }
 
 input:not([type="checkbox"]),
 select,
 textarea {
   padding: 0.25rem;
-  border: 2px solid black;
+  border: 2px solid ${({ theme }) => theme.colors.black};
   border-radius: 10px;
   margin-block: 0.2rem;
   width: 100%;
-  box-shadow: 5px 5px 0 black;
+  box-shadow: 5px 5px 0 ${({ theme }) => theme.colors.black};
 }
 
 input:optional {
@@ -86,7 +81,7 @@ input:optional {
 }
 input:required:valid,
 textarea:required:valid {
-  box-shadow: 5px 5px 0 #4effae;
+  box-shadow: 5px 5px 0 ${({ theme }) => theme.colors.secondary};
 }
 
 input[type="checkbox"] {
@@ -94,22 +89,22 @@ input[type="checkbox"] {
 }
 
 textarea:focus {
-  box-shadow: 10px 10px 0 black;
-  border: 2px solid black;
+  box-shadow: 10px 10px 0 ${({ theme }) => theme.colors.black};
+  border: 2px solid ${({ theme }) => theme.colors.black};
 }
 
 input:not([type="checkbox"]):focus {
-  box-shadow: 10px 10px 0 black;
+  box-shadow: 10px 10px 0 ${({ theme }) => theme.colors.black};
 }
 
 input:required:focus:valid {
   background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg")
-    no-repeat 95% 50% #4effae;
+    no-repeat 95% 50% ${({ theme }) => theme.colors.secondary};
   background-size: 25px;
 }
 input:focus:invalid {
   background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg")
-    no-repeat 95% 50% lightsalmon;
+    no-repeat 95% 50% ${({ theme }) => theme.colors.warning};
   background-size: 25px;
 }
 
@@ -127,21 +122,21 @@ input:focus:invalid {
   margin-inline: 0.5rem;
   display: inline-block; /* For applying styles like borders, etc. */
   font-size: 2rem;
-  border: 2px solid black;
+  border: 2px solid ${({ theme }) => theme.colors.black};
   border-radius: 15px;
-  box-shadow: 5px 5px 0 black;
+  box-shadow: 5px 5px 0 ${({ theme }) => theme.colors.black};
   width: 40px;
   text-align: center;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.white};
 }
 
 .payment-icons label:hover {
-  box-shadow: 8px 8px 0 black;
+  box-shadow: 8px 8px 0 ${({ theme }) => theme.colors.black};
 }
 
 .payment-icons input[type="radio"]:checked + label {
-  background-color: #4effae;
-  box-shadow: 8px 8px 0 black;
+  background-color: ${({ theme }) => theme.colors.secondary};
+  box-shadow: 8px 8px 0 ${({ theme }) => theme.colors.black};
 }
 
 label {

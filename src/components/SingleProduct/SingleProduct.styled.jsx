@@ -1,25 +1,29 @@
 import styled from "styled-components";
 
 export const ProductContainer = styled.div`
-max-width: 500px;
-margin: 0 auto;
-  & div:first-child {
+  max-width: 500px;
+  margin: 0 auto;
+  div:first-child {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    & span {
-      background-color: yellow;
+    span {
+      background-color: ${({ theme }) => theme.colors.attention};
       padding: 0.5rem;
       border-radius: 15px;
     }
   }
 
-  & img {
+  img {
     max-width: 100%;
-    border: 2px solid black;
+    border: 2px solid ${({ theme }) => theme.colors.black};
     border-radius: 15px;
-    box-shadow: 10px 10px 0 black;
+    box-shadow: 10px 10px 0 ${({ theme }) => theme.colors.black};
     margin-block: 2rem;
+  }
+
+  h5 {
+    font-size: 1.2rem;
   }
 `;
 export const Container = styled.div`
@@ -41,35 +45,44 @@ export const AddToCart = styled.div`
   margin-block: 1rem;
   margin-top: 2rem;
 
-  & h3 {
+  h3 {
     margin-inline-end: 1rem;
   }
- @media (max-width: 383px) {
-  & button {
-    flex-grow: 1;
-  }}
+  @media (max-width: 383px) {
+    button {
+      flex-grow: 1;
+    }
+  }
 `;
 
 export const Tags = styled.div`
   display: flex;
   align-items: center;
 
-  & span {
+  span {
     padding: 0.5rem;
-    border: 2px solid black;
+    border: 2px solid ${({ theme }) => theme.colors.black};
     border-radius: 15px;
     margin-inline-start: 0.5rem;
-    box-shadow: 5px 5px 0 black;
-    background-color: white;
+    box-shadow: 5px 5px 0 ${({ theme }) => theme.colors.black};
+    background-color: ${({ theme }) => theme.colors.white};
   }
 `;
 
 export const Reviews = styled.div`
-& li {
-  border: 2px solid black;
-  border-radius: 15px;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: 10px 10px 0 black;
-  background-color: #4EFFAE;
-}`;
+  li {
+    border: 2px solid ${({ theme }) => theme.colors.black};
+    border-radius: 15px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 10px 10px 0 ${({ theme }) => theme.colors.black};
+    background-color: ${({ theme }) => theme.colors.secondary};
+  }
+  div {
+    display: flex;
+    align-items: center;
+    div {
+      margin-left: 0.3rem;
+    }
+  }
+`;

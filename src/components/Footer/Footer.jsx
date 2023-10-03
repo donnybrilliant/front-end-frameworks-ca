@@ -1,10 +1,10 @@
 const Footer = () => {
   return (
     <footer>
-      Copyright &copy;
       <a href="https://vierweb.no" target="_blank">
         vierweb
       </a>
+      &copy;
       {new Date().getFullYear()}
     </footer>
   );

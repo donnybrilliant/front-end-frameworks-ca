@@ -9,6 +9,7 @@ const CartPage = ({ cart, updateProductQuantity }) => {
     <main>
       {cart && cart?.length !== 0 && <Breadcrumbs />}
       <h1>Cart</h1>
+      <Link to={"/"}>Continue Shopping</Link>
       {cart && cart?.length !== 0 ? (
         <>
           <ul>

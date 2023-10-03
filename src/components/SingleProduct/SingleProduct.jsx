@@ -15,6 +15,7 @@ function isOnSale(product) {
 }
 
 const SingleProduct = ({ product, addToCart }) => {
+  console.log(product);
   return (
     <>
       {/* Is another check better here? */}
@@ -59,9 +60,9 @@ const SingleProduct = ({ product, addToCart }) => {
                     <p>
                       <b>Username:</b> {review.username}
                     </p>
-                    <p>
-                      <b>Rating:</b> {review.rating}
-                    </p>
+                    <div>
+                      <b>Rating:</b> <Rating rating={review.rating} />
+                    </div>
                     <p>
                       <b>Description:</b> {review.description}
                     </p>

@@ -7,9 +7,10 @@ export const StarWrapper = styled.div`
 `;
 
 export const Star = styled.i`
-  color: ${(props) => (props.$filled ? "yellow" : "transparent")};
+  color: ${(props) =>
+    props.$filled ? props.theme.colors.attention : "transparent"};
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-color: ${({ theme }) => theme.colors.black};
 `;
 
 export const PartialStarWrapper = styled.div`
@@ -24,5 +25,5 @@ export const FilledStar = styled(Star)`
   width: ${(props) => props.$percentage}%;
   overflow: hidden;
   white-space: nowrap;
-  color: yellow;
+  color: ${({ theme }) => theme.colors.attention};
 `;
