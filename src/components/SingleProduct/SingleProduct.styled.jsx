@@ -1,19 +1,14 @@
 import styled from "styled-components";
 
 export const ProductContainer = styled.div`
-  max-width: 500px;
-  margin: 0 auto;
-  div:first-child {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    span {
-      background-color: ${({ theme }) => theme.colors.attention};
-      padding: 0.5rem;
-      border-radius: ${({ theme }) => theme.borderRadius.regular};
-    }
+  max-width: 1000px;
+  > * {
   }
-
+  margin: 0 auto;
+  @media (min-width: 768px) {
+    display: flex;
+    gap: 5rem;
+  }
   img {
     max-width: 100%;
     border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
@@ -72,6 +67,7 @@ export const Tags = styled.div`
 `;
 
 export const Reviews = styled.div`
+  order: 5;
   li {
     border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
     border-radius: ${({ theme }) => theme.borderRadius.regular};
@@ -86,6 +82,22 @@ export const Reviews = styled.div`
     align-items: center;
     div {
       margin-left: 0.3rem;
+    }
+  }
+`;
+
+export const ImageAndReviews = styled.div``;
+
+export const Info = styled.div`
+  div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      background-color: ${({ theme }) => theme.colors.attention};
+      padding: 0.5rem;
+      border-radius: ${({ theme }) => theme.borderRadius.regular};
     }
   }
 `;
