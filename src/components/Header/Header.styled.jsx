@@ -43,4 +43,8 @@ export const MenuButton = styled.button`
   @media (min-width: 600px) {
     display: none;
   }
+
+  &:hover {
+    transform: scale(1.2);
+  }
 `;

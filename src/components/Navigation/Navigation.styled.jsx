@@ -35,11 +35,19 @@ export const NavItem = styled.li`
   @media (max-width: 599px) {
     margin-block: 1rem;
   }
+  @media (min-width: 600px) {
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
 `;
 
 export const StyledLink = styled(NavLink)`
   text-decoration: none;
   &.active {
-    color: ${({ theme }) => theme.colors.warning};
+    color: ${({ theme }) => theme.colors.active};
+  }
+  &:hover {
+    text-decoration: underline;
   }
 `;
