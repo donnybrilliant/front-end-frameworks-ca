@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const ProductContainer = styled.li`
+  font-size: 0.8rem;
   background-color: ${({ theme }) => theme.colors.secondary};
   border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
   border-radius: ${({ theme }) => theme.borderRadius.regular};
@@ -35,12 +36,8 @@ export const ProductContainer = styled.li`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // margin-inline-end: 1rem;
 
     span {
-      /*   position: relative;
-  top: -1.4rem;
-  right: -1rem; */
       background-color: ${({ theme }) => theme.colors.attention};
       padding: 0.5rem;
       border-radius: 15px 0 0 15px;
@@ -56,23 +53,24 @@ export const StyledDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
   padding-right: 1rem;
 
   p {
-    margin-right: 0.5rem;
     font-size: 1.2rem;
+    width: 120px;
   }
 
   a {
     display: flex;
   }
+  & button,
+  a {
+    font-size: 0.8rem;
+  }
 
-  @media (max-width: 664px) {
-    & button,
-    a {
-      flex-grow: 1;
-    }
+  & button,
+  a {
+    flex-grow: 1;
   }
 `;
-// 638px
