@@ -11,6 +11,7 @@ body {
   box-sizing: border-box;
   font-family: ${({ theme }) => theme.fonts.body};
   font-weight: 200;
+  color: ${({ theme }) => theme.colors.black};
 }
 
 h1,
@@ -47,12 +48,9 @@ footer {
     `${theme.borders.regular} ${theme.colors.black}`};
 }
 
-/* .active {
-  color: #ccc;
-} */
+
 
 .disabled-link {
-  /* Add your disabled link styles here. For example: */
   color: ${({ theme }) => theme.colors.grey};
   pointer-events: none;
 }
@@ -66,6 +64,8 @@ a {
   text-decoration: none;
   color: ${({ theme }) => theme.colors.black};
 }
+
+
 
 input:not([type="checkbox"]),
 select,
@@ -113,44 +113,12 @@ input:focus:invalid {
   background-size: 25px;
 }
 
-.payment-icons {
-  margin-block: 1rem;
-}
-/* Hide the radio button */
-.payment-icons input[type="radio"] {
-  display: none;
-}
 
-.payment-icons label {
-  cursor: pointer;
-  padding: 1rem;
-  margin-inline: 0.5rem;
-  display: inline-block; /* For applying styles like borders, etc. */
-  font-size: 2rem;
-  border:${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
-  border-radius: ${({ theme }) => theme.borderRadius.regular};
-  box-shadow: ${({ theme }) => `${theme.shadows.small} ${theme.colors.black}`};
-  width: 40px;
-  text-align: center;
-  background-color: ${({ theme }) => theme.colors.white};
-}
-
-.payment-icons label:hover {
-  box-shadow: ${({ theme }) => `${theme.shadows.medium} ${theme.colors.black}`};
-}
-
-.payment-icons input[type="radio"]:checked + label {
-  background-color: ${({ theme }) => theme.colors.secondary};
-  box-shadow: ${({ theme }) => `${theme.shadows.medium} ${theme.colors.black}`};
-}
 
 label {
   font-weight: 400;
 }
 
-/* h2:hover {
-  transform: scale(1.05);
-} */
 
 `;
 
