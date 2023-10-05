@@ -7,6 +7,7 @@ const theme = {
     tertiary: "#FF7F51",
     attention: "#FFFF04",
     warning: "#FF4E4E",
+    active: "#FF4E4E",
     black: "#000000",
     white: "#FFFFFF",
     grey: "#d2d2d2",
