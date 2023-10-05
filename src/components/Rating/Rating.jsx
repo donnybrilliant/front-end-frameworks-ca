@@ -15,13 +15,13 @@ const Rating = ({ rating }) => {
       {rating > 0 ? (
         <StarWrapper>
           {[...Array(filledStars)].map((_, i) => (
-            <Star key={i} className="fas fa-star" filled></Star>
+            <Star key={i} className="fas fa-star" $filled></Star>
           ))}
           {partialFill > 0 && (
             <PartialStarWrapper>
               <FilledStar
                 className="fas fa-star"
-                percentage={partialFill}
+                $percentage={partialFill}
               ></FilledStar>
               <Star className="fas fa-star"></Star>
             </PartialStarWrapper>

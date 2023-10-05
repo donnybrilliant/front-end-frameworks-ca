@@ -17,15 +17,14 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform form validation here
-    // Log the form data once validation requirements are met
+
     console.log(formData);
   };
 
   return (
     <main>
-      <h1>Contact Us</h1>
       <StyledForm onSubmit={handleSubmit}>
+        <h1>Contact Us</h1>
         <div>
           <label htmlFor="fullName">Full Name</label>
           <input
