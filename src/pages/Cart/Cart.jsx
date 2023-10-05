@@ -2,26 +2,44 @@ import { Link } from "react-router-dom";
 import { getTotalPrice } from "../../utils";
 import Button from "../../components/Button";
 import Breadcrumbs from "../../components/Breadcrumbs";
-import { StyledLi, StyledDiv, Quantity } from "./Cart.styled";
+import {
+  StyledDiv,
+  Quantity,
+  StyledHeading,
+  StyledLink,
+  CartContainer,
+  CartControls,
+  ImageContainer,
+  HeadingContainer,
+  TextContainer,
+  ProductContainer,
+} from "./Cart.styled";
 
 const CartPage = ({ cart, updateProductQuantity }) => {
   return (
     <main>
-      {cart && cart?.length !== 0 && <Breadcrumbs />}
-      <h1>Cart</h1>
-      <Link to={"/"}>Continue Shopping</Link>
-      {cart && cart?.length !== 0 ? (
-        <>
-          <ul>
-            {cart.map((product) => (
-              <StyledLi key={product.id}>
-                <div>
-                  <img src={product.imageUrl} alt={product.title} />{" "}
-                  {/* Adjust the image styles as needed */}
-                  <div>
+      <CartContainer>
+        {cart && cart?.length !== 0 && <Breadcrumbs />}
+
+        <StyledHeading>
+          <h1>Cart</h1>
+          <StyledLink to={"/"}>Continue Shopping</StyledLink>
+        </StyledHeading>
+        {cart && cart?.length !== 0 ? (
+          <>
+            <ul>
+              {cart.map((product) => (
+                <ProductContainer key={product.id}>
+                  <ImageContainer>
+                    <img src={product.imageUrl} alt={product.title} />
+                  </ImageContainer>
+
+                  <HeadingContainer>
                     <h2>
                       <Link to={`/product/${product.id}`}>{product.title}</Link>
                     </h2>
+                  </HeadingContainer>
+                  <TextContainer>
                     <p>
                       Price: <b>${product.discountedPrice}</b>
                     </p>
@@ -31,7 +49,6 @@ const CartPage = ({ cart, updateProductQuantity }) => {
                         <b>${product.price - product.discountedPrice}</b>
                       </p>
                     )}
-
                     {product.quantity > 0 && (
                       <p>
                         Total Price for this Item: $
@@ -40,46 +57,55 @@ const CartPage = ({ cart, updateProductQuantity }) => {
                         )}
                       </p>
                     )}
-                  </div>
-                </div>
-                <Link to={`/product/${product.id}`}>
-                  <Button>View Product</Button>
-                </Link>
+                  </TextContainer>
 
-                <Quantity>
-                  <p>
-                    Quantity: <b>{product.quantity}</b>
-                  </p>
-
-                  <Button
-                    onClick={() =>
-                      updateProductQuantity(product.id, product.quantity - 1)
-                    }
-                  >
-                    -
-                  </Button>
-                  <Button
-                    onClick={() =>
-                      updateProductQuantity(product.id, product.quantity + 1)
-                    }
-                  >
-                    +
-                  </Button>
-                </Quantity>
-              </StyledLi>
-            ))}
-          </ul>
-          <StyledDiv>
-            <h3>Total Price: ${getTotalPrice(cart)}</h3>
-            <p>Shipping calculated at checkout</p>
-            <Link to="/checkout">
-              <Button>Proceed to Checkout</Button>
-            </Link>
-          </StyledDiv>
-        </>
-      ) : (
-        <p>Your cart is empty.</p>
-      )}
+                  <CartControls>
+                    <Link to={`/product/${product.id}`}>
+                      <Button>View Product</Button>
+                    </Link>
+                    <Quantity>
+                      <p>
+                        Quantity: <b>{product.quantity}</b>
+                      </p>
+                      <div>
+                        <Button
+                          onClick={() =>
+                            updateProductQuantity(
+                              product.id,
+                              product.quantity - 1
+                            )
+                          }
+                        >
+                          -
+                        </Button>
+                        <Button
+                          onClick={() =>
+                            updateProductQuantity(
+                              product.id,
+                              product.quantity + 1
+                            )
+                          }
+                        >
+                          +
+                        </Button>
+                      </div>
+                    </Quantity>
+                  </CartControls>
+                </ProductContainer>
+              ))}
+            </ul>
+            <StyledDiv>
+              <h3>Total Price: ${getTotalPrice(cart)}</h3>
+              <p>Shipping calculated at checkout</p>
+              <Link to="/checkout">
+                <Button>Proceed to Checkout</Button>
+              </Link>
+            </StyledDiv>
+          </>
+        ) : (
+          <h2>Your cart is empty.</h2>
+        )}
+      </CartContainer>
     </main>
   );
 };
