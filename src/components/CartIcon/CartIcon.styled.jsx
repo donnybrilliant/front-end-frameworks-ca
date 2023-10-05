@@ -1,14 +1,18 @@
-import styled from 'styled-components';
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
-export const StyledButton = styled.button`
-background-color: transparent;
-  border: none;
-  cursor: pointer;
+export const CartLink = styled.div`
   padding: 1rem;
-  `;
+  span {
+    font-size: 2.5rem;
+  }
+`;
 
-export const StyledCount = styled.span`
-  position: relative;
-  top: -10px;
-  right: -2px;
-  `;
+export const StyledNavLink = styled(NavLink)`
+  &.active {
+    color: ${({ theme }) => theme.colors.active};
+    span {
+      background-color: ${({ theme }) => theme.colors.black};
+    }
+  }
+`;
