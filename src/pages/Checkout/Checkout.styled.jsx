@@ -15,10 +15,13 @@ export const StyledForm = styled.form`
 `;
 
 export const StyledLi = styled.li`
+  padding-bottom: 1rem;
   @media (min-width: 267px) {
     display: flex;
     flex-direction: row;
     align-items: center;
+    height: 125px;
+    padding-bottom: 0;
   }
 
   margin-block: 2rem;
@@ -30,29 +33,35 @@ export const StyledLi = styled.li`
 
   &:hover {
     box-shadow: ${({ theme }) =>
-      `${theme.shadows.large} ${theme.colors.black}`};
-    background-color: ${({ theme }) => theme.colors.white};
+      `${theme.shadows.medium} ${theme.colors.black}`};
+    background-color: ${({ theme }) => theme.colors.attention};
   }
 
   img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 15px 15px 0 0;
+    border-radius: 13px 13px 0 0;
     @media (min-width: 267px) {
       min-width: 30px;
       max-width: 100px;
-      border-radius: 15px 0 0 15px;
+      border-radius: 13px 0 0 13px;
     }
   }
 
   div {
     justify-content: space-between;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     margin-inline: 0.5rem;
 
+    h3 {
+      margin-block: 0;
+    }
+
     p {
-      margin-block: 0.3rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0;
     }
   }
 `;
@@ -73,7 +82,7 @@ export const OrderSummary = styled.div`
 `;
 
 export const CheckoutContainer = styled.div`
-  @media (min-width: 678px) {
+  @media (min-width: 759px) {
     display: flex;
     gap: 3rem;
     justify-content: center;
@@ -91,8 +100,8 @@ export const PaymentIcons = styled.div`
   }
   label {
     cursor: pointer;
-    padding: 0.5rem;
-    margin: 0.5rem;
+    padding: 0.45rem;
+    margin: 0.2rem;
     display: inline-block;
     font-size: 2rem;
     border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};

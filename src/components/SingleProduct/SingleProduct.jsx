@@ -45,7 +45,9 @@ const SingleProduct = ({ product, addToCart }) => {
             {isOnSale(product) && <p>Previous price was ${product.price}</p>}
             <AddToCart>
               <h3>Price: ${product.discountedPrice}</h3>
-              <Button onClick={() => addToCart(product)}>Add to Cart</Button>
+              <Button $proceed onClick={() => addToCart(product)}>
+                Add to Cart
+              </Button>
             </AddToCart>
             <Reviews>
               <h5>Reviews:</h5>

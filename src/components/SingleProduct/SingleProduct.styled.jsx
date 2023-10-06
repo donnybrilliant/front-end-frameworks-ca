@@ -2,15 +2,13 @@ import styled from "styled-components";
 
 export const ProductContainer = styled.div`
   max-width: 1000px;
-  > * {
-  }
   margin: 0 auto;
   @media (min-width: 768px) {
     display: flex;
     gap: 5rem;
   }
   img {
-    max-width: 100%;
+    width: 100%;
     border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
     border-radius: ${({ theme }) => theme.borderRadius.regular};
     box-shadow: ${({ theme }) =>
@@ -44,7 +42,7 @@ export const AddToCart = styled.div`
   h3 {
     margin-inline-end: 1rem;
   }
-  @media (max-width: 383px) {
+  @media (max-width: 400px) {
     button {
       flex-grow: 1;
     }
@@ -86,9 +84,16 @@ export const Reviews = styled.div`
   }
 `;
 
-export const ImageAndReviews = styled.div``;
+export const ImageAndReviews = styled.div`
+  @media (min-width: 768px) {
+    width: 40%;
+  }
+`;
 
 export const Info = styled.div`
+  @media (min-width: 768px) {
+    width: 60%;
+  }
   div:first-child {
     display: flex;
     justify-content: space-between;

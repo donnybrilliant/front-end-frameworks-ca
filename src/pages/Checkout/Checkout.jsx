@@ -142,17 +142,21 @@ const Checkout = ({ cart }) => {
             <h2>Order Summary</h2>
             <ul>
               {cart.map((product) => (
-                <StyledLi key={product.id}>
-                  <img src={product.imageUrl} alt={product.title} />
-                  <div>
-                    <h3>
-                      <Link to={`/product/${product.id}`}>{product.title}</Link>
-                    </h3>
+                <Link to={`/product/${product.id}`} key={product.id}>
+                  <StyledLi>
+                    <img src={product.imageUrl} alt={product.title} />
+                    <div>
+                      <h3>{product.title}</h3>
 
-                    <p>Price: {product.discountedPrice}</p>
-                    <p>Quantity: {product.quantity}</p>
-                  </div>
-                </StyledLi>
+                      <p>
+                        Price: <b>${product.discountedPrice}</b>
+                      </p>
+                      <p>
+                        Quantity: <b>{product.quantity}</b>
+                      </p>
+                    </div>
+                  </StyledLi>
+                </Link>
               ))}
             </ul>
 
@@ -465,7 +469,9 @@ const Checkout = ({ cart }) => {
                 Shipping: ${shippingCosts[shippingOption] - shippingDiscount}
               </h4>
               <h4>Total Price: ${totalPrice}</h4>
-              <Button type="submit">Submit</Button>
+              <Button type="submit" $proceed>
+                Submit
+              </Button>
             </div>
           </StyledForm>
         </CheckoutContainer>

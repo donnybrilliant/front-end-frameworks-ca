@@ -46,15 +46,21 @@ const CartPage = ({ cart, updateProductQuantity }) => {
                     {product.price - product.discountedPrice !== 0 && (
                       <p>
                         Discount:{" "}
-                        <b>${product.price - product.discountedPrice}</b>
+                        <b>
+                          $
+                          {(product.price - product.discountedPrice).toFixed(2)}
+                        </b>
                       </p>
                     )}
                     {product.quantity > 0 && (
                       <p>
-                        Total Price for this Item: $
-                        {(product.quantity * product.discountedPrice).toFixed(
-                          2
-                        )}
+                        Total Price for this Item:{" "}
+                        <b>
+                          $
+                          {(product.quantity * product.discountedPrice).toFixed(
+                            2
+                          )}
+                        </b>
                       </p>
                     )}
                   </TextContainer>
@@ -98,7 +104,7 @@ const CartPage = ({ cart, updateProductQuantity }) => {
               <h3>Total Price: ${getTotalPrice(cart)}</h3>
               <p>Shipping calculated at checkout</p>
               <Link to="/checkout">
-                <Button>Proceed to Checkout</Button>
+                <Button $proceed>Proceed to Checkout</Button>
               </Link>
             </StyledDiv>
           </>
