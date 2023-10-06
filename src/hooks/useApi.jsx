@@ -2,27 +2,28 @@ import { useState, useEffect } from "react";
 
 function useApi(url) {
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     async function getData() {
       try {
-        setIsLoading(true);
-        setIsError(false);
         const fetchedData = await fetch(url);
+        if (!fetchedData.ok) {
+          throw new Error(fetchedData.status);
+        }
         const json = await fetchedData.json();
         setData(json);
       } catch (error) {
-        console.log(error);
+        setIsLoading(false);
         setIsError(true);
+        console.log(error);
       } finally {
         setIsLoading(false);
       }
     }
 
     getData();
-    //why url?
   }, [url]);
   return { data, isLoading, isError };
 }

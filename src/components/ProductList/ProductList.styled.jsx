@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-export const MainGrid = styled.ul`
+export const ProductGrid = styled.ul`
   max-width: 1400px;
   margin-inline: auto;
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 
-  @media (min-width: 478px) {
+  @media (min-width: 493px) {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   }
 

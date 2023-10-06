@@ -1,12 +1,7 @@
-import { StyledMain, StyledLink } from "./NotFound.styled";
+import Error from "../../components/Error";
 
 const NotFound = () => {
-  return (
-    <StyledMain>
-      <h1>404: Not Found</h1>
-      <StyledLink to="/">Go Home</StyledLink>
-    </StyledMain>
-  );
+  return <Error>404: Not found</Error>;
 };
 
 export default NotFound;

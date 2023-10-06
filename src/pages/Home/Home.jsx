@@ -1,19 +1,18 @@
-import React from "react";
 import useApi from "../../hooks/useApi";
 import ProductList from "../../components/ProductList";
+import Loader from "../../components/Loader";
+import Error from "../../components/Error";
 
 const Home = () => {
   const { data, isLoading, isError } = useApi(
     "https://api.noroff.dev/api/v1/online-shop"
   );
 
-  return (
-    <main>
-      {isLoading && <div>Loading...</div>}
-      {isError && <div>Error loading data</div>}
-      {data && <ProductList products={data} />}
-    </main>
-  );
+  if (isLoading) return <Loader />;
+
+  if (isError) return <Error>Error Loading Products</Error>;
+
+  return <>{data && <ProductList products={data} />}</>;
 };
 
 export default Home;

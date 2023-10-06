@@ -3,11 +3,13 @@ import { ToggleButton } from "./Toggle.styled";
 
 const Toggle = () => {
   const [isToggled, setToggled] = useState(false);
+  console.log(isToggled);
   return (
     <div>
-      <ToggleButton toggled={isToggled} onClick={() => setToggled(!isToggled)}>
-        {isToggled ? "ON" : "OFF"}
-      </ToggleButton>
+      <ToggleButton
+        $isToggled={isToggled}
+        onClick={() => setToggled(!isToggled)}
+      ></ToggleButton>
     </div>
   );
 };

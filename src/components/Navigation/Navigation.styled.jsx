@@ -11,7 +11,8 @@ export const Nav = styled.nav`
   width: ${(props) => props.$extend && "100vw"};
   background-color: #fff;
   padding-block: ${(props) => props.$extend && "1rem"};
-  border-bottom: 2px solid black;
+  border-bottom: ${({ theme }) =>
+    `${theme.borders.regular} ${theme.colors.black}`};
   font-family: ${({ theme }) => theme.fonts.heading};
   text-transform: uppercase;
 
@@ -43,7 +44,6 @@ export const NavItem = styled.li`
 `;
 
 export const StyledLink = styled(NavLink)`
-  text-decoration: none;
   &.active {
     color: ${({ theme }) => theme.colors.active};
   }

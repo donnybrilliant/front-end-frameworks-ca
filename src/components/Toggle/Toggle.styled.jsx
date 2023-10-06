@@ -1,12 +1,15 @@
 import styled from "styled-components";
 
 export const ToggleButton = styled.button`
-  color: white;
-  padding: 10px 20px;
-  border: none;
   cursor: pointer;
-  transition: background-color 0.3s;
+  width: 25px;
+  height: 25px;
+  border: none;
+  margin: 5px;
+  background-color: ${({ theme }) => theme.colors.black};
+  border-radius: ${({ $isToggled }) => ($isToggled ? "50%" : "0")};
 
   &:hover {
+    border-radius: ${({ $isToggled }) => ($isToggled ? "0" : "50%")};
   }
 `;

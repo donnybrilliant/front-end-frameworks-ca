@@ -1,13 +1,13 @@
 import ProductCard from "../ProductCard";
-import { MainGrid } from "./ProductList.styled";
+import { ProductGrid } from "./ProductList.styled";
 
 const ProductList = ({ products }) => {
   return (
-    <MainGrid>
+    <ProductGrid>
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
-    </MainGrid>
+    </ProductGrid>
   );
 };
 

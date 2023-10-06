@@ -1,14 +1,17 @@
 import styled from "styled-components";
 
 export const StyledButton = styled.button`
-  background-color: ${({ theme }) => theme.colors.tertiary};
+  cursor: pointer;
   border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
   padding: 1rem;
   border-radius: ${({ theme }) => theme.borderRadius.regular};
   box-shadow: ${({ theme }) => `${theme.shadows.small} ${theme.colors.black}`};
-  font-size: 1.2rem;
+  font-size: ${(props) => (props.$proceed ? "1.2rem" : "1rem")};
+  background-color: ${(props) =>
+    props.$proceed
+      ? props.theme.colors.secondary
+      : props.theme.colors.tertiary};
 
-  cursor: pointer;
   &:hover {
     background-color: ${({ theme }) => theme.colors.attention};
     box-shadow: ${({ theme }) =>

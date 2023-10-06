@@ -7,16 +7,12 @@ const theme = {
     tertiary: "#FF7F51",
     attention: "#FFFF04",
     warning: "#FF4E4E",
+    success: "#4EFFAE",
     active: "#FF4E4E",
     black: "#000000",
     white: "#FFFFFF",
-    grey: "#d2d2d2",
-    lightGrey: "#F2F2F2",
-    darkGrey: "#333333",
-    lightBlue: "#4EFFAE",
-    darkBlue: "#4EFFAE",
-    lightGreen: "#4EFFAE",
-    balbalb: "#4EFFAE",
+    disabled: "#d2d2d2",
+    grey: "#595959",
   },
   borders: {
     regular: "2px solid",
@@ -35,6 +31,7 @@ const theme = {
   borderRadius: {
     small: "10px",
     regular: "15px",
+    image: "13px",
   },
   fonts: {
     heading: "IBM Plex Mono, Arial, Helvetica, sans-serif",
@@ -42,10 +39,12 @@ const theme = {
   },
 };
 
-const theme2 = {
+const themeWithoutBorders = {
   ...theme,
   borderRadius: {
+    small: "0",
     regular: "0",
+    image: "0",
   },
 };
 

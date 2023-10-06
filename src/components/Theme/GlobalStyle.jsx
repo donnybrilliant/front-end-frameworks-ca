@@ -14,6 +14,14 @@ body {
   color: ${({ theme }) => theme.colors.black};
 }
 
+a {
+  text-decoration: none;
+}
+
+a, button {
+  color: ${({ theme }) => theme.colors.black};
+}
+
 h1,
 h2,
 h3,
@@ -21,6 +29,10 @@ h4,
 h5 {
   font-family: ${({ theme }) => theme.fonts.heading};
   text-transform: uppercase;
+}
+
+h5 {
+font-size: 1rem;  
 }
 
 #root {
@@ -40,6 +52,8 @@ main {
   /* Adds fixed footer*/
   overflow: auto;
   padding: 2rem;
+ 
+
 }
 
 footer {
@@ -49,9 +63,8 @@ footer {
 }
 
 
-
 .disabled-link {
-  color: ${({ theme }) => theme.colors.grey};
+  color: ${({ theme }) => theme.colors.disabled};
   pointer-events: none;
 }
 
@@ -60,13 +73,13 @@ ul {
   list-style-type: none;
 }
 
-a {
-  text-decoration: none;
-  color: ${({ theme }) => theme.colors.black};
-}
 
 
 
+
+
+
+// For forms
 input:not([type="checkbox"]),
 select,
 textarea {
@@ -117,6 +130,10 @@ input:focus:invalid {
 
 label {
   font-weight: 400;
+}
+
+b {
+  font-weight: 500;
 }
 
 

@@ -1,21 +1,19 @@
 import Button from "../Button";
 import {
   ProductContainer,
-  Container,
   AddToCart,
   Tags,
   Reviews,
-  ImageAndReviews,
   Info,
+  ImageContainer,
+  Heading,
+  RatingsAndTags,
+  Description,
 } from "./SingleProduct.styled";
 import Rating from "../Rating";
 import NotFound from "../../pages/NotFound";
 
-function isOnSale(product) {
-  if (product.discountedPrice < product.price) {
-    return true;
-  }
-}
+import { isOnSale } from "../../utils";
 
 const SingleProduct = ({ product, addToCart }) => {
   return (
@@ -24,11 +22,11 @@ const SingleProduct = ({ product, addToCart }) => {
       {product.title ? (
         <ProductContainer>
           <Info>
-            <div>
+            <Heading>
               <h1>{product.title}</h1>
               {isOnSale(product) && <span>ON SALE</span>}
-            </div>
-            <Container>
+            </Heading>
+            <RatingsAndTags>
               <Rating rating={product.rating} />
 
               <Tags>
@@ -43,12 +41,18 @@ const SingleProduct = ({ product, addToCart }) => {
                   <p>No tags</p>
                 )}
               </Tags>
-            </Container>
-            <h2>Description:</h2>
-            <p>{product.description}</p>
+            </RatingsAndTags>
+            <Description>
+              <h2>Description:</h2>
+              <p>{product.description}</p>
+
+              {isOnSale(product) && <p>Previous price was ${product.price}</p>}
+            </Description>
             <AddToCart>
               <h3>Price: ${product.discountedPrice}</h3>
-              <Button onClick={() => addToCart(product)}>Add to Cart</Button>
+              <Button $proceed onClick={() => addToCart(product)}>
+                Add to Cart
+              </Button>
             </AddToCart>
             <Reviews>
               <h5>Reviews:</h5>
@@ -73,9 +77,9 @@ const SingleProduct = ({ product, addToCart }) => {
               )}
             </Reviews>
           </Info>
-          <ImageAndReviews>
+          <ImageContainer>
             <img src={product.imageUrl} alt={product.title} />
-          </ImageAndReviews>
+          </ImageContainer>
         </ProductContainer>
       ) : (
         <NotFound />

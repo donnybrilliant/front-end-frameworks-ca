@@ -1,66 +1,19 @@
 import styled from "styled-components";
 
-export const StyledForm = styled.form`
-  div {
-    margin-block: 1rem;
-  }
-
-  > div:last-of-type {
-    margin-top: 3rem;
-    text-align: right;
-  }
-  h3 {
-    font-size: 1.4rem;
-  }
+export const Container = styled.div`
+  max-width: 1000px;
+  margin-inline: auto;
 `;
 
-export const StyledLi = styled.li`
-  @media (min-width: 267px) {
+export const Heading = styled.div`
+  display: flex;
+`;
+
+export const CheckoutContainer = styled.div`
+  @media (min-width: 759px) {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  margin-block: 2rem;
-
-  border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
-  border-radius: ${({ theme }) => theme.borderRadius.regular};
-  box-shadow: ${({ theme }) => `${theme.shadows.small} ${theme.colors.black}`};
-  background-color: ${({ theme }) => theme.colors.secondary};
-
-  &:hover {
-    box-shadow: ${({ theme }) =>
-      `${theme.shadows.large} ${theme.colors.black}`};
-    background-color: ${({ theme }) => theme.colors.white};
-  }
-
-  img {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 15px 15px 0 0;
-    @media (min-width: 267px) {
-      min-width: 30px;
-      max-width: 100px;
-      border-radius: 15px 0 0 15px;
-    }
-  }
-
-  div {
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.8rem;
-    margin-inline: 0.5rem;
-
-    p {
-      margin-block: 0.3rem;
-    }
-  }
-`;
-
-export const PaymentLoginContainer = styled.div`
-  padding-block: 1rem;
-  a {
-    text-decoration: underline;
+    gap: 3rem;
+    justify-content: center;
   }
 `;
 
@@ -72,27 +25,80 @@ export const OrderSummary = styled.div`
   }
 `;
 
-export const CheckoutContainer = styled.div`
-  @media (min-width: 678px) {
+export const CartItem = styled.li`
+  padding-bottom: 1rem;
+  @media (min-width: 267px) {
     display: flex;
-    gap: 3rem;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    height: 125px;
+    padding-bottom: 0;
+  }
+
+  margin-block: 2rem;
+
+  border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
+  border-radius: ${({ theme }) => theme.borderRadius.regular};
+  box-shadow: ${({ theme }) => `${theme.shadows.small} ${theme.colors.black}`};
+  background-color: ${({ theme }) => theme.colors.secondary};
+
+  &:hover {
+    box-shadow: ${({ theme }) =>
+      `${theme.shadows.medium} ${theme.colors.black}`};
+    background-color: ${({ theme }) => theme.colors.attention};
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: ${({ theme }) =>
+      `${theme.borderRadius.image} ${theme.borderRadius.image} 0 0`};
+    @media (min-width: 267px) {
+      min-width: 30px;
+      max-width: 100px;
+      border-radius: ${({ theme }) =>
+        `${theme.borderRadius.image} 0 0 ${theme.borderRadius.image}`};
+    }
+  }
+
+  div {
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-inline: 0.5rem;
+
+    h3 {
+      margin-block: -0.3rem;
+    }
+
+    p {
+      margin-top: 0.3rem;
+      margin-bottom: 0;
+    }
   }
 `;
 
-export const Container = styled.div`
-  max-width: 1000px;
-  margin-inline: auto;
-`;
+export const StyledForm = styled.form`
+  flex-grow: 1;
 
+  div {
+    margin-block: 1rem;
+  }
+
+  > div:last-of-type {
+    margin-top: 3rem;
+    text-align: right;
+  }
+`;
 export const PaymentIcons = styled.div`
   input[type="radio"] {
     display: none;
   }
   label {
     cursor: pointer;
-    padding: 0.5rem;
-    margin: 0.5rem;
+    padding: 0.45rem;
+    margin: 0.2rem;
     display: inline-block;
     font-size: 2rem;
     border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
@@ -106,10 +112,21 @@ export const PaymentIcons = styled.div`
       box-shadow: ${({ theme }) =>
         `${theme.shadows.medium} ${theme.colors.black}`};
     }
+    @media (min-width: 445px) {
+      padding: 1rem;
+      margin: 0.5rem;
+    }
   }
   input[type="radio"]:checked + label {
     background-color: ${({ theme }) => theme.colors.secondary};
     box-shadow: ${({ theme }) =>
       `${theme.shadows.medium} ${theme.colors.black}`};
+  }
+`;
+
+export const PaymentLoginContainer = styled.div`
+  padding-block: 1rem;
+  a {
+    text-decoration: underline;
   }
 `;
