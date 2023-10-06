@@ -1,4 +1,5 @@
 import { ThemeProvider } from "styled-components";
+import { createContext, useState } from "react";
 
 const theme = {
   colors: {
@@ -48,8 +49,21 @@ const themeWithoutBorders = {
   },
 };
 
+const ThemeContext = createContext();
+
 const Theme = ({ children }) => {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  const [isToggled, setToggled] = useState(false);
+
+  const toggleTheme = () => {
+    setToggled((prevState) => !prevState);
+  };
+
+  const appliedTheme = isToggled ? themeWithoutBorders : theme;
+  return (
+    <ThemeContext.Provider value={{ isToggled, toggleTheme }}>
+      <ThemeProvider theme={appliedTheme}>{children}</ThemeProvider>
+    </ThemeContext.Provider>
+  );
 };
 
-export default Theme;
+export { Theme, ThemeContext };

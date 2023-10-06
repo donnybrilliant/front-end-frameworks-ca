@@ -40,6 +40,7 @@ font-size: 1rem;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
+  
 }
 
 header {

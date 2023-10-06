@@ -1,15 +1,12 @@
-import { useState } from "react";
 import { ToggleButton } from "./Toggle.styled";
+import { ThemeContext } from "../Theme";
+import { useContext } from "react";
 
 const Toggle = () => {
-  const [isToggled, setToggled] = useState(false);
-  console.log(isToggled);
+  const { isToggled, toggleTheme } = useContext(ThemeContext);
   return (
     <div>
-      <ToggleButton
-        $isToggled={isToggled}
-        onClick={() => setToggled(!isToggled)}
-      ></ToggleButton>
+      <ToggleButton onClick={toggleTheme} $isToggled={isToggled}></ToggleButton>
     </div>
   );
 };
