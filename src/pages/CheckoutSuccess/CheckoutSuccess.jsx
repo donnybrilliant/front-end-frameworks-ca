@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import { getTotalPrice } from "../../utils";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import {
-  StyledLi,
+  CartItem,
   Container,
-  HomeLink,
-  FlexContainer,
+  LinkContainer,
+  CheckoutContainer,
   Info,
   List,
-  StyledThing,
+  Heading,
 } from "../CheckoutSuccess/CheckoutSuccess.styled";
 import BackLink from "../../components/BackLink";
 
@@ -34,16 +34,16 @@ const CheckoutSuccess = ({ clearCart }) => {
   return (
     <Container>
       <Breadcrumbs />
-      <StyledThing>
+      <Heading>
         <h1>Checkout Success</h1>
-      </StyledThing>
-      <FlexContainer>
+      </Heading>
+      <CheckoutContainer>
         <List>
           <h2>Order Summary</h2>
           <ul>
             {cart.map((product) => (
               <Link to={`/product/${product.id}`} key={product.id}>
-                <StyledLi>
+                <CartItem>
                   <img src={product.imageUrl} alt={product.title} />
                   <div>
                     <h3>{product.title}</h3>
@@ -54,7 +54,7 @@ const CheckoutSuccess = ({ clearCart }) => {
                       Quantity: <b>{product.quantity}</b>
                     </p>
                   </div>
-                </StyledLi>
+                </CartItem>
               </Link>
             ))}
           </ul>
@@ -83,10 +83,10 @@ const CheckoutSuccess = ({ clearCart }) => {
             </>
           )}
         </Info>
-      </FlexContainer>
-      <HomeLink>
+      </CheckoutContainer>
+      <LinkContainer>
         <BackLink to="/">Go Home</BackLink>
-      </HomeLink>
+      </LinkContainer>
     </Container>
   );
 };

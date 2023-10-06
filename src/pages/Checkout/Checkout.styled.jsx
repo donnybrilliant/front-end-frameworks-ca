@@ -1,27 +1,31 @@
 import styled from "styled-components";
 
-export const StyledForm = styled.form`
-  flex-grow: 1;
-  @media (min-width: 759px) {
-    h3 {
-      margin-inline: 2rem;
-    }
-  }
-  div {
-    margin-block: 1rem;
-    margin-inline: 2rem;
-  }
+export const Container = styled.div`
+  max-width: 1000px;
+  margin-inline: auto;
+`;
 
-  > div:last-of-type {
-    margin-top: 3rem;
-    text-align: right;
-  }
-  h3 {
-    font-size: 1.4rem;
+export const Heading = styled.div`
+  display: flex;
+`;
+
+export const CheckoutContainer = styled.div`
+  @media (min-width: 759px) {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
   }
 `;
 
-export const StyledLi = styled.li`
+export const OrderSummary = styled.div`
+  flex-grow: 1;
+
+  > h4 {
+    text-align: right;
+  }
+`;
+
+export const CartItem = styled.li`
   padding-bottom: 1rem;
   @media (min-width: 267px) {
     display: flex;
@@ -73,34 +77,26 @@ export const StyledLi = styled.li`
   }
 `;
 
-export const PaymentLoginContainer = styled.div`
-  padding-block: 1rem;
-  a {
-    text-decoration: underline;
-  }
-`;
-
-export const OrderSummary = styled.div`
+export const StyledForm = styled.form`
   flex-grow: 1;
+  @media (min-width: 759px) {
+    h3 {
+      margin-inline: 2rem;
+    }
+  }
+  div {
+    margin-block: 1rem;
+    margin-inline: 2rem;
+  }
 
-  > h4 {
+  > div:last-of-type {
+    margin-top: 3rem;
     text-align: right;
   }
-`;
-
-export const CheckoutContainer = styled.div`
-  @media (min-width: 759px) {
-    display: flex;
-    gap: 3rem;
-    justify-content: center;
+  h3 {
+    font-size: 1.4rem;
   }
 `;
-
-export const Container = styled.div`
-  max-width: 1000px;
-  margin-inline: auto;
-`;
-
 export const PaymentIcons = styled.div`
   input[type="radio"] {
     display: none;
@@ -134,6 +130,9 @@ export const PaymentIcons = styled.div`
   }
 `;
 
-export const StyledThing = styled.div`
-  display: flex;
+export const PaymentLoginContainer = styled.div`
+  padding-block: 1rem;
+  a {
+    text-decoration: underline;
+  }
 `;

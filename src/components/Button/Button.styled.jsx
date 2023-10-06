@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledButton = styled.button`
+  cursor: pointer;
   border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
   padding: 1rem;
   border-radius: ${({ theme }) => theme.borderRadius.regular};
@@ -11,7 +12,6 @@ export const StyledButton = styled.button`
       ? props.theme.colors.secondary
       : props.theme.colors.tertiary};
 
-  cursor: pointer;
   &:hover {
     background-color: ${({ theme }) => theme.colors.attention};
     box-shadow: ${({ theme }) =>

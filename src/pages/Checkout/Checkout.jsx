@@ -6,13 +6,13 @@ import Button from "../../components/Button";
 import { Link } from "react-router-dom";
 import {
   StyledForm,
-  StyledLi,
+  CartItem,
   PaymentLoginContainer,
   OrderSummary,
   CheckoutContainer,
   Container,
   PaymentIcons,
-  StyledThing,
+  Heading,
 } from "./Checkout.styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -83,12 +83,12 @@ const Checkout = ({ cart }) => {
         break;
       case "10OFF":
         setShippingDiscount(0);
-        setCouponDiscount(0.1); // 10% discount
+        setCouponDiscount(0.1);
         setValidCoupon(true);
         break;
       case "20OFF":
         setShippingDiscount(0);
-        setCouponDiscount(0.2); // 20% discount
+        setCouponDiscount(0.2);
         setValidCoupon(true);
         break;
       default:
@@ -135,16 +135,16 @@ const Checkout = ({ cart }) => {
   return (
     <Container>
       <Breadcrumbs />
-      <StyledThing>
+      <Heading>
         <h1>Checkout</h1>
-      </StyledThing>
+      </Heading>
       <CheckoutContainer>
         <OrderSummary>
           <h2>Order Summary</h2>
           <ul>
             {cart.map((product) => (
               <Link to={`/product/${product.id}`} key={product.id}>
-                <StyledLi>
+                <CartItem>
                   <img src={product.imageUrl} alt={product.title} />
                   <div>
                     <h3>{product.title}</h3>
@@ -156,7 +156,7 @@ const Checkout = ({ cart }) => {
                       Quantity: <b>{product.quantity}</b>
                     </p>
                   </div>
-                </StyledLi>
+                </CartItem>
               </Link>
             ))}
           </ul>

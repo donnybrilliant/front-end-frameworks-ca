@@ -1,4 +1,3 @@
-import React from "react";
 import useApi from "../../hooks/useApi";
 import ProductList from "../../components/ProductList";
 import Loader from "../../components/Loader";
@@ -9,13 +8,10 @@ const Home = () => {
     "https://api.noroff.dev/api/v1/online-shop"
   );
 
-  if (isLoading) {
-    return <Loader />;
-  }
+  if (isLoading) return <Loader />;
 
-  if (isError) {
-    return <Error>Error Loading Products</Error>;
-  }
+  if (isError) return <Error>Error Loading Products</Error>;
+
   return <>{data && <ProductList products={data} />}</>;
 };
 

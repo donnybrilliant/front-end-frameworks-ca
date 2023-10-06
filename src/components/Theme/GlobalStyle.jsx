@@ -14,6 +14,10 @@ body {
   color: ${({ theme }) => theme.colors.black};
 }
 
+button {
+  color: ${({ theme }) => theme.colors.black};
+}
+
 h1,
 h2,
 h3,
@@ -39,7 +43,9 @@ main {
   background-color: ${({ theme }) => theme.colors.primary};
   /* Adds fixed footer*/
   overflow: auto;
-  padding: 2rem;
+ padding: 2rem;
+ 
+
 }
 
 footer {
@@ -51,7 +57,7 @@ footer {
 
 
 .disabled-link {
-  color: ${({ theme }) => theme.colors.grey};
+  color: ${({ theme }) => theme.colors.disabled};
   pointer-events: none;
 }
 
@@ -117,6 +123,10 @@ input:focus:invalid {
 
 label {
   font-weight: 400;
+}
+
+b {
+  font-weight: 500;
 }
 
 

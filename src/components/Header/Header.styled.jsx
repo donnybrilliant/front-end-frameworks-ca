@@ -13,7 +13,6 @@ export const StyledHeader = styled.header`
 `;
 
 export const Logo = styled(Link)`
-  text-decoration: none;
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -34,17 +33,17 @@ export const MenuContainer = styled.div`
 `;
 
 export const MenuButton = styled.button`
+  cursor: pointer;
   padding: 1rem;
   border: none;
   background-color: transparent;
-  cursor: pointer;
   width: 4rem;
-
-  @media (min-width: 600px) {
-    display: none;
-  }
 
   &:hover {
     transform: scale(1.2);
+  }
+
+  @media (min-width: 600px) {
+    display: none;
   }
 `;

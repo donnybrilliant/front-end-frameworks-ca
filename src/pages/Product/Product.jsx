@@ -10,13 +10,9 @@ const Product = ({ addToCart }) => {
     `https://api.noroff.dev/api/v1/online-shop/${id}`
   );
 
-  if (isLoading) {
-    return <Loader />;
-  }
+  if (isLoading) return <Loader />;
 
-  if (isError) {
-    return <Error>Error Loading Products</Error>;
-  }
+  if (isError) return <Error>Error Loading Products</Error>;
 
   return <>{data && <SingleProduct product={data} addToCart={addToCart} />}</>;
 };

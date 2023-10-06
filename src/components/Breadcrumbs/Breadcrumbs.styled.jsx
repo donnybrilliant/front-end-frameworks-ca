@@ -11,7 +11,6 @@ export const Nav = styled.nav`
   margin-block: 1rem;
 `;
 
-// extend Buttons instead?
 export const StyledNavLink = styled(NavLink)`
   padding: 0.5rem;
   border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};

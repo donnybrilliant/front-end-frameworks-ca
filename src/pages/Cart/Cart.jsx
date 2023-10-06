@@ -3,7 +3,7 @@ import { getTotalPrice } from "../../utils";
 import Button from "../../components/Button";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import {
-  StyledDiv,
+  CheckoutContainer,
   Quantity,
   StyledHeading,
   CartContainer,
@@ -98,13 +98,13 @@ const CartPage = ({ cart, updateProductQuantity }) => {
               </ProductContainer>
             ))}
           </ul>
-          <StyledDiv>
+          <CheckoutContainer>
             <h3>Total Price: ${getTotalPrice(cart)}</h3>
             <p>Shipping calculated at checkout</p>
             <Link to="/checkout">
               <Button $proceed>Proceed to Checkout</Button>
             </Link>
-          </StyledDiv>
+          </CheckoutContainer>
         </>
       ) : (
         <h2>Your cart is empty.</h2>

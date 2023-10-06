@@ -17,6 +17,7 @@ const Header = ({ cart }) => {
   useEffect(() => {
     setExtendedNav(false);
   }, [location]);
+
   return (
     <StyledHeader>
       <Logo to="/" title="Go to Home" reloadDocument>

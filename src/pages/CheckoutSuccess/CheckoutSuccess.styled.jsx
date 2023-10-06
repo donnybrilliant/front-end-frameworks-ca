@@ -1,9 +1,29 @@
 import styled from "styled-components";
 
-export const StyledMain = styled.main`
-  // background-color: ${({ theme }) => theme.colors.success};
+export const Container = styled.div`
+  max-width: 1000px;
+  margin-inline: auto;
 `;
-export const StyledLi = styled.li`
+
+export const Heading = styled.div`
+  display: flex;
+`;
+
+export const CheckoutContainer = styled.div`
+  @media (min-width: 700px) {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+  }
+`;
+
+export const List = styled.div`
+  flex-grow: 1;
+  > h4 {
+    text-align: right;
+  }
+`;
+export const CartItem = styled.li`
   max-width: 500px;
   padding-bottom: 1rem;
   @media (min-width: 267px) {
@@ -56,34 +76,11 @@ export const StyledLi = styled.li`
   }
 `;
 
-export const Container = styled.div`
-  max-width: 1000px;
-  margin-inline: auto;
-`;
-export const HomeLink = styled.div`
-  text-align: center;
-  margin-top: 3rem;
-`;
-
-export const FlexContainer = styled.div`
-  @media (min-width: 700px) {
-    display: flex;
-    justify-content: center;
-    gap: 5rem;
-  }
-`;
-
 export const Info = styled.div`
   flex-grow: 1;
 `;
 
-export const List = styled.div`
-  flex-grow: 1;
-  > h4 {
-    text-align: right;
-  }
-`;
-
-export const StyledThing = styled.div`
-  display: flex;
+export const LinkContainer = styled.div`
+  text-align: center;
+  margin-top: 3rem;
 `;

@@ -2,25 +2,38 @@ import styled from "styled-components";
 
 export const ProductContainer = styled.div`
   max-width: 1000px;
-  margin: 0 auto;
+  margin-inline: auto;
   @media (min-width: 768px) {
     display: flex;
     gap: 5rem;
   }
-  img {
-    width: 100%;
-    border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
+`;
+
+export const Info = styled.div`
+  @media (min-width: 768px) {
+    width: 60%;
+  }
+`;
+
+export const Description = styled.div``;
+
+export const Heading = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  span {
+    background-color: ${({ theme }) => theme.colors.attention};
+    padding: 0.5rem;
     border-radius: ${({ theme }) => theme.borderRadius.regular};
-    box-shadow: ${({ theme }) =>
-      `${theme.shadows.regular} ${theme.colors.black}`};
-    margin-block: 2rem;
   }
 
   h5 {
     font-size: 1.2rem;
   }
 `;
-export const Container = styled.div`
+
+export const RatingsAndTags = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -28,24 +41,6 @@ export const Container = styled.div`
 
   & > p {
     margin-inline-end: 0.5rem;
-  }
-`;
-
-export const AddToCart = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  margin-block: 1rem;
-  margin-top: 2rem;
-
-  h3 {
-    margin-inline-end: 1rem;
-  }
-  @media (max-width: 400px) {
-    button {
-      flex-grow: 1;
-    }
   }
 `;
 
@@ -61,6 +56,24 @@ export const Tags = styled.div`
     box-shadow: ${({ theme }) =>
       `${theme.shadows.small} ${theme.colors.black}`};
     background-color: ${({ theme }) => theme.colors.white};
+  }
+`;
+
+export const AddToCart = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-block: 1rem;
+  margin-top: 2rem;
+
+  h3 {
+    margin-inline-end: 1rem;
+  }
+  button {
+    @media (max-width: 400px) {
+      flex-grow: 1;
+    }
   }
 `;
 
@@ -84,25 +97,16 @@ export const Reviews = styled.div`
   }
 `;
 
-export const ImageAndReviews = styled.div`
+export const ImageContainer = styled.div`
+  img {
+    width: 100%;
+    border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
+    border-radius: ${({ theme }) => theme.borderRadius.regular};
+    box-shadow: ${({ theme }) =>
+      `${theme.shadows.regular} ${theme.colors.black}`};
+    margin-block: 2rem;
+  }
   @media (min-width: 768px) {
     width: 40%;
-  }
-`;
-
-export const Info = styled.div`
-  @media (min-width: 768px) {
-    width: 60%;
-  }
-  div:first-child {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    span {
-      background-color: ${({ theme }) => theme.colors.attention};
-      padding: 0.5rem;
-      border-radius: ${({ theme }) => theme.borderRadius.regular};
-    }
   }
 `;
