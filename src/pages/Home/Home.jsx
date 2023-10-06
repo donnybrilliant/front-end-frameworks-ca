@@ -2,6 +2,7 @@ import React from "react";
 import useApi from "../../hooks/useApi";
 import ProductList from "../../components/ProductList";
 import Loader from "../../components/Loader";
+import Error from "../../components/Error";
 
 const Home = () => {
   const { data, isLoading, isError } = useApi(
@@ -9,21 +10,13 @@ const Home = () => {
   );
 
   if (isLoading) {
-    return (
-      <main>
-        <Loader />
-      </main>
-    );
+    return <Loader />;
   }
 
   if (isError) {
-    return (
-      <main>
-        <h1>Error loading data</h1>
-      </main>
-    );
+    return <Error>Error Loading Products</Error>;
   }
-  return <main>{data && <ProductList products={data} />}</main>;
+  return <>{data && <ProductList products={data} />}</>;
 };
 
 export default Home;

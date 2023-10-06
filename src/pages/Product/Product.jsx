@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import useApi from "../../hooks/useApi";
 import SingleProduct from "../../components/SingleProduct";
 import Loader from "../../components/Loader";
+import Error from "../../components/Error";
 
 const Product = ({ addToCart }) => {
   let { id } = useParams();
@@ -10,26 +11,14 @@ const Product = ({ addToCart }) => {
   );
 
   if (isLoading) {
-    return (
-      <main>
-        <Loader />
-      </main>
-    );
+    return <Loader />;
   }
 
   if (isError) {
-    return (
-      <main>
-        <h1>Error loading data</h1>
-      </main>
-    );
+    return <Error>Error Loading Products</Error>;
   }
 
-  return (
-    <main>
-      {data && <SingleProduct product={data} addToCart={addToCart} />}
-    </main>
-  );
+  return <>{data && <SingleProduct product={data} addToCart={addToCart} />}</>;
 };
 
 export default Product;
