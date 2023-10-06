@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const ProductContainer = styled.li`
-  font-size: 0.8rem;
   background-color: ${({ theme }) => theme.colors.secondary};
   border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
   border-radius: ${({ theme }) => theme.borderRadius.regular};
@@ -15,6 +14,7 @@ export const ProductContainer = styled.li`
 
   h2 {
     margin-right: 1rem;
+    font-size: 1.2rem;
     &:hover {
       transform: scale(1.05);
     }
@@ -41,6 +41,7 @@ export const ProductContainer = styled.li`
       background-color: ${({ theme }) => theme.colors.attention};
       padding: 0.5rem;
       border-radius: 15px 0 0 15px;
+      font-size: 0.75rem;
     }
   }
   s {
@@ -58,15 +59,12 @@ export const StyledDiv = styled.div`
 
   p {
     font-size: 1.2rem;
+    font-weight: 600;
     width: 120px;
   }
 
   a {
     display: flex;
-  }
-  & button,
-  a {
-    font-size: 0.8rem;
   }
 
   & button,
