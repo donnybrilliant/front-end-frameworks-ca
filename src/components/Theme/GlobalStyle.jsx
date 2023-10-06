@@ -14,7 +14,11 @@ body {
   color: ${({ theme }) => theme.colors.black};
 }
 
-button {
+a {
+  text-decoration: none;
+}
+
+a, button {
   color: ${({ theme }) => theme.colors.black};
 }
 
@@ -43,7 +47,7 @@ main {
   background-color: ${({ theme }) => theme.colors.primary};
   /* Adds fixed footer*/
   overflow: auto;
- padding: 2rem;
+  padding: 2rem;
  
 
 }
@@ -53,7 +57,6 @@ footer {
   border-top: ${({ theme }) =>
     `${theme.borders.regular} ${theme.colors.black}`};
 }
-
 
 
 .disabled-link {
@@ -66,13 +69,13 @@ ul {
   list-style-type: none;
 }
 
-a {
-  text-decoration: none;
-  color: ${({ theme }) => theme.colors.black};
-}
 
 
 
+
+
+
+// For forms
 input:not([type="checkbox"]),
 select,
 textarea {

@@ -31,6 +31,7 @@ const theme = {
   borderRadius: {
     small: "10px",
     regular: "15px",
+    image: "13px",
   },
   fonts: {
     heading: "IBM Plex Mono, Arial, Helvetica, sans-serif",
@@ -38,10 +39,12 @@ const theme = {
   },
 };
 
-const theme2 = {
+const themeWithoutBorders = {
   ...theme,
   borderRadius: {
+    small: "0",
     regular: "0",
+    image: "0",
   },
 };
 

@@ -52,11 +52,13 @@ export const CartItem = styled.li`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 13px 13px 0 0;
+    border-radius: ${({ theme }) =>
+      `${theme.borderRadius.image} ${theme.borderRadius.image} 0 0`};
     @media (min-width: 267px) {
       min-width: 30px;
       max-width: 100px;
-      border-radius: 13px 0 0 13px;
+      border-radius: ${({ theme }) =>
+        `${theme.borderRadius.image} 0 0 ${theme.borderRadius.image}`};
     }
   }
 

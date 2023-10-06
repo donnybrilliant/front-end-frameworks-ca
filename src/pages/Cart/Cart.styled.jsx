@@ -64,15 +64,18 @@ export const ImageContainer = styled.div`
   img {
     object-fit: cover;
     width: 100%;
-    border-radius: 13px 13px 0 0;
+    border-radius: ${({ theme }) =>
+      `${theme.borderRadius.image} ${theme.borderRadius.image} 0 0`};
     @media (min-width: 275px) {
-      border-radius: 13px 0 15px 0;
+      border-radius: ${({ theme }) =>
+        `${theme.borderRadius.image} 0 ${theme.borderRadius.regular} 0`};
       max-width: 100px;
     }
     @media (min-width: 478px) {
       height: 100%;
       width: auto;
-      border-radius: 13px 0 0 13px;
+      border-radius: ${({ theme }) =>
+        `${theme.borderRadius.image} 0 0 ${theme.borderRadius.image}`};
     }
   }
 `;
