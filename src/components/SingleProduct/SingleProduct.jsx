@@ -11,11 +11,7 @@ import {
 import Rating from "../Rating";
 import NotFound from "../../pages/NotFound";
 
-function isOnSale(product) {
-  if (product.discountedPrice < product.price) {
-    return true;
-  }
-}
+import { isOnSale } from "../../utils";
 
 const SingleProduct = ({ product, addToCart }) => {
   return (
@@ -46,6 +42,7 @@ const SingleProduct = ({ product, addToCart }) => {
             </Container>
             <h2>Description:</h2>
             <p>{product.description}</p>
+            {isOnSale(product) && <p>Previous price was ${product.price}</p>}
             <AddToCart>
               <h3>Price: ${product.discountedPrice}</h3>
               <Button onClick={() => addToCart(product)}>Add to Cart</Button>

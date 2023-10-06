@@ -6,3 +6,9 @@ export const getTotalPrice = (cart) => {
     )
     .toFixed(2);
 };
+
+export const isOnSale = (product) => {
+  if (product.discountedPrice < product.price) {
+    return true;
+  }
+};
