@@ -1,16 +1,16 @@
 import Toggle from "../Toggle";
-import { FooterContainer } from "./Footer.styled";
+import { FooterContainer, Copyright } from "./Footer.styled";
 
 const Footer = () => {
   return (
     <FooterContainer>
-      <div>
+      <Copyright>
         <a href="https://vierweb.no" target="_blank">
           vierweb
         </a>
         &copy;
         {new Date().getFullYear()}
-      </div>
+      </Copyright>
       <Toggle />
     </FooterContainer>
   );
