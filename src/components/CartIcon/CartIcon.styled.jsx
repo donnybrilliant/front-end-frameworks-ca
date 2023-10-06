@@ -4,7 +4,8 @@ import styled from "styled-components";
 export const CartLink = styled.div`
   padding: 1rem;
   span {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
+    translate: 0 -5px;
   }
 `;
 
