@@ -8,6 +8,7 @@ export const Nav = styled.nav`
   @media (min-width: 325px) {
     gap: 1rem;
   }
+  margin-block: 1rem;
 `;
 
 // extend Buttons instead?
@@ -21,6 +22,7 @@ export const StyledNavLink = styled(NavLink)`
     background-color: ${({ theme }) => theme.colors.secondary};
   }
   &:hover {
+    background-color: ${({ theme }) => theme.colors.attention};
     box-shadow: ${({ theme }) =>
       `${theme.shadows.medium} ${theme.colors.black}`};
   }
