@@ -11,6 +11,7 @@ const Footer = () => {
         &copy;
         {new Date().getFullYear()}
       </div>
+      <Toggle />
     </FooterContainer>
   );
 };
