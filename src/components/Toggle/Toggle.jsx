@@ -6,7 +6,11 @@ const Toggle = () => {
   const { isToggled, toggleTheme } = useContext(ThemeContext);
   return (
     <div>
-      <ToggleButton onClick={toggleTheme} $isToggled={isToggled}></ToggleButton>
+      <ToggleButton
+        onClick={toggleTheme}
+        $isToggled={isToggled}
+        title="Toggle corners"
+      ></ToggleButton>
     </div>
   );
 };
