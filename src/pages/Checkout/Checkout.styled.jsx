@@ -69,7 +69,7 @@ export const CartItem = styled.li`
     margin-inline: 0.5rem;
 
     h3 {
-      margin-block: 0;
+      margin-block: -0.3rem;
     }
 
     p {
@@ -81,22 +81,14 @@ export const CartItem = styled.li`
 
 export const StyledForm = styled.form`
   flex-grow: 1;
-  @media (min-width: 759px) {
-    h3 {
-      margin-inline: 2rem;
-    }
-  }
+
   div {
     margin-block: 1rem;
-    margin-inline: 2rem;
   }
 
   > div:last-of-type {
     margin-top: 3rem;
     text-align: right;
-  }
-  h3 {
-    font-size: 1.4rem;
   }
 `;
 export const PaymentIcons = styled.div`

@@ -164,7 +164,7 @@ const Checkout = ({ cart }) => {
           <h4>Total Price: ${getTotalPrice(cart)}</h4>
         </OrderSummary>
         <StyledForm onSubmit={handleSubmit}>
-          <h3>Your Information</h3>
+          <h2>Your Information</h2>
           <div>
             <label htmlFor="skipRequired">
               <input

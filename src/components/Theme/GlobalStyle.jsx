@@ -31,6 +31,10 @@ h5 {
   text-transform: uppercase;
 }
 
+h5 {
+font-size: 1rem;  
+}
+
 #root {
   height: 100dvh;
   display: grid;
