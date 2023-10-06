@@ -26,7 +26,7 @@ export const ProductContainer = styled.li`
     grid-template-columns: auto 1fr 1fr;
   }
 
-  @media (min-width: 657px) {
+  @media (min-width: 722px) {
     grid-template-areas:
       "images title controls controls"
       "images description controls controls";
@@ -58,7 +58,7 @@ export const Quantity = styled.div`
     flex-direction: column;
   }
 
-  @media (min-width: 657px) {
+  @media (min-width: 610px) {
     flex-direction: row;
   }
 
@@ -77,6 +77,7 @@ export const Quantity = styled.div`
 export const StyledDiv = styled.div`
   text-align: right;
   margin-block: 4rem;
+
   > p {
     margin-bottom: 3rem;
   }
@@ -89,10 +90,6 @@ export const StyledHeading = styled.div`
   flex-wrap: wrap;
 `;
 
-export const StyledLink = styled(Link)`
-  text-decoration: underline;
-`;
-
 export const CartContainer = styled.div`
   max-width: 1000px;
   margin-inline: auto;
@@ -101,7 +98,7 @@ export const CartContainer = styled.div`
 export const CartControls = styled.div`
   grid-area: controls;
   * {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   margin: 0.5rem;
   @media (max-width: 440px) {
@@ -117,11 +114,11 @@ export const CartControls = styled.div`
     align-items: flex-end;
   }
 
-  @media (min-width: 657px) {
+  @media (min-width: 722px) {
     flex-direction: row;
     align-items: baseline;
   }
-  @media (min-width: 670px) {
+  @media (min-width: 722px) {
     justify-content: space-around;
   }
 
@@ -139,15 +136,15 @@ export const ImageContainer = styled.div`
   img {
     object-fit: cover;
     width: 100%;
-    border-radius: 15px 15px 0 0;
+    border-radius: 13px 13px 0 0;
     @media (min-width: 275px) {
-      border-radius: 15px 0 15px 0;
+      border-radius: 13px 0 15px 0;
       max-width: 100px;
     }
     @media (min-width: 478px) {
       height: 100%;
       width: auto;
-      border-radius: 15px 0 0 15px;
+      border-radius: 13px 0 0 13px;
     }
   }
 `;
@@ -162,7 +159,8 @@ export const HeadingContainer = styled.div`
     margin-bottom: -1.5rem;
     font-size: 0.7rem;
   }
-  @media (min-width: 478px) {
+  @media (min-width: 876px) {
+    font-size: 0.8rem;
   }
 `;
 
@@ -170,8 +168,14 @@ export const TextContainer = styled.div`
   grid-area: description;
   margin: 1rem 0.5rem;
   text-align: left;
+  @media (min-width: 275px) {
+    margin-top: -1rem;
+  }
+  @media (min-width: 376px) {
+    margin-top: 1rem;
+  }
   p {
     margin-block: 0.5rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 `;

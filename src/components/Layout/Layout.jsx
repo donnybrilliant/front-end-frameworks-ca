@@ -6,7 +6,9 @@ const Layout = ({ cart }) => {
   return (
     <>
       <Header cart={cart} />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </>
   );

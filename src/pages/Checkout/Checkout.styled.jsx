@@ -1,8 +1,15 @@
 import styled from "styled-components";
 
 export const StyledForm = styled.form`
+  flex-grow: 1;
+  @media (min-width: 759px) {
+    h3 {
+      margin-inline: 2rem;
+    }
+  }
   div {
     margin-block: 1rem;
+    margin-inline: 2rem;
   }
 
   > div:last-of-type {
@@ -115,10 +122,18 @@ export const PaymentIcons = styled.div`
       box-shadow: ${({ theme }) =>
         `${theme.shadows.medium} ${theme.colors.black}`};
     }
+    @media (min-width: 445px) {
+      padding: 1rem;
+      margin: 0.5rem;
+    }
   }
   input[type="radio"]:checked + label {
     background-color: ${({ theme }) => theme.colors.secondary};
     box-shadow: ${({ theme }) =>
       `${theme.shadows.medium} ${theme.colors.black}`};
   }
+`;
+
+export const StyledThing = styled.div`
+  display: flex;
 `;

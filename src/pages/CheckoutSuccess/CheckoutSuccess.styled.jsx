@@ -1,12 +1,17 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
+export const StyledMain = styled.main`
+  // background-color: ${({ theme }) => theme.colors.success};
+`;
 export const StyledLi = styled.li`
   max-width: 500px;
+  padding-bottom: 1rem;
   @media (min-width: 267px) {
     display: flex;
     flex-direction: row;
     align-items: center;
+    height: 125px;
+    padding-bottom: 0;
   }
 
   margin-block: 2rem;
@@ -14,33 +19,39 @@ export const StyledLi = styled.li`
   border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
   border-radius: ${({ theme }) => theme.borderRadius.regular};
   box-shadow: ${({ theme }) => `${theme.shadows.small} ${theme.colors.black}`};
-  background-color: ${({ theme }) => theme.colors.secondary};
+  background-color: ${({ theme }) => theme.colors.white};
 
   &:hover {
     box-shadow: ${({ theme }) =>
-      `${theme.shadows.large} ${theme.colors.black}`};
-    background-color: ${({ theme }) => theme.colors.white};
+      `${theme.shadows.medium} ${theme.colors.black}`};
+    background-color: ${({ theme }) => theme.colors.attention};
   }
 
   img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 15px 15px 0 0;
+    border-radius: 13px 13px 0 0;
     @media (min-width: 267px) {
       min-width: 30px;
       max-width: 100px;
-      border-radius: 15px 0 0 15px;
+      border-radius: 13px 0 0 13px;
     }
   }
 
   div {
     justify-content: space-between;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     margin-inline: 0.5rem;
 
+    h3 {
+      margin-block: 0;
+    }
+
     p {
-      margin-block: 0.3rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0;
     }
   }
 `;
@@ -50,10 +61,8 @@ export const Container = styled.div`
   margin-inline: auto;
 `;
 export const HomeLink = styled.div`
-  text-decoration: underline;
   text-align: center;
-  margin-top: 5rem;
-  font-size: 1.2rem;
+  margin-top: 3rem;
 `;
 
 export const FlexContainer = styled.div`
@@ -70,7 +79,11 @@ export const Info = styled.div`
 
 export const List = styled.div`
   flex-grow: 1;
-  > p {
+  > h4 {
     text-align: right;
   }
+`;
+
+export const StyledThing = styled.div`
+  display: flex;
 `;

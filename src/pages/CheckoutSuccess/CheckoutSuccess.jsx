@@ -10,7 +10,9 @@ import {
   FlexContainer,
   Info,
   List,
+  StyledThing,
 } from "../CheckoutSuccess/CheckoutSuccess.styled";
+import BackLink from "../../components/BackLink";
 
 const CheckoutSuccess = ({ clearCart }) => {
   const location = useLocation();
@@ -30,42 +32,62 @@ const CheckoutSuccess = ({ clearCart }) => {
   }
 
   return (
-    <main>
-      <Container>
-        <Breadcrumbs />
+    <Container>
+      <Breadcrumbs />
+      <StyledThing>
         <h1>Checkout Success</h1>
-        <h2>Order Summary</h2>
-        <FlexContainer>
-          <List>
-            <ul>
-              {cart.map((product) => (
-                <StyledLi key={product.id}>
+      </StyledThing>
+      <FlexContainer>
+        <List>
+          <h2>Order Summary</h2>
+          <ul>
+            {cart.map((product) => (
+              <Link to={`/product/${product.id}`} key={product.id}>
+                <StyledLi>
                   <img src={product.imageUrl} alt={product.title} />
                   <div>
-                    <h3>
-                      <Link to={`/product/${product.id}`}>{product.title}</Link>
-                    </h3>
-                    <p>Price: {product.discountedPrice}</p>
-                    <p>Quantity: {product.quantity}</p>
+                    <h3>{product.title}</h3>
+                    <p>
+                      Price: <b>{product.discountedPrice}</b>
+                    </p>
+                    <p>
+                      Quantity: <b>{product.quantity}</b>
+                    </p>
                   </div>
                 </StyledLi>
-              ))}
-            </ul>
-            <p>Total Price: {getTotalPrice(cart)}</p>
-          </List>
-          <Info>
-            <h3>User Information</h3>
-            <p>Name: {formData.name}</p>
-            <p>Email: {formData.email}</p>
-            <p>Shipping Address: {formData.shippingAddress}</p>
-            <p>Billing Address: {formData.billingAddress}</p>
-          </Info>
-        </FlexContainer>
-        <HomeLink>
-          <Link to="/">Back to Home</Link>
-        </HomeLink>
-      </Container>
-    </main>
+              </Link>
+            ))}
+          </ul>
+          <h4>Total Price: ${getTotalPrice(cart)}</h4>
+        </List>
+        <Info>
+          <h2>User Information</h2>
+          <p>
+            Name: {formData.firstName} {formData.lastName}
+          </p>
+          <p>Email: {formData.email}</p>
+          <h4>Shipping Address</h4>
+          <p>Address: {formData.shippingAddress}</p>
+          <p>
+            City: {formData.shippingCity} {formData.shippingZip}
+          </p>
+          <p>Country: {formData.shippingCountry}</p>
+          {formData.billingAddress && (
+            <>
+              <h4>Billing Address</h4>
+              <p>Address: {formData.billingAddress}</p>
+              <p>
+                City: {formData.billingCity} {formData.billingZip}
+              </p>
+              <p>Country: {formData.billingCountry}</p>
+            </>
+          )}
+        </Info>
+      </FlexContainer>
+      <HomeLink>
+        <BackLink to="/">Go Home</BackLink>
+      </HomeLink>
+    </Container>
   );
 };
 
