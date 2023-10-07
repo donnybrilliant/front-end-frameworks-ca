@@ -1,5 +1,6 @@
 import { ThemeProvider } from "styled-components";
 import { createContext, useState } from "react";
+import { adjustThemeColors } from "./ThemeUtilities";
 
 const theme = {
   colors: {
@@ -14,6 +15,7 @@ const theme = {
     white: "hsl(0, 0%, 100%)",
     disabled: "hsl(0, 0%, 82.35294117647058%)",
     grey: "hsl(0, 0%, 34.90196078431372%)",
+    background: "hsl(0, 78.87323943661971%, 72.15686274509804%)",
   },
   colorsHEX: {
     primary: "#f08080",
@@ -53,15 +55,6 @@ const theme = {
   },
 };
 
-const themeWithoutBorders = {
-  ...theme,
-  borderRadius: {
-    small: "0",
-    regular: "0",
-    image: "0",
-  },
-};
-
 const ThemeContext = createContext();
 
 const Theme = ({ children }) => {
@@ -76,60 +69,21 @@ const Theme = ({ children }) => {
     setHueShift(value);
   };
 
-  const parseHSL = (hslString) => {
-    const match = hslString.match(
-      /hsl\((\d+(?:\.\d+)?),\s*(\d+(?:\.\d+)?)%,\s*(\d+(?:\.\d+)?)%\)/i
-    );
-    if (match) {
-      return [
-        Math.round(parseFloat(match[1])),
-        Math.round(parseFloat(match[2])),
-        Math.round(parseFloat(match[3])),
-      ];
-    }
-    console.error("Failed to parse HSL:", hslString);
-    return null; // instead of returning [0, 0, 0]
-  };
-
-  const adjustHue = (hslString, hueShift) => {
-    const parsedHSL = parseHSL(hslString);
-    if (!parsedHSL) {
-      throw new Error(`Invalid HSL string provided: ${hslString}`);
-    }
-
-    const [h, s, l] = parsedHSL;
-
-    let adjustedHue = (h + hueShift + 360) % 360;
-    let adjustedSaturation = s;
-
-    // If hueShift is 360, desaturate the color
-    if (hueShift === 360) {
-      adjustedHue = h; // Reset hue to original
-      adjustedSaturation = 0; // Desaturate
-    }
-
-    return `hsl(${adjustedHue}, ${adjustedSaturation}%, ${l}%)`;
-  };
-
-  const adjustThemeColors = (themeColors, hueShift) => {
-    let adjustedColors = {};
-
-    for (let colorName in themeColors) {
-      const colorValue = themeColors[colorName];
-      const adjustedColor = adjustHue(colorValue, hueShift);
-      adjustedColors[colorName] = adjustedColor;
-    }
-
-    return adjustedColors;
-  };
-
+  // Adjusts the theme colors based on the hue shift
   const adjustedColors = adjustThemeColors(theme.colors, hueShift);
 
+  // Adds new colors to current theme
   const adjustedTheme = {
     ...theme,
     colors: adjustedColors,
   };
 
+  // If the hue shift is 360, return the theme with a white background
+  if (hueShift === 360) {
+    adjustedTheme.colors.background = "hsl(0, 0%, 100%)";
+  }
+
+  // If the theme button is toggled, return the theme without borders
   const appliedTheme = isToggled
     ? {
         ...adjustedTheme,

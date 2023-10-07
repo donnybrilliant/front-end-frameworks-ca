@@ -49,7 +49,7 @@ header {
 }
 
 main {
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.background};
   overflow: auto;
   padding: 2rem;
   //transition: background-color 0.2s ease-out;

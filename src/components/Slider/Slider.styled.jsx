@@ -4,11 +4,11 @@ import styled from "styled-components";
   width: 100px;
 `; */
 
-export const SliderInput = styled.input.attrs({ type: "range" })`
+export const SliderInput = styled.input`
   -webkit-appearance: none;
   appearance: none;
   width: 100px;
-  height: 25px; /* Adjust to fit thumb */
+  height: 25px;
   background: transparent;
   outline: none;
   overflow: hidden;
@@ -38,22 +38,23 @@ export const SliderInput = styled.input.attrs({ type: "range" })`
 
   /* Thumb styles */
   &::-webkit-slider-thumb {
-    margin-top: -6.5px; /* Half of the difference between thumb height and track height */
+    margin-top: -6px; /* Half of the difference between thumb height and track height */
     -webkit-appearance: none;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: ${({ theme }) => theme.colors.black};
+    background: white; /* Change to white */
     cursor: pointer;
     box-shadow: none;
+    border: 2px solid black; /* Add black border */
   }
 
   &::-moz-range-thumb {
     width: 20px;
     height: 20px;
-    border: none;
+    border: 2px solid black; /* Add black border */
     border-radius: 50%;
-    background: #4caf50;
+    background: white; /* Change to white */
     cursor: pointer;
   }
 
