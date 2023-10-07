@@ -8,8 +8,5 @@ export const ToggleButton = styled.button`
   margin: 5px;
   background-color: ${({ theme }) => theme.colors.black};
   border-radius: ${({ $isToggled }) => ($isToggled ? "50%" : "0")};
-
-  &:hover {
-    border-radius: ${({ $isToggled }) => ($isToggled ? "0" : "50%")};
-  }
+  transition: border-radius 0.2s;
 `;

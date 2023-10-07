@@ -9,7 +9,7 @@ export const Nav = styled.nav`
   top: ${(props) => props.$extend && "calc(3rem - 1px)"};
   left: ${(props) => props.$extend && "0"};
   width: ${(props) => props.$extend && "100vw"};
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.white};
   padding-block: ${(props) => props.$extend && "1rem"};
   border-bottom: ${({ theme }) =>
     `${theme.borders.regular} ${theme.colors.black}`};

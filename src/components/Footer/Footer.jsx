@@ -1,17 +1,21 @@
+import Slider from "../Slider";
 import Toggle from "../Toggle";
-import { FooterContainer } from "./Footer.styled";
+import { FooterContainer, Copyright, ThemeControls } from "./Footer.styled";
 
 const Footer = () => {
   return (
     <FooterContainer>
-      <div>
+      <Copyright>
         <a href="https://vierweb.no" target="_blank">
           vierweb
         </a>
         &copy;
         {new Date().getFullYear()}
-      </div>
-      <Toggle />
+      </Copyright>
+      <ThemeControls>
+        <Slider />
+        <Toggle />
+      </ThemeControls>
     </FooterContainer>
   );
 };
