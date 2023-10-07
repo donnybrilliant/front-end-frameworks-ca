@@ -1,6 +1,7 @@
 import { ThemeProvider } from "styled-components";
-import { createContext, useState } from "react";
+import { createContext } from "react";
 import { adjustThemeColors } from "./ThemeUtilities";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 const theme = {
   colors: {
@@ -58,8 +59,8 @@ const theme = {
 const ThemeContext = createContext();
 
 const Theme = ({ children }) => {
-  const [isToggled, setToggled] = useState(false);
-  const [hueShift, setHueShift] = useState(0);
+  const [isToggled, setToggled] = useLocalStorage("themeToggled", false);
+  const [hueShift, setHueShift] = useLocalStorage("themeHueShift", 0);
 
   const toggleTheme = () => {
     setToggled((prevState) => !prevState);
@@ -97,6 +98,7 @@ const Theme = ({ children }) => {
         isToggled,
         toggleTheme,
         handleSliderChange,
+        hueShift,
       }}
     >
       <ThemeProvider theme={appliedTheme}>{children}</ThemeProvider>
