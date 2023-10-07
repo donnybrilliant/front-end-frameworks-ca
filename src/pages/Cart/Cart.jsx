@@ -14,8 +14,10 @@ import {
   ProductContainer,
 } from "./Cart.styled";
 import BackLink from "../../components/BackLink";
+import useCart from "../../hooks/useCart";
 
-const CartPage = ({ cart, updateProductQuantity }) => {
+const CartPage = () => {
+  const { cart, updateProductQuantity } = useCart();
   return (
     <CartContainer>
       {cart && cart?.length !== 0 && <Breadcrumbs />}

@@ -12,10 +12,11 @@ import {
 } from "./SingleProduct.styled";
 import Rating from "../Rating";
 import NotFound from "../../pages/NotFound";
-
+import useCart from "../../hooks/useCart";
 import { isOnSale } from "../../utils";
 
-const SingleProduct = ({ product, addToCart }) => {
+const SingleProduct = ({ product }) => {
+  const { addToCart } = useCart();
   return (
     <>
       {/* Is another check better here? */}

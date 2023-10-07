@@ -1,8 +1,10 @@
 import { CartLink, StyledNavLink } from "./CartIcon.styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import useCart from "../../hooks/useCart";
 
-const CartIcon = ({ cart }) => {
+const CartIcon = () => {
+  const { cart } = useCart();
   const itemCount =
     cart?.reduce((total, product) => total + product.quantity, 0) || null;
 
