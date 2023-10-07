@@ -1,5 +1,6 @@
+import Slider from "../Slider";
 import Toggle from "../Toggle";
-import { FooterContainer, Copyright } from "./Footer.styled";
+import { FooterContainer, Copyright, ThemeControls } from "./Footer.styled";
 
 const Footer = () => {
   return (
@@ -11,7 +12,10 @@ const Footer = () => {
         &copy;
         {new Date().getFullYear()}
       </Copyright>
-      <Toggle />
+      <ThemeControls>
+        <Slider />
+        <Toggle />
+      </ThemeControls>
     </FooterContainer>
   );
 };

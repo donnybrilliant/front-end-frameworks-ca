@@ -50,10 +50,9 @@ header {
 
 main {
   background-color: ${({ theme }) => theme.colors.primary};
-  /* Adds fixed footer*/
   overflow: auto;
   padding: 2rem;
- 
+  //transition: background-color 0.2s ease-out;
 
 }
 
@@ -81,7 +80,7 @@ ul {
 
 
 // For forms
-input:not([type="checkbox"]),
+input:not([type="checkbox"],[type="range"]),
 select,
 textarea {
   padding: 0.25rem;
@@ -111,7 +110,7 @@ textarea:focus {
   border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
 }
 
-input:not([type="checkbox"]):focus {
+input:not([type="checkbox"], [type="range"]):focus {
   box-shadow: ${({ theme }) =>
     `${theme.shadows.regular} ${theme.colors.black}`};
 }
