@@ -6,6 +6,7 @@ export const CartLink = styled.div`
   span {
     font-size: 2.8rem;
     translate: 0 -5px;
+    background-color: ${({ theme }) => theme.colors.active};
   }
 `;
 
