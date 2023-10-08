@@ -15,6 +15,12 @@ const Home = () => {
   const handleSearch = (query) => {
     setSearchQuery(query);
   };
+  const filteredProducts = data.filter(
+    (product) =>
+      product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.tags.some((tag) => tag.includes(searchQuery.toLowerCase()))
+  );
 
   if (isLoading) return <Loader />;
 
@@ -23,7 +29,7 @@ const Home = () => {
   return (
     <HomeContainer>
       <Search onSearch={handleSearch} />
-      {data && <ProductList products={data} searchQuery={searchQuery} />}
+      {data && <ProductList products={filteredProducts} />}
     </HomeContainer>
   );
 };

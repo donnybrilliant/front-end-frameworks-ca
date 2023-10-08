@@ -1,20 +1,13 @@
 import ProductCard from "../ProductCard";
 import { ProductGrid } from "./ProductList.styled";
 
-const ProductList = ({ products, searchQuery }) => {
-  const filteredProducts = products.filter(
-    (product) =>
-      product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      product.tags.some((tag) => tag.includes(searchQuery.toLowerCase()))
-  );
-
+const ProductList = ({ products }) => {
   return (
     <ProductGrid>
-      {filteredProducts.length === 0 ? (
-        <h2>No products found</h2>
+      {products.length === 0 ? (
+        <h2>No Products Found</h2>
       ) : (
-        filteredProducts.map((product) => (
+        products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))
       )}
