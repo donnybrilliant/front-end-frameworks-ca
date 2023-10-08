@@ -1,7 +1,7 @@
-import { CartLink, StyledNavLink } from "./CartIcon.styled";
+import useCart from "../../hooks/useCart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import useCart from "../../hooks/useCart";
+import { CartLink, StyledNavLink } from "./CartIcon.styled";
 
 const CartIcon = () => {
   const { cart } = useCart();
