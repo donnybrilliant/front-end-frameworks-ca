@@ -13,8 +13,10 @@ import {
   Heading,
 } from "../CheckoutSuccess/CheckoutSuccess.styled";
 import BackLink from "../../components/BackLink";
+import useCart from "../../hooks/useCart";
 
-const CheckoutSuccess = ({ clearCart }) => {
+const CheckoutSuccess = () => {
+  const { clearCart } = useCart();
   const location = useLocation();
   const navigate = useNavigate();
   const { formData, cart } = location.state || {};

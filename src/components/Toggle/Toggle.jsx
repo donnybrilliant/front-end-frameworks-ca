@@ -1,9 +1,8 @@
 import { ToggleButton } from "./Toggle.styled";
-import { ThemeContext } from "../Theme";
-import { useContext } from "react";
+import useTheme from "../../hooks/useTheme";
 
 const Toggle = () => {
-  const { isToggled, toggleTheme } = useContext(ThemeContext);
+  const { isToggled, toggleTheme } = useTheme();
   return (
     <div>
       <ToggleButton

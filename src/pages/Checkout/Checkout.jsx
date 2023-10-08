@@ -22,8 +22,10 @@ import {
   faPaypal,
   faBitcoin,
 } from "@fortawesome/free-brands-svg-icons";
+import useCart from "../../hooks/useCart";
 
-const Checkout = ({ cart }) => {
+const Checkout = () => {
+  const { cart } = useCart();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",

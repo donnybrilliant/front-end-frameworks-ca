@@ -26,7 +26,7 @@ const Header = ({ cart }) => {
       </Logo>
       <Navigation extend={extendedNav} />
       <MenuContainer>
-        <CartIcon cart={cart} />
+        <CartIcon />
         <MenuButton
           title="Open Navigation"
           onClick={() => setExtendedNav(!extendedNav)}
