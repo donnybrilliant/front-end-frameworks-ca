@@ -1,16 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import useTheme from "../../hooks/useTheme";
+import { debounce } from "../../utils/";
 import { SliderInput } from "./Slider.styled";
-
-function debounce(func, delay) {
-  let timer;
-  return function (...args) {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      func(...args);
-    }, delay);
-  };
-}
 
 const Slider = () => {
   const { hueShift, handleSliderChange } = useTheme();
