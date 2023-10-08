@@ -1,6 +1,6 @@
 import { createContext } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
-import { adjustThemeColors } from "../components/Theme";
+import { adjustThemeColors } from "../utils/";
 
 const theme = {
   colors: {
@@ -42,9 +42,9 @@ const theme = {
   },
 };
 
-const ThemeContext = createContext();
+export const ThemeContext = createContext();
 
-const CustomThemeProvider = ({ children }) => {
+export const CustomThemeProvider = ({ children }) => {
   const [isToggled, setToggled] = useLocalStorage("themeToggled", false);
   const [hueShift, setHueShift] = useLocalStorage("themeHueShift", 0);
 
@@ -91,5 +91,3 @@ const CustomThemeProvider = ({ children }) => {
     </ThemeContext.Provider>
   );
 };
-
-export { CustomThemeProvider, ThemeContext };
