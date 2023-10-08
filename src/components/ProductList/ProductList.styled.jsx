@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const ProductGrid = styled.ul`
-  max-width: 1400px;
-  margin-inline: auto;
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
