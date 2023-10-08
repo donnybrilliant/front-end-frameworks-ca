@@ -1,5 +1,5 @@
-import { useContext, useState, useEffect, useCallback } from "react";
-import { ThemeContext } from "../Theme";
+import { useState, useEffect, useCallback } from "react";
+import useTheme from "../../hooks/useTheme";
 import { SliderInput } from "./Slider.styled";
 
 function debounce(func, delay) {
@@ -13,7 +13,7 @@ function debounce(func, delay) {
 }
 
 const Slider = () => {
-  const { handleSliderChange, hueShift } = useContext(ThemeContext);
+  const { hueShift, handleSliderChange } = useTheme();
   const [sliderValue, setSliderValue] = useState(hueShift); // Local state for slider
 
   const handleImmediateChange = (e) => {
