@@ -47,7 +47,17 @@ const SingleProduct = ({ product }) => {
               <h2>Description:</h2>
               <p>{product.description}</p>
 
-              {isOnSale(product) && <p>Previous price was ${product.price}</p>}
+              {isOnSale(product) && (
+                <>
+                  <p>Previous price was ${product.price}</p>
+                  <p>
+                    Discount:
+                    <b>
+                      ${(product.price - product.discountedPrice).toFixed(2)}
+                    </b>
+                  </p>
+                </>
+              )}
             </Description>
             <AddToCart>
               <h3>Price: ${product.discountedPrice}</h3>
