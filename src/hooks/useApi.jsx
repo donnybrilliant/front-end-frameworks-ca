@@ -6,7 +6,7 @@ function useApi(url) {
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    async function getData() {
+    const getData = async () => {
       try {
         const fetchedData = await fetch(url);
         if (!fetchedData.ok) {
@@ -21,7 +21,7 @@ function useApi(url) {
       } finally {
         setIsLoading(false);
       }
-    }
+    };
 
     getData();
   }, [url]);

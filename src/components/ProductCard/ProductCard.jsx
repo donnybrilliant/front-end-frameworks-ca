@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import Button from "../Button";
+import Rating from "../Rating";
+import { isOnSale } from "../../utils";
 import {
   ProductContainer,
   PriceAndButton,
   Heading,
 } from "./ProductCard.styled";
-import Rating from "../Rating";
-import { isOnSale } from "../../utils";
 
 const ProductCard = ({ product }) => {
   return (

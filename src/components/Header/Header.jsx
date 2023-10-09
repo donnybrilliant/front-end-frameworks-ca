@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { StyledHeader, Logo, MenuContainer, MenuButton } from "./Header.styled";
+import Navigation from "../Navigation";
+import CartIcon from "../CartIcon";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCreditCard,
   faBars,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
-import Navigation from "../Navigation";
-import CartIcon from "../CartIcon";
+import { StyledHeader, Logo, MenuContainer, MenuButton } from "./Header.styled";
 
-const Header = ({ cart }) => {
+const Header = () => {
   const [extendedNav, setExtendedNav] = useState(false);
   const location = useLocation();
 

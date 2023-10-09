@@ -1,4 +1,8 @@
+import useCart from "../../hooks/useCart";
 import Button from "../Button";
+import Rating from "../Rating";
+import NotFound from "../../pages/NotFound";
+import { isOnSale } from "../../utils";
 import {
   ProductContainer,
   AddToCart,
@@ -10,10 +14,6 @@ import {
   RatingsAndTags,
   Description,
 } from "./SingleProduct.styled";
-import Rating from "../Rating";
-import NotFound from "../../pages/NotFound";
-import useCart from "../../hooks/useCart";
-import { isOnSale } from "../../utils";
 
 const SingleProduct = ({ product }) => {
   const { addToCart } = useCart();
