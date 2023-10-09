@@ -28,6 +28,7 @@ const Slider = () => {
       type="range"
       min="0"
       max="360"
+      title="Adjust theme colors"
       value={sliderValue}
       onChange={(e) => handleImmediateChange(e)}
     />
