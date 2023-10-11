@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import Navigation from "../Navigation";
-import CartIcon from "../CartIcon";
+import Navigation from "./Navigation";
+import CartIcon from "./CartIcon";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCreditCard,

@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import useCart from "../../hooks/useCart";
+import useCart from "../../../../hooks/useCart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { CartLink, StyledNavLink } from "./CartIcon.styled";

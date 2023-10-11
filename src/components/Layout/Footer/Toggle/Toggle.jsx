@@ -1,4 +1,4 @@
-import useTheme from "../../hooks/useTheme";
+import useTheme from "../../../../hooks/useTheme";
 import { ToggleButton } from "./Toggle.styled";
 
 const Toggle = () => {

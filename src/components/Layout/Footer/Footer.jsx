@@ -1,5 +1,5 @@
-import Slider from "../Slider";
-import Toggle from "../Toggle";
+import Slider from "./Slider";
+import Toggle from "./Toggle";
 import { FooterContainer, Copyright, ThemeControls } from "./Footer.styled";
 
 const Footer = () => {

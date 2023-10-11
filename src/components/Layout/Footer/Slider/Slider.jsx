@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
-import useTheme from "../../hooks/useTheme";
-import { debounce } from "../../utils/";
+import useTheme from "../../../../hooks/useTheme";
+import { debounce } from "../../../../utils/";
 import { SliderInput } from "./Slider.styled";
 
 const Slider = () => {
