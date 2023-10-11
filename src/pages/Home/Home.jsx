@@ -26,6 +26,8 @@ const Home = () => {
 
   if (isError) return <Error>Error Loading Products</Error>;
 
+  document.title = "Shop";
+
   return (
     <HomeContainer>
       <Search onSearch={handleSearch} />

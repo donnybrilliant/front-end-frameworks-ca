@@ -12,6 +12,9 @@ body {
   font-family: ${({ theme }) => theme.fonts.body};
   font-weight: 200;
   color: ${({ theme }) => theme.colors.black};
+  * {
+    transition: border-radius 0.2s ease-out;
+  }
 }
 
 a {

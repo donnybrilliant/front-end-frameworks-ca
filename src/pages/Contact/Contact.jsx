@@ -21,6 +21,8 @@ const Contact = () => {
     console.log(formData);
   };
 
+  document.title = "Contact Us | Shop";
+
   return (
     <StyledForm onSubmit={handleSubmit}>
       <h1>Contact Us</h1>

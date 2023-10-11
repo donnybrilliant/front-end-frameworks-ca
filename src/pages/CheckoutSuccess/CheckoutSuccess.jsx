@@ -14,18 +14,28 @@ import {
 } from "../CheckoutSuccess/CheckoutSuccess.styled";
 import BackLink from "../../components/BackLink";
 import useCart from "../../hooks/useCart";
+import useTheme from "../../hooks/useTheme";
 
 const CheckoutSuccess = () => {
   const { clearCart } = useCart();
   const location = useLocation();
   const navigate = useNavigate();
   const { formData, cart } = location.state || {};
+  const theme = useTheme();
+
+  document.title = "Successful Order | Shop";
 
   useEffect(() => {
     if (!formData || !cart || cart.length === 0) {
       navigate("/");
     } else {
+      document.querySelector("main").style.backgroundColor =
+        theme.appliedTheme.colors.success;
       clearCart();
+      return () => {
+        document.querySelector("main").style.backgroundColor =
+          theme.appliedTheme.colors.background;
+      };
     }
   }, []);
 
