@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Button from "../../components/Button";
-import { StyledForm } from "./Contact.styled";
+import Button from "../Button";
+import { StyledForm } from "./ContactForm.styled";
 
-const Contact = () => {
+const ContactForm = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     subject: "",
@@ -20,9 +20,6 @@ const Contact = () => {
 
     console.log(formData);
   };
-
-  document.title = "Contact Us | Shop";
-
   return (
     <StyledForm onSubmit={handleSubmit}>
       <h1>Contact Us</h1>
@@ -80,4 +77,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default ContactForm;
