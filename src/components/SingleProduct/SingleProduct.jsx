@@ -1,4 +1,5 @@
 import useCart from "../../hooks/useCart";
+import { useState } from "react";
 import Button from "../Button";
 import Rating from "../Rating";
 import NotFound from "../../pages/NotFound";
@@ -17,6 +18,12 @@ import {
 
 const SingleProduct = ({ product }) => {
   const { addToCart } = useCart();
+  const [isAdded, setIsAdded] = useState(false);
+
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    setIsAdded(true);
+  };
   return (
     <>
       {/* Is another check better here? */}
@@ -61,8 +68,12 @@ const SingleProduct = ({ product }) => {
             </Description>
             <AddToCart>
               <h3>Price: ${product.discountedPrice}</h3>
-              <Button $proceed onClick={() => addToCart(product)}>
-                Add to Cart
+              <Button
+                $proceed
+                onClick={() => handleAddToCart(product)}
+                added={isAdded}
+              >
+                {isAdded ? "Added" : "Add to Cart"}
               </Button>
             </AddToCart>
             <Reviews>
