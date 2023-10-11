@@ -4,12 +4,7 @@ import Breadcrumbs from "../Breadcrumbs";
 import Button from "../Button";
 import BackLink from "../BackLink";
 import { getTotalPrice } from "../../utils";
-import {
-  CartContainer,
-  StyledHeading,
-  FlexContainer,
-  CheckoutContainer,
-} from "./Cart.styled";
+import { CartContainer, StyledHeading, CheckoutContainer } from "./Cart.styled";
 
 const Cart = ({ cart, clearCart }) => {
   return (
@@ -22,16 +17,15 @@ const Cart = ({ cart, clearCart }) => {
       {cart && cart?.length !== 0 ? (
         <>
           <CartItemList cart={cart} />
-          <FlexContainer>
-            <a onClick={() => clearCart()}>Empty Cart</a>
-            <CheckoutContainer>
-              <h3>Total Price: ${getTotalPrice(cart)}</h3>
-              <p>Shipping calculated at checkout</p>
-              <Link to="/checkout">
-                <Button $proceed>Proceed to Checkout</Button>
-              </Link>
-            </CheckoutContainer>
-          </FlexContainer>
+
+          <a onClick={() => clearCart()}>Empty Cart</a>
+          <CheckoutContainer>
+            <h3>Total Price: ${getTotalPrice(cart)}</h3>
+            <p>Shipping calculated at checkout</p>
+            <Link to="/checkout">
+              <Button $proceed>Proceed to Checkout</Button>
+            </Link>
+          </CheckoutContainer>
         </>
       ) : (
         <h2>Your cart is empty.</h2>
