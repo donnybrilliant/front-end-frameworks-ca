@@ -26,8 +26,7 @@ const SingleProduct = ({ product }) => {
   };
   return (
     <>
-      {/* Is another check better here? */}
-      {product.title ? (
+      {product && Object.keys(product).length > 0 ? (
         <ProductContainer>
           <Info>
             <Heading>
@@ -55,7 +54,7 @@ const SingleProduct = ({ product }) => {
               <p>{product.description}</p>
 
               {isOnSale(product) && (
-                <>
+                <div>
                   <p>Previous price was ${product.price}</p>
                   <p>
                     Discount:{" "}
@@ -63,7 +62,7 @@ const SingleProduct = ({ product }) => {
                       -${(product.price - product.discountedPrice).toFixed(2)}
                     </b>
                   </p>
-                </>
+                </div>
               )}
             </Description>
             <AddToCart>

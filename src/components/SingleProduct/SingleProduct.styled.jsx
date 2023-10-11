@@ -15,7 +15,11 @@ export const Info = styled.div`
   }
 `;
 
-export const Description = styled.div``;
+export const Description = styled.div`
+  > div {
+    margin-top: 3rem;
+  }
+`;
 
 export const Heading = styled.div`
   display: flex;
