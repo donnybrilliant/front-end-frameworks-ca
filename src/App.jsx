@@ -7,7 +7,7 @@ import Product from "./pages/Product";
 import Checkout from "./pages/Checkout";
 import CheckoutSuccess from "./pages/CheckoutSuccess";
 import Layout from "./components/Layout";
-import CartPage from "./pages/Cart";
+import CartPage from "./pages/CartPage";
 
 function App() {
   return (
