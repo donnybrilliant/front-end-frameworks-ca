@@ -2,7 +2,7 @@ import useCart from "../../hooks/useCart";
 import { useState } from "react";
 import Button from "../Button";
 import Rating from "../Rating";
-import NotFound from "../../pages/NotFound";
+import NotFound from "../../pages/NotFoundPage";
 import { isOnSale } from "../../utils";
 import {
   ProductContainer,
