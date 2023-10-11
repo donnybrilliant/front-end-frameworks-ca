@@ -58,9 +58,9 @@ const SingleProduct = ({ product }) => {
                 <>
                   <p>Previous price was ${product.price}</p>
                   <p>
-                    Discount:
+                    Discount:{" "}
                     <b>
-                      ${(product.price - product.discountedPrice).toFixed(2)}
+                      -${(product.price - product.discountedPrice).toFixed(2)}
                     </b>
                   </p>
                 </>
