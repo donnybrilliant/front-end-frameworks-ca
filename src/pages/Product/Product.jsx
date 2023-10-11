@@ -13,7 +13,7 @@ const Product = () => {
   if (isLoading) return <Loader />;
 
   if (isError) return <Error>Error Loading Product</Error>;
-
+  document.title = `${data.title} | Shop`;
   return <>{data && <SingleProduct product={data} />}</>;
 };
 

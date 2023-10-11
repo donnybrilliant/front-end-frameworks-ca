@@ -21,6 +21,8 @@ const CheckoutSuccess = () => {
   const navigate = useNavigate();
   const { formData, cart } = location.state || {};
 
+  document.title = "Successful Order | Shop";
+
   useEffect(() => {
     if (!formData || !cart || cart.length === 0) {
       navigate("/");

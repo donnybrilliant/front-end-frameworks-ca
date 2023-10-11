@@ -25,6 +25,7 @@ import {
 import useCart from "../../hooks/useCart";
 
 const Checkout = () => {
+  document.title = "Checkout | Shop";
   const { cart } = useCart();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
