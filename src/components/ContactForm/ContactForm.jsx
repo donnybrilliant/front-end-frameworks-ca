@@ -45,6 +45,7 @@ const ContactForm = () => {
               onChange={handleChange}
               required
               minLength="3"
+              placeholder="John Doe"
             />
           </div>
           <div>
@@ -56,6 +57,7 @@ const ContactForm = () => {
               value={formData.email}
               onChange={handleChange}
               required
+              placeholder="email@domain.com"
             />
           </div>
           <div>
@@ -68,6 +70,7 @@ const ContactForm = () => {
               onChange={handleChange}
               required
               minLength="3"
+              placeholder="I have a question about..."
             />
           </div>
           <div>
@@ -80,6 +83,7 @@ const ContactForm = () => {
               required
               minLength="3"
               rows="10"
+              placeholder="Your message here..."
             />
           </div>
           <Button type="submit" $proceed>
