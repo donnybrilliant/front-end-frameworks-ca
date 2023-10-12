@@ -25,4 +25,8 @@ export const StyledNavLink = styled(NavLink)`
     box-shadow: ${({ theme }) =>
       `${theme.shadows.medium} ${theme.colors.black}`};
   }
+  &.disabled-link {
+    color: ${({ theme }) => theme.colors.disabled};
+    pointer-events: none;
+  }
 `;

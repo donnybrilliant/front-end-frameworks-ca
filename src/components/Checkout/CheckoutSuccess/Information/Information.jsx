@@ -5,25 +5,39 @@ const Information = ({ formData }) => {
     <Info>
       <h2>User Information</h2>
       <p>
-        Name: {formData.firstName} {formData.lastName}
+        <b>Name:</b> {formData.firstName} {formData.lastName}
       </p>
-      <p>Email: {formData.email}</p>
-      <h4>Shipping Address</h4>
-      <p>Address: {formData.shippingAddress}</p>
       <p>
-        City: {formData.shippingCity} {formData.shippingZip}
+        <b>Email:</b> {formData.email}
       </p>
-      <p>Country: {formData.shippingCountry}</p>
-      {formData.billingAddress && (
-        <>
-          <h4>Billing Address</h4>
-          <p>Address: {formData.billingAddress}</p>
-          <p>
-            City: {formData.billingCity} {formData.billingZip}
-          </p>
-          <p>Country: {formData.billingCountry}</p>
-        </>
-      )}
+      <p>
+        <b>Telephone:</b> {formData.telephone}
+      </p>
+      <h4>Shipping Address</h4>
+      <p>
+        <b>Address:</b> {formData.shippingAddress}
+      </p>
+      <p>
+        <b>City:</b> {formData.shippingCity} {formData.shippingZip}
+      </p>
+      <p>
+        <b>Country:</b> {formData.shippingCountry}
+      </p>
+      {formData.billingAddress !== "" &&
+        formData.billingAddress !== formData.shippingAddress && (
+          <>
+            <h4>Billing Address</h4>
+            <p>
+              <b>Address:</b> {formData.billingAddress}
+            </p>
+            <p>
+              <b>City:</b> {formData.billingCity} {formData.billingZip}
+            </p>
+            <p>
+              <b>Country:</b> {formData.billingCountry}
+            </p>
+          </>
+        )}
     </Info>
   );
 };

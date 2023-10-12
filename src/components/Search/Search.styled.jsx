@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const SearchContainer = styled.div`
+  position: relative;
+  margin-bottom: 1.5rem !important;
+`;
+
 export const SearchInput = styled.input`
   padding: 0.5rem !important;
   font-size: 1rem;
@@ -10,21 +15,26 @@ export const Autocomplete = styled.ul`
   position: absolute;
   background-color: ${({ theme }) => theme.colors.white};
   margin: 0;
-  width: 100%;
+  width: calc(100% - 0.25rem);
   max-height: 100px;
   overflow-y: scroll;
-  top: 75%;
+  top: 70%;
   padding-block: 10px;
-  padding-left: 0.5rem;
+
   border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
   border-top: none;
-  box-shadow: ${({ theme }) => `${theme.shadows.small} ${theme.colors.black}`};
+  box-shadow: ${({ theme }) =>
+    `${theme.shadows.regular} ${theme.colors.black}`};
   border-radius: ${({ theme }) =>
     `0 0 ${theme.borderRadius.regular} ${theme.borderRadius.regular}`};
   z-index: 1;
-`;
-
-export const SearchContainer = styled.div`
-  position: relative;
-  margin-bottom: 1.5rem !important;
+  li {
+    padding: 0.5rem;
+    border-bottom: ${({ theme }) =>
+      `${theme.borders.regular} ${theme.colors.black}`};
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.attention};
+      font-weight: 500;
+    }
+  }
 `;
