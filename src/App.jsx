@@ -5,7 +5,7 @@ import ContactPage from "./pages/ContactPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ProductPage from "./pages/ProductPage";
 import CheckoutPage from "./pages/CheckoutPage";
-import CheckoutSuccess from "./pages/CheckoutSuccess";
+import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
 import Layout from "./components/Layout";
 import CartPage from "./pages/CartPage";
 
@@ -19,7 +19,7 @@ function App() {
           <Route path="cart" element={<CartPage />} />
           <Route path="checkout">
             <Route index element={<CheckoutPage />} />
-            <Route path="success" element={<CheckoutSuccess />} />
+            <Route path="success" element={<CheckoutSuccessPage />} />
           </Route>
           <Route path="contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
