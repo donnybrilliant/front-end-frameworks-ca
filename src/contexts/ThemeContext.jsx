@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { adjustThemeColors } from "../utils/";
-import theme from "../components/Theme/theme";
+import theme from "../components/Theme";
 
 export const ThemeContext = createContext();
 
