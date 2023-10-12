@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-import { getTotalPrice } from "../../../../utils";
 import { List, CartItem } from "./OrderSummary.styled";
 
-const OrderSummary = ({ cart }) => {
+const OrderSummary = ({ cart, totalPrice }) => {
   return (
     <List>
       <h2>Order Summary</h2>
@@ -24,7 +23,7 @@ const OrderSummary = ({ cart }) => {
           </Link>
         ))}
       </ul>
-      <h4>Total Price: ${getTotalPrice(cart)}</h4>
+      <h4>Total Price: ${totalPrice}</h4>
     </List>
   );
 };

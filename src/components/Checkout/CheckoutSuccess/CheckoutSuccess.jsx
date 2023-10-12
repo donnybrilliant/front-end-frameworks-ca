@@ -18,7 +18,7 @@ const CheckoutSuccess = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const theme = useTheme();
-  const { formData, cart } = location.state || {};
+  const { formData, cart, totalPrice } = location.state || {};
 
   useEffect(() => {
     if (!formData || !cart || cart.length === 0) {
@@ -41,7 +41,7 @@ const CheckoutSuccess = () => {
         <h1>Checkout Success</h1>
       </Heading>
       <CheckoutContainer>
-        <OrderSummary cart={cart} />
+        <OrderSummary cart={cart} totalPrice={totalPrice} />
         <Information formData={formData} />
       </CheckoutContainer>
 
