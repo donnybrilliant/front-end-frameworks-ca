@@ -4,9 +4,9 @@ import ProductList from "../../components/ProductList";
 import Loader from "../../components/Loader";
 import Error from "../../components/Error";
 import Search from "../../components/Search/Search";
-import { HomeContainer } from "./Home.styled";
+import { HomeContainer } from "./HomePage.styled";
 
-const Home = () => {
+const HomePage = () => {
   const { data, isLoading, isError } = useApi(
     "https://api.noroff.dev/api/v1/online-shop"
   );
@@ -30,10 +30,15 @@ const Home = () => {
 
   return (
     <HomeContainer>
-      <Search onSearch={handleSearch} />
+      <Search
+        onSearch={handleSearch}
+        searchQuery={searchQuery}
+        products={filteredProducts}
+      />
+
       {data && <ProductList products={filteredProducts} />}
     </HomeContainer>
   );
 };
 
-export default Home;
+export default HomePage;
