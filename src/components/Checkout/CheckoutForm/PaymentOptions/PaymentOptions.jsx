@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { PaymentIcons, PaymentLoginContainer } from "./PaymentOptions.styled";
 
-const PaymentOptions = ({ formData, handleChange }) => {
+const PaymentOptions = ({ formData, handleChange, skipRequired }) => {
   const [selectedPayment, setSelectedPayment] = useState(null);
   return (
     <>
@@ -20,6 +20,7 @@ const PaymentOptions = ({ formData, handleChange }) => {
           id="visa"
           name="paymentOption"
           value="Visa"
+          required={!skipRequired}
           onChange={() => setSelectedPayment("Visa")}
         />
         <label htmlFor="visa">
@@ -72,12 +73,15 @@ const PaymentOptions = ({ formData, handleChange }) => {
             <div>
               <label htmlFor="creditCardNumber">Card Number:</label>
               <input
-                type="text"
+                type="tel"
                 id="creditCardNumber"
                 name="creditCardNumber"
+                placeholder="1234 5678 9012 3456"
                 required={!skipRequired}
                 value={formData.creditCardNumber}
                 onChange={handleChange}
+                pattern="\d{16}"
+                maxLength="16"
               />
             </div>
             <div>
@@ -86,20 +90,26 @@ const PaymentOptions = ({ formData, handleChange }) => {
                 type="text"
                 id="expirationDate"
                 name="expirationDate"
+                placeholder="MM/YY"
                 required={!skipRequired}
                 value={formData.expirationDate}
                 onChange={handleChange}
+                pattern="^(0[1-9]|1[0-2])\/?([0-9]{2})$"
+                maxLength="5"
               />
             </div>
             <div>
               <label htmlFor="cvv">CVV:</label>
               <input
-                type="text"
+                type="tel"
                 id="cvv"
                 name="cvv"
+                placeholder="123"
                 required={!skipRequired}
                 value={formData.cvv}
                 onChange={handleChange}
+                pattern="\d{3,4}"
+                maxLength="3"
               />
             </div>
           </>

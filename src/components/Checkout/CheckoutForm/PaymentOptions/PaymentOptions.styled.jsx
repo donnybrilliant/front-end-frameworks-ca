@@ -2,8 +2,13 @@ import styled from "styled-components";
 
 export const PaymentIcons = styled.div`
   input[type="radio"] {
-    display: none;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
   }
+
   label {
     cursor: pointer;
     padding: 0.45rem;
@@ -27,7 +32,7 @@ export const PaymentIcons = styled.div`
     }
   }
   input[type="radio"]:checked + label {
-    background-color: ${({ theme }) => theme.colors.secondary};
+    background-color: ${({ theme }) => theme.colors.success};
     box-shadow: ${({ theme }) =>
       `${theme.shadows.medium} ${theme.colors.black}`};
   }
