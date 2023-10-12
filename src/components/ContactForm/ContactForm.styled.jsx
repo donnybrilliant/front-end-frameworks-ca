@@ -6,6 +6,12 @@ export const StyledForm = styled.form`
   div {
     margin-block: 1rem;
   }
+  > div > p {
+    margin-block: 3rem;
+  }
+  > div > div {
+    text-align: center;
+  }
   button {
     float: right;
     @media (max-width: 500px) {
