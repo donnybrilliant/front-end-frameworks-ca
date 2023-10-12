@@ -2,7 +2,7 @@ import { useState } from "react";
 import { SearchInput, Autocomplete, SearchContainer } from "./Search.styled";
 import { Link } from "react-router-dom";
 
-const Search = ({ onSearch, searchQuery, products }) => {
+const Search = ({ onSearch, products }) => {
   const [query, setQuery] = useState("");
 
   const handleInputChange = (event) => {

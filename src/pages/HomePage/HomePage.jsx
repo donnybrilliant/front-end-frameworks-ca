@@ -1,5 +1,4 @@
 import useApi from "../../hooks/useApi";
-import { useState } from "react";
 import ProductList from "../../components/ProductList";
 import Loader from "../../components/ui/Loader";
 import Error from "../../components/ui/Error";
