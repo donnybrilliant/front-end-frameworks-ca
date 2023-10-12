@@ -36,6 +36,7 @@ const Search = ({ onSearch, products }) => {
         name="search"
         type="search"
         placeholder="Search products..."
+        autoComplete="off"
         value={query}
         onChange={handleInputChange}
         onFocus={() => setShowAutocomplete(true)}
@@ -44,9 +45,9 @@ const Search = ({ onSearch, products }) => {
       {showAutocomplete && (
         <Autocomplete>
           {products.map((product) => (
-            <li key={product.id}>
-              <Link to={`/product/${product.id}`}>{product.title}</Link>
-            </li>
+            <Link to={`/product/${product.id}`} key={product.id}>
+              <li>{product.title} </li>
+            </Link>
           ))}
         </Autocomplete>
       )}

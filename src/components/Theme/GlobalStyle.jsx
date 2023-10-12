@@ -123,7 +123,10 @@ input:focus:invalid {
   background-size: 25px;
 }
 
-
+input:focus {
+    outline: none;
+    
+}
 
 label {
   font-weight: 400;
