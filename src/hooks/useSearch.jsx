@@ -1,25 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const useSearch = (initialProducts = []) => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [products, setProducts] = useState(initialProducts);
+  const [allProducts, setAllProducts] = useState(initialProducts);
 
-  useState(() => {
-    const filteredProducts = products.filter(
-      (product) =>
-        product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.tags.some((tag) => tag.includes(searchQuery.toLowerCase()))
-    );
-    setProducts(filteredProducts);
-  }, [searchQuery, products]);
+  useEffect(() => {
+    setAllProducts(initialProducts);
+  }, [initialProducts]);
+
+  const filteredProducts = allProducts.filter(
+    (product) =>
+      product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.tags.some((tag) => tag.includes(searchQuery.toLowerCase()))
+  );
 
   const handleSearch = (query) => {
     setSearchQuery(query);
   };
 
   return {
-    products,
+    products: filteredProducts,
     handleSearch,
   };
 };

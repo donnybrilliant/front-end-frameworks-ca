@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { SearchInput } from "./Search.styled";
+import { SearchInput, Autocomplete, SearchContainer } from "./Search.styled";
+import { Link } from "react-router-dom";
 
-const Search = ({ onSearch }) => {
+const Search = ({ onSearch, searchQuery, products }) => {
   const [query, setQuery] = useState("");
 
   const handleInputChange = (event) => {
@@ -10,7 +11,7 @@ const Search = ({ onSearch }) => {
   };
 
   return (
-    <div>
+    <SearchContainer>
       <SearchInput
         id="search"
         name="search"
@@ -18,8 +19,17 @@ const Search = ({ onSearch }) => {
         placeholder="Search products..."
         value={query}
         onChange={handleInputChange}
-      />
-    </div>
+      ></SearchInput>
+      {query && (
+        <Autocomplete>
+          {products.map((product) => (
+            <li key={product.id}>
+              <Link to={`/product/${product.id}`}>{product.title}</Link>
+            </li>
+          ))}
+        </Autocomplete>
+      )}
+    </SearchContainer>
   );
 };
 

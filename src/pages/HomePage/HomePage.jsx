@@ -8,11 +8,10 @@ import { HomeContainer } from "./HomePage.styled";
 import useSearch from "../../hooks/useSearch";
 
 const HomePage = () => {
-  const { products, handleSearch } = useSearch(data);
-
   const { data, isLoading, isError } = useApi(
     "https://api.noroff.dev/api/v1/online-shop"
   );
+  const { products, handleSearch } = useSearch(data);
 
   if (isLoading) return <Loader />;
 
@@ -23,7 +22,6 @@ const HomePage = () => {
   return (
     <HomeContainer>
       <Search onSearch={handleSearch} products={products} />
-
       {data && <ProductList products={products} />}
     </HomeContainer>
   );
