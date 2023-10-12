@@ -12,6 +12,7 @@ import { PaymentIcons, PaymentLoginContainer } from "./PaymentOptions.styled";
 
 const PaymentOptions = ({ formData, handleChange, skipRequired }) => {
   const [selectedPayment, setSelectedPayment] = useState(null);
+
   return (
     <>
       <PaymentIcons>
@@ -80,8 +81,8 @@ const PaymentOptions = ({ formData, handleChange, skipRequired }) => {
                 required={!skipRequired}
                 value={formData.creditCardNumber}
                 onChange={handleChange}
-                pattern="\d{16}"
-                maxLength="16"
+                pattern="^\d{4} \d{4} \d{4} \d{4}$"
+                maxLength="19"
               />
             </div>
             <div>
@@ -94,7 +95,7 @@ const PaymentOptions = ({ formData, handleChange, skipRequired }) => {
                 required={!skipRequired}
                 value={formData.expirationDate}
                 onChange={handleChange}
-                pattern="^(0[1-9]|1[0-2])\/?([0-9]{2})$"
+                pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$"
                 maxLength="5"
               />
             </div>
