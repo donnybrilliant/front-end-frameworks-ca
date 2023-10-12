@@ -1,9 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-:root {
-  background-color: ${({ theme }) => theme.colors.white};
-}
 
 body {
   margin: 0;
@@ -77,26 +74,21 @@ ul {
 }
 
 
-
-
-
-
-
 // For forms
 input:not([type="checkbox"],[type="range"]),
 select,
 textarea {
   padding: 0.25rem;
   border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
-  border-radius: 10px;
+  border-radius: ${({ theme }) => theme.borderRadius.small};
   margin-block: 0.2rem;
   width: 100%;
   box-shadow: ${({ theme }) => `${theme.shadows.small} ${theme.colors.black}`};
 }
 
-input:optional {
+/* input:optional {
   border-color: gray;
-}
+} */
 input:required:valid,
 textarea:required:valid {
   box-shadow: ${({ theme }) =>
@@ -116,7 +108,9 @@ textarea:focus {
 input:not([type="checkbox"], [type="range"]):focus {
   box-shadow: ${({ theme }) =>
     `${theme.shadows.regular} ${theme.colors.black}`};
+   
 }
+
 
 input:required:focus:valid {
   background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg")
