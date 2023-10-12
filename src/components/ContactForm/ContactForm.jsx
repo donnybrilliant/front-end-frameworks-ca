@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Button from "../Button";
-import BackLink from "../BackLink";
+import Button from "../ui/Button";
+import BackLink from "../ui/BackLink";
 import { StyledForm } from "./ContactForm.styled";
 
 const ContactForm = () => {

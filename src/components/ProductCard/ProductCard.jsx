@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Button from "../Button";
-import Rating from "../Rating";
+import Button from "../ui/Button";
+import Rating from "../ui/Rating";
 import { isOnSale } from "../../utils";
 import {
   ProductContainer,

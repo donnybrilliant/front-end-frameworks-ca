@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import CartItemList from "./CartItemList/CartItemList";
-import Breadcrumbs from "../Breadcrumbs";
-import Button from "../Button";
-import BackLink from "../BackLink";
+import Breadcrumbs from "../ui/Breadcrumbs";
+import Button from "../ui/Button";
+import BackLink from "../ui/BackLink";
 import { getTotalPrice } from "../../utils";
 import { CartContainer, StyledHeading, CheckoutContainer } from "./Cart.styled";
 

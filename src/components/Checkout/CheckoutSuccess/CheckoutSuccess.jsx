@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useCart from "../../../hooks/useCart";
 import useTheme from "../../../hooks/useTheme";
-import Breadcrumbs from "../../Breadcrumbs";
+import Breadcrumbs from "../../ui/Breadcrumbs";
 import OrderSummary from "./OrderSummary";
 import Information from "./Information";
-import BackLink from "../../BackLink";
+import BackLink from "../../ui/BackLink";
 import {
   Container,
   LinkContainer,

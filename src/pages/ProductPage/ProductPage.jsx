@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import useApi from "../../hooks/useApi";
-import SingleProduct from "../../components/SingleProduct";
-import Loader from "../../components/Loader";
-import Error from "../../components/Error";
+import Product from "../../components/Product";
+import Loader from "../../components/ui/Loader";
+import Error from "../../components/ui/Error";
 
 const ProductPage = () => {
   let { id } = useParams();
@@ -16,7 +16,7 @@ const ProductPage = () => {
   if (isError) return <Error>Error Loading Product</Error>;
 
   document.title = `${data.title} | Shop`;
-  return <>{data && <SingleProduct product={data} />}</>;
+  return <>{data && <Product product={data} />}</>;
 };
 
 export default ProductPage;

@@ -1,8 +1,8 @@
 import useApi from "../../hooks/useApi";
 import { useState } from "react";
 import ProductList from "../../components/ProductList";
-import Loader from "../../components/Loader";
-import Error from "../../components/Error";
+import Loader from "../../components/ui/Loader";
+import Error from "../../components/ui/Error";
 import Search from "../../components/Search/Search";
 import { HomeContainer } from "./HomePage.styled";
 

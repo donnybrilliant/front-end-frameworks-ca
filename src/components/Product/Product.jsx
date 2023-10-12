@@ -1,7 +1,7 @@
 import useCart from "../../hooks/useCart";
 import { useState } from "react";
-import Button from "../Button";
-import Rating from "../Rating";
+import Button from "../ui/Button";
+import Rating from "../ui/Rating";
 import NotFound from "../../pages/NotFoundPage";
 import { isOnSale } from "../../utils";
 import {
@@ -14,9 +14,9 @@ import {
   Heading,
   RatingsAndTags,
   Description,
-} from "./SingleProduct.styled";
+} from "./Product.styled";
 
-const SingleProduct = ({ product }) => {
+const Product = ({ product }) => {
   const { addToCart } = useCart();
   const [isAdded, setIsAdded] = useState(false);
 
@@ -109,4 +109,4 @@ const SingleProduct = ({ product }) => {
   );
 };
 
-export default SingleProduct;
+export default Product;

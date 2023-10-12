@@ -1,4 +1,4 @@
-import Error from "../../components/Error";
+import Error from "../../components/ui/Error";
 
 const NotFoundPage = () => {
   document.title = "404 | Shop";
