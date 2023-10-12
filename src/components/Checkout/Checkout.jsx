@@ -7,7 +7,6 @@ import CheckoutForm from "./CheckoutForm";
 import { CheckoutContainer, Container, Heading } from "./Checkout.styled";
 
 const Checkout = () => {
-  document.title = "Checkout | Shop";
   const { cart } = useCart();
   const navigate = useNavigate();
 

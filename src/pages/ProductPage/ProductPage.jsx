@@ -6,6 +6,7 @@ import Error from "../../components/Error";
 
 const ProductPage = () => {
   let { id } = useParams();
+  document.title = `${data.title} | Shop`;
   const { data, isLoading, isError } = useApi(
     `https://api.noroff.dev/api/v1/online-shop/${id}`
   );
@@ -14,7 +15,6 @@ const ProductPage = () => {
 
   if (isError) return <Error>Error Loading Product</Error>;
 
-  document.title = `${data.title} | Shop`;
   return <>{data && <SingleProduct product={data} />}</>;
 };
 
