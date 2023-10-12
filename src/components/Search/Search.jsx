@@ -12,6 +12,8 @@ const Search = ({ onSearch }) => {
   return (
     <div>
       <SearchInput
+        id="search"
+        name="search"
         type="search"
         placeholder="Search products..."
         value={query}

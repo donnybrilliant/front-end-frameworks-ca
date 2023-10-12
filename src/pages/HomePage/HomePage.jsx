@@ -5,21 +5,13 @@ import Loader from "../../components/ui/Loader";
 import Error from "../../components/ui/Error";
 import Search from "../../components/Search/Search";
 import { HomeContainer } from "./HomePage.styled";
+import useSearch from "../../hooks/useSearch";
 
 const HomePage = () => {
+  const { products, handleSearch } = useSearch(data);
+
   const { data, isLoading, isError } = useApi(
     "https://api.noroff.dev/api/v1/online-shop"
-  );
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const handleSearch = (query) => {
-    setSearchQuery(query);
-  };
-  const filteredProducts = data.filter(
-    (product) =>
-      product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      product.tags.some((tag) => tag.includes(searchQuery.toLowerCase()))
   );
 
   if (isLoading) return <Loader />;
@@ -30,13 +22,9 @@ const HomePage = () => {
 
   return (
     <HomeContainer>
-      <Search
-        onSearch={handleSearch}
-        searchQuery={searchQuery}
-        products={filteredProducts}
-      />
+      <Search onSearch={handleSearch} products={products} />
 
-      {data && <ProductList products={filteredProducts} />}
+      {data && <ProductList products={products} />}
     </HomeContainer>
   );
 };
