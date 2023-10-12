@@ -3,6 +3,15 @@ import styled from "styled-components";
 export const CartContainer = styled.div`
   max-width: 1000px;
   margin-inline: auto;
+  > a {
+    cursor: pointer;
+    margin-left: 1rem;
+    text-decoration: underline;
+    font-size: 1.2rem;
+    &:hover {
+      color: ${({ theme }) => theme.colors.grey};
+    }
+  }
 `;
 
 export const StyledHeading = styled.div`
@@ -17,21 +26,5 @@ export const CheckoutContainer = styled.div`
   margin-block: 4rem;
   > p {
     margin-bottom: 3rem;
-  }
-`;
-
-export const FlexContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  > a {
-    cursor: pointer;
-    height: fit-content;
-    margin-top: 2rem;
-    margin-left: 1rem;
-    text-decoration: underline;
-    font-size: 1.2rem;
-    &:hover {
-      color: ${({ theme }) => theme.colors.grey};
-    }
   }
 `;

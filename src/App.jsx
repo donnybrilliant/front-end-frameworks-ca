@@ -1,28 +1,28 @@
 import { CartProvider } from "./contexts/CartContext";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
-import Product from "./pages/Product";
-import Checkout from "./pages/Checkout";
-import CheckoutSuccess from "./pages/CheckoutSuccess";
+import HomePage from "./pages/HomePage";
+import ContactPage from "./pages/ContactPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import ProductPage from "./pages/ProductPage";
+import CheckoutPage from "./pages/CheckoutPage";
+import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
 import Layout from "./components/Layout";
-import CartPage from "./pages/Cart";
+import CartPage from "./pages/CartPage";
 
 function App() {
   return (
     <CartProvider>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="product/:id" element={<Product />} />
+          <Route index element={<HomePage />} />
+          <Route path="product/:id" element={<ProductPage />} />
           <Route path="cart" element={<CartPage />} />
           <Route path="checkout">
-            <Route index element={<Checkout />} />
-            <Route path="success" element={<CheckoutSuccess />} />
+            <Route index element={<CheckoutPage />} />
+            <Route path="success" element={<CheckoutSuccessPage />} />
           </Route>
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="contact" element={<ContactPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </CartProvider>
