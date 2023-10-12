@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage";
 import ContactPage from "./pages/ContactPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ProductPage from "./pages/ProductPage";
-import Checkout from "./pages/Checkout";
+import CheckoutPage from "./pages/CheckoutPage";
 import CheckoutSuccess from "./pages/CheckoutSuccess";
 import Layout from "./components/Layout";
 import CartPage from "./pages/CartPage";
@@ -18,7 +18,7 @@ function App() {
           <Route path="product/:id" element={<ProductPage />} />
           <Route path="cart" element={<CartPage />} />
           <Route path="checkout">
-            <Route index element={<Checkout />} />
+            <Route index element={<CheckoutPage />} />
             <Route path="success" element={<CheckoutSuccess />} />
           </Route>
           <Route path="contact" element={<ContactPage />} />
