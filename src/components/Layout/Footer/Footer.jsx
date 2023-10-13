@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <FooterContainer>
       <Copyright>
-        <a href="https://vierweb.no" target="_blank">
+        <a href="https://vierweb.no" target="_blank" rel="noreferrer">
           vierweb
         </a>
         &copy;
