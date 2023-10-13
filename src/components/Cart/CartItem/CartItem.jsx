@@ -12,7 +12,17 @@ import {
 
 // Component to display a single product in the Cart and handle the quantity
 const CartItem = ({ product }) => {
-  const { updateProductQuantity } = useCart();
+  const { increaseProductQuantity, decreaseProductQuantity } = useCart();
+
+  // Function to iincrease the quantity of a product in the cart
+  const handleIncreaseQuantity = (productId) => {
+    increaseProductQuantity(productId);
+  };
+
+  // Function to decrease the quantity of a product in the cart
+  const handleDecreaseQuantity = (productId) => {
+    decreaseProductQuantity(productId);
+  };
   return (
     <ProductContainer key={product.id}>
       <ImageContainer>
@@ -51,18 +61,10 @@ const CartItem = ({ product }) => {
             Quantity: <b>{product.quantity}</b>
           </p>
           <div>
-            <Button
-              onClick={() =>
-                updateProductQuantity(product.id, product.quantity - 1)
-              }
-            >
+            <Button onClick={() => handleDecreaseQuantity(product.id)}>
               -
             </Button>
-            <Button
-              onClick={() =>
-                updateProductQuantity(product.id, product.quantity + 1)
-              }
-            >
+            <Button onClick={() => handleIncreaseQuantity(product.id)}>
               +
             </Button>
           </div>
