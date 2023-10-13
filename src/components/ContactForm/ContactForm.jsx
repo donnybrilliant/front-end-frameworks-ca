@@ -29,7 +29,7 @@ const ContactForm = () => {
       <h1>Contact Us</h1>
       {isSubmitted ? (
         <div>
-          <p>Thank you for your submission! We'll get back to you soon.</p>
+          <p>Thank you for your submission! We will get back to you soon.</p>
           <div>
             <BackLink>Go Home</BackLink>
           </div>
