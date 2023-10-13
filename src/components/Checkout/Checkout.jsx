@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useCart from "../../hooks/useCart";
 import Breadcrumbs from "../ui/Breadcrumbs";
-import OrderSummary from "./CheckoutForm/OrderSummary";
+import OrderSummary from "./OrderSummary";
 import CheckoutForm from "./CheckoutForm";
 import { CheckoutContainer, Container, Heading } from "./Checkout.styled";
 

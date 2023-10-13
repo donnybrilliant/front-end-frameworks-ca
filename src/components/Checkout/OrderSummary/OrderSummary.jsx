@@ -1,9 +1,9 @@
-import { getTotalPrice } from "../../../../utils";
+import { getTotalPrice } from "../../../utils";
 import { Link } from "react-router-dom";
 import { CartItem, OrderSummaryContainer } from "./OrderSummary.styled";
 
 // Component to display the order summary in the Checkout page
-const OrderSummary = ({ cart }) => {
+const OrderSummary = ({ cart, totalPrice }) => {
   return (
     <OrderSummaryContainer>
       <h2>Order Summary</h2>
@@ -27,7 +27,7 @@ const OrderSummary = ({ cart }) => {
         ))}
       </ul>
 
-      <h4>Total Price: ${getTotalPrice(cart)}</h4>
+      <h4>Total Price: ${totalPrice ? totalPrice : getTotalPrice(cart)}</h4>
     </OrderSummaryContainer>
   );
 };
