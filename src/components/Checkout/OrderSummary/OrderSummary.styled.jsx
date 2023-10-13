@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const OrderSummaryContainer = styled.div`
   flex-grow: 1;
+  margin-bottom: 4rem;
   > h4 {
     text-align: right;
   }
