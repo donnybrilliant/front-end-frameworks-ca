@@ -9,7 +9,7 @@ See brief below.
 
 ## Description
 
-"Shop is a mock e-commerce store with cart capabilities and simulated checkout. For the cart it uses context and reducer. It also has settings to adjust the theme colors and borders.
+"Shop is a mock e-commerce store with cart capabilities and simulated checkout. For the cart it uses context and reducer. It also has settings to adjust the theme colors and borders that persists in local storage.
 I also added a Cart page before a Checkout - an extra step in regards to the Brief"
 
 ## Deployment
@@ -20,6 +20,7 @@ https://javascript-frameworks-ca.netlify.com
 
 - Vite
 - React
+- React-Router-DOM
 - Styled-Components
 - Fontawesome
 

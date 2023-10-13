@@ -45,7 +45,6 @@ b {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
-  
 }
 
 header {
@@ -70,9 +69,9 @@ ul {
   list-style-type: none;
 }
 
-
 label {
   font-weight: 400;
+
 }/* Default styles for most inputs */
 input:not([type="checkbox"],[type="range"], [type="radio"]),
 select,
@@ -92,7 +91,7 @@ input[type="checkbox"] {
 
 /* Styles when focused */
 input:not([type="checkbox"],[type="range"], [type="radio"]):focus, 
-textarea:focus {
+textarea:focus, select:focus {
   outline: none;
   box-shadow: ${({ theme }) =>
     `${theme.shadows.regular} ${theme.colors.black}`};
@@ -117,9 +116,12 @@ textarea:required:not(:focus):not(:placeholder-shown):invalid {
   background-color: ${({ theme }) => theme.colors.warning};
 }
 
-
-
-
+/* Styling for select elements */
+select {
+font-size: 1rem;
+background-color: ${({ theme }) => theme.colors.white};
+color: ${({ theme }) => theme.colors.black};
+}
 `;
 
 export default GlobalStyle;

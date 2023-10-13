@@ -61,7 +61,6 @@ export const ImageContainer = styled.div`
     }
     @media (min-width: 478px) {
       height: 100%;
-      width: auto;
       border-radius: ${({ theme }) =>
         `${theme.borderRadius.image} 0 0 ${theme.borderRadius.image}`};
     }
@@ -78,6 +77,7 @@ export const HeadingContainer = styled.div`
     margin-bottom: -1.5rem;
     font-size: 0.7rem;
   }
+
   @media (min-width: 876px) {
     font-size: 0.8rem;
   }
@@ -87,12 +87,15 @@ export const TextContainer = styled.div`
   grid-area: description;
   margin: 1rem 0.5rem;
   text-align: left;
+
   @media (min-width: 275px) {
     margin-top: 0;
   }
+
   @media (min-width: 376px) {
     margin-top: 1rem;
   }
+
   p {
     margin-block: 0.5rem;
     font-size: 0.9rem;
@@ -117,7 +120,6 @@ export const CartControls = styled.div`
     flex-direction: column;
     align-items: flex-end;
   }
-
   @media (min-width: 722px) {
     flex-direction: row;
     align-items: baseline;
