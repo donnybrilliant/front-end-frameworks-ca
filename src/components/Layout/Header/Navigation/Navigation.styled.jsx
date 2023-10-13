@@ -15,6 +15,7 @@ export const Nav = styled.nav`
     `${theme.borders.regular} ${theme.colors.black}`};
   font-family: ${({ theme }) => theme.fonts.heading};
   text-transform: uppercase;
+  z-index: 2;
 
   @media (min-width: 600px) {
     display: inline-flex;

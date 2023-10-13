@@ -8,7 +8,6 @@ export const SearchContainer = styled.div`
 export const SearchInput = styled.input`
   padding: 0.5rem !important;
   font-size: 1rem;
-  z-index: 2;
 `;
 
 export const Autocomplete = styled.ul`
@@ -28,10 +27,12 @@ export const Autocomplete = styled.ul`
   border-radius: ${({ theme }) =>
     `0 0 ${theme.borderRadius.regular} ${theme.borderRadius.regular}`};
   z-index: 1;
+
   li {
     padding: 0.5rem;
     border-bottom: ${({ theme }) =>
       `${theme.borders.regular} ${theme.colors.black}`};
+
     &:hover {
       background-color: ${({ theme }) => theme.colors.attention};
       font-weight: 500;
