@@ -8,6 +8,7 @@ import CheckoutPage from "./pages/CheckoutPage";
 import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
 import Layout from "./components/Layout";
 import CartPage from "./pages/CartPage";
+import SalesPage from "./pages/SalesPage/SalesPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route index element={<CheckoutPage />} />
             <Route path="success" element={<CheckoutSuccessPage />} />
           </Route>
+          <Route path="sale" element={<SalesPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
