@@ -3,7 +3,7 @@ import { isOnSale } from "../../utils";
 import ProductList from "../../components/ProductList";
 import Loader from "../../components/ui/Loader";
 import Error from "../../components/ui/Error";
-import { SalesContainer } from "./SalesPage.styled";
+import { SalesContainer } from "./SalePage.styled";
 
 // Page to display the Home Page
 const SalesPage = () => {
