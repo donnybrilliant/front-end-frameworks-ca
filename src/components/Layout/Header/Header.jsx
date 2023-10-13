@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { StyledHeader, Logo, MenuContainer, MenuButton } from "./Header.styled";
 
+// Component to display the header, including the logo, navigation and cart icon
 const Header = () => {
   const [extendedNav, setExtendedNav] = useState(false);
   const location = useLocation();

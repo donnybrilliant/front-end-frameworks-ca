@@ -6,6 +6,7 @@ import BackLink from "../ui/BackLink";
 import { getTotalPrice } from "../../utils";
 import { CartContainer, StyledHeading, CheckoutContainer } from "./Cart.styled";
 
+// Cart component that displays the cart items and the total price
 const Cart = ({ cart, clearCart }) => {
   return (
     <CartContainer>

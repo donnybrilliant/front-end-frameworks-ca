@@ -3,6 +3,7 @@ import useTheme from "../../../../hooks/useTheme";
 import { debounce } from "../../../../utils/";
 import { SliderInput } from "./Slider.styled";
 
+// Component to display the slider to adjust the theme colors
 const Slider = () => {
   const { hueShift, handleSliderChange } = useTheme();
   const [sliderValue, setSliderValue] = useState(hueShift); // Local state for slider

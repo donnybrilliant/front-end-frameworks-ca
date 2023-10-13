@@ -8,6 +8,7 @@ import {
   Heading,
 } from "./ProductCard.styled";
 
+// Component to display a single product card
 const ProductCard = ({ product }) => {
   return (
     <ProductContainer key={product.id}>

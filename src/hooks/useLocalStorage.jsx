@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+// Custom React hook to use local storage
 const useLocalStorage = (key, defaultValue) => {
   // Retrieve the value from local storage or use the default value
   const [value, setValue] = useState(() => {
@@ -37,6 +38,7 @@ const useLocalStorage = (key, defaultValue) => {
   // Function to remove the value from local storage
   const removeValue = () => setValue(undefined);
 
+  // returns value, functions to set and remove values so they can be used by the component that calls this hook
   return [value, setValue, removeValue];
 };
 

@@ -2,6 +2,7 @@ import { getTotalPrice } from "../../../../utils";
 import { Link } from "react-router-dom";
 import { CartItem, OrderSummaryContainer } from "./OrderSummary.styled";
 
+// Component to display the order summary in the Checkout page
 const OrderSummary = ({ cart }) => {
   return (
     <OrderSummaryContainer>

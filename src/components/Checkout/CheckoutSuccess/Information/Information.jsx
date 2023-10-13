@@ -1,5 +1,6 @@
 import { Info } from "./Information.styled";
 
+// Component to display the user information in the Checkout Success page
 const Information = ({ formData }) => {
   return (
     <Info>

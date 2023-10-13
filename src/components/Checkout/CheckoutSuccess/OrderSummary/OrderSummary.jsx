@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { List, CartItem } from "./OrderSummary.styled";
 
+// Component to display the order summary in the Checkout Success page
 const OrderSummary = ({ cart, totalPrice }) => {
   return (
     <List>

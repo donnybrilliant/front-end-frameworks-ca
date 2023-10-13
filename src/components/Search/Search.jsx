@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { SearchInput, Autocomplete, SearchContainer } from "./Search.styled";
 import { Link } from "react-router-dom";
 
+// Component to display the search bar with autocomplete
 const Search = ({ onSearch, products }) => {
   const [query, setQuery] = useState("");
   const [showAutocomplete, setShowAutocomplete] = useState(false);

@@ -1,5 +1,6 @@
 import { StyledLink } from "./BackLink.styled";
 
+// Component to display the back link
 const BackLink = ({ children }) => {
   return <StyledLink to="/">{children}</StyledLink>;
 };

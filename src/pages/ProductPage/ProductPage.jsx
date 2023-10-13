@@ -4,6 +4,7 @@ import Product from "../../components/Product";
 import Loader from "../../components/ui/Loader";
 import Error from "../../components/ui/Error";
 
+// Page to display a single product
 const ProductPage = () => {
   let { id } = useParams();
 

@@ -6,6 +6,7 @@ import OrderSummary from "./CheckoutForm/OrderSummary";
 import CheckoutForm from "./CheckoutForm";
 import { CheckoutContainer, Container, Heading } from "./Checkout.styled";
 
+// Checkout component that displays the order summary and the checkout form
 const Checkout = () => {
   const { cart } = useCart();
   const navigate = useNavigate();

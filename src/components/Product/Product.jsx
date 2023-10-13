@@ -16,6 +16,7 @@ import {
   Description,
 } from "./Product.styled";
 
+// Component to display a single product and handle the add to cart functionality
 const Product = ({ product }) => {
   const { addToCart } = useCart();
   const [isAdded, setIsAdded] = useState(false);

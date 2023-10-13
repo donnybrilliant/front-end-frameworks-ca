@@ -1,5 +1,6 @@
 import CartItem from "../CartItem";
 
+// Component that lists all the products in the Cart
 const CartItemList = ({ cart }) => {
   return (
     <ul>

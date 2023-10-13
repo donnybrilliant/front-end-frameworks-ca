@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { CartLink, StyledNavLink } from "./CartIcon.styled";
 
+// Component to display the cart icon with the number of items in the header
 const CartIcon = () => {
   const { cart } = useCart();
   const [animate, setAnimate] = useState(false);

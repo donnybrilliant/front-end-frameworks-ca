@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { Nav, StyledNavLink } from "./Breadcrumbs.styled";
 
+// Component to display the breadcrumbs in the Cart - Checkout page
 const Breadcrumbs = () => {
   const location = useLocation();
   const stages = [

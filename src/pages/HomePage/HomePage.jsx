@@ -6,6 +6,7 @@ import Search from "../../components/Search/Search";
 import { HomeContainer } from "./HomePage.styled";
 import useSearch from "../../hooks/useSearch";
 
+// Page to display the Home Page
 const HomePage = () => {
   const { data, isLoading, isError } = useApi(
     "https://api.noroff.dev/api/v1/online-shop"
