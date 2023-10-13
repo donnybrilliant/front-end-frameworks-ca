@@ -22,13 +22,13 @@ export const maxHueAdjustment = (hslString) => {
 
   // Adjust reds
   if ((h <= 15 || h >= 345) && s > 10) {
-    // If it's a shade of red and not gray
-    return "hsl(0, 0%, 50%)"; // Convert to medium gray
+    // If it's a shade of red and not gray conver to medium gray
+    return "hsl(0, 0%, 50%)";
   }
 
   // Adjust yellows or any other specific colors
   if (h >= 55 && h <= 65) {
-    // Handle yellows (for now it just returns them as is)
+    // Returns yellows as is
     return `hsl(${h}, ${s}%, ${l}%)`;
   }
 

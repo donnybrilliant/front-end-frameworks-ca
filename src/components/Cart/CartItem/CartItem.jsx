@@ -10,6 +10,7 @@ import {
   Quantity,
 } from "./CartItem.styled";
 
+// Component to display a single product in the Cart and handle the quantity
 const CartItem = ({ product }) => {
   const { updateProductQuantity } = useCart();
   return (

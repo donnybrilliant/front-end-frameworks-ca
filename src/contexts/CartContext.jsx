@@ -6,8 +6,10 @@ const CartContext = createContext();
 
 // Create a CartProvider
 const CartProvider = ({ children }) => {
+  // Use the useLocalStorage hook to create a cart state
   const [cart, setCart, clearCart] = useLocalStorage("cart", []);
 
+  // Function to add a product to the cart
   const addToCart = (product) => {
     setCart((currentCart) => {
       // If the cart is not yet defined, create it with the new product
@@ -31,6 +33,7 @@ const CartProvider = ({ children }) => {
     });
   };
 
+  // Function to update the quantity of a product in the cart
   const updateProductQuantity = (productId, newQuantity) => {
     setCart((prevCart) => {
       if (newQuantity < 1) {

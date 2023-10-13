@@ -1,6 +1,7 @@
 import useTheme from "../../../../hooks/useTheme";
 import { ToggleButton } from "./Toggle.styled";
 
+// Component to display the toggle button to change the theme
 const Toggle = () => {
   const { isToggled, toggleTheme } = useTheme();
   return (

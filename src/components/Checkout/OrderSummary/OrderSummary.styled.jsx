@@ -2,13 +2,12 @@ import styled from "styled-components";
 
 export const OrderSummaryContainer = styled.div`
   flex-grow: 1;
-
   > h4 {
     text-align: right;
   }
 `;
-
 export const CartItem = styled.li`
+  max-width: 500px;
   padding-bottom: 1rem;
   @media (min-width: 267px) {
     display: flex;
@@ -23,7 +22,7 @@ export const CartItem = styled.li`
   border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
   border-radius: ${({ theme }) => theme.borderRadius.regular};
   box-shadow: ${({ theme }) => `${theme.shadows.small} ${theme.colors.black}`};
-  background-color: ${({ theme }) => theme.colors.secondary};
+  background-color: ${({ theme }) => theme.colors.white};
 
   &:hover {
     box-shadow: ${({ theme }) =>
@@ -52,7 +51,7 @@ export const CartItem = styled.li`
     margin-inline: 0.5rem;
 
     h3 {
-      margin-block: -0.3rem;
+      margin-block: 0;
     }
 
     p {

@@ -1,6 +1,7 @@
 import BackLink from "../BackLink";
 import { ErrorContainer } from "./Error.styled";
 
+// Component to display an error
 const Error = ({ children }) => {
   return (
     <ErrorContainer>

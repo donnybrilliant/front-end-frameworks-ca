@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import PaymentOptions from "./PaymentOptions/PaymentOptions";
 import Button from "../../ui/Button";
 import { getTotalPrice } from "../../../utils";
-
 import { StyledForm, Coupons } from "./CheckoutForm.styled";
 
+// Component to display the checkout form in the Checkout page
 const CheckoutForm = ({ cart }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({

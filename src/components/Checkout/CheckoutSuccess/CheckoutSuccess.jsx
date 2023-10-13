@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useCart from "../../../hooks/useCart";
 import useTheme from "../../../hooks/useTheme";
 import Breadcrumbs from "../../ui/Breadcrumbs";
-import OrderSummary from "./OrderSummary";
+import OrderSummary from "../OrderSummary";
 import Information from "./Information";
 import BackLink from "../../ui/BackLink";
 import {

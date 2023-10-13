@@ -6,13 +6,16 @@ import { theme } from "../components/Theme";
 export const ThemeContext = createContext();
 
 export const CustomThemeProvider = ({ children }) => {
+  // Retrieve the toggle and slider button state from local storage
   const [isToggled, setToggled] = useLocalStorage("themeToggled", false);
   const [hueShift, setHueShift] = useLocalStorage("themeHueShift", 0);
 
+  // Function to toggle the theme
   const toggleTheme = () => {
     setToggled((prevState) => !prevState);
   };
 
+  // Function to handle the slider change
   const handleSliderChange = (value) => {
     setHueShift(value);
   };
@@ -38,6 +41,7 @@ export const CustomThemeProvider = ({ children }) => {
       }
     : adjustedTheme;
 
+  // Theme values, toggle method and the slider handling method are passed down as context values
   return (
     <ThemeContext.Provider
       value={{

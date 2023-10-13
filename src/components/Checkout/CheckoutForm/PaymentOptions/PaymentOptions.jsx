@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { PaymentIcons, PaymentLoginContainer } from "./PaymentOptions.styled";
 
+// Component to display the payment options in the Checkout page
 const PaymentOptions = ({ formData, handleChange, skipRequired }) => {
   const [selectedPayment, setSelectedPayment] = useState(null);
 

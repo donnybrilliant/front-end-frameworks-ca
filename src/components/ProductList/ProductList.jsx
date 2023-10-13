@@ -1,6 +1,7 @@
 import ProductCard from "./ProductCard";
 import { ProductGrid } from "./ProductList.styled";
 
+// Component to display the list of product cards
 const ProductList = ({ products }) => {
   return (
     <ProductGrid>

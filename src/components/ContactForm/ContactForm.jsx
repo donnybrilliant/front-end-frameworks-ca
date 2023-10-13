@@ -3,6 +3,7 @@ import Button from "../ui/Button";
 import BackLink from "../ui/BackLink";
 import { StyledForm } from "./ContactForm.styled";
 
+// Component to display the contact form
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     fullName: "",

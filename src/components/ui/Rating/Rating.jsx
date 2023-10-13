@@ -5,6 +5,7 @@ import {
   PartialStarWrapper,
 } from "./Rating.styled";
 
+// Component to display the rating with stars
 const Rating = ({ rating }) => {
   const filledStars = Math.floor(rating);
   const partialFill = (rating - filledStars) * 100; // gets the decimal part as a percentage
