@@ -16,9 +16,12 @@ const cartReducer = (state, action) => {
     case "ADD_TO_CART":
       // Add a product to the cart
       return addToCart(state, action.payload);
-    case "UPDATE_PRODUCT_QUANTITY":
-      // Update the quantity of a product in the cart
-      return updateProductQuantity(state, action.payload);
+    case "INCREASE_QUANTITY":
+      // Increase the quantity of a product in the cart
+      return increaseProductQuantity(state, action.payload);
+    case "DECREASE_QUANTITY":
+      // Decrease the quantity of a product in the cart
+      return decreaseProductQuantity(state, action.payload);
     case "CLEAR_CART":
       // Clear the cart
       return [];
@@ -42,18 +45,20 @@ const addToCart = (cart, product) => {
   }
 };
 
-// Function to update the quantity of a product in the cart
-const updateProductQuantity = (cart, { productId, newQuantity }) => {
-  if (newQuantity < 1) {
-    // Filter out the item with the specified productId
-    return cart.filter((item) => item.id !== productId);
-  } else {
-    // Map through the cart items. For each item, if the id matches the one to update,
-    // replace the quantity with the new quantity. Otherwise, leave the item unchanged
-    return cart.map((item) =>
-      item.id === productId ? { ...item, quantity: newQuantity } : item
-    );
-  }
+// Function to increase the quantity of a product in the cart
+const increaseProductQuantity = (cart, productId) => {
+  return cart.map((item) =>
+    item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
+  );
+};
+
+// Function to decrease the quantity of a product in the cart
+const decreaseProductQuantity = (cart, productId) => {
+  return cart
+    .map((item) =>
+      item.id === productId ? { ...item, quantity: item.quantity - 1 } : item
+    )
+    .filter((item) => item.quantity > 0); // Filter out items with quantity 0
 };
 
 // Create a CartProvider
@@ -73,11 +78,10 @@ const CartProvider = ({ children }) => {
   const contextValue = {
     cart,
     addToCart: (product) => dispatch({ type: "ADD_TO_CART", payload: product }),
-    updateProductQuantity: (productId, newQuantity) =>
-      dispatch({
-        type: "UPDATE_PRODUCT_QUANTITY",
-        payload: { productId, newQuantity },
-      }),
+    increaseProductQuantity: (productId) =>
+      dispatch({ type: "INCREASE_QUANTITY", payload: productId }),
+    decreaseProductQuantity: (productId) =>
+      dispatch({ type: "DECREASE_QUANTITY", payload: productId }),
     clearCart: () => dispatch({ type: "CLEAR_CART" }),
   };
 
