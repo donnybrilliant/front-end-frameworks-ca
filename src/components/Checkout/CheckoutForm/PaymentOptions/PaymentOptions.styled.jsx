@@ -11,7 +11,7 @@ export const PaymentIcons = styled.div`
 
   label {
     cursor: pointer;
-    padding: 0.45rem;
+    padding: 0.39rem;
     margin: 0.2rem;
     display: inline-block;
     font-size: 2rem;
