@@ -11,13 +11,15 @@ const HomePage = () => {
   const { data, isLoading, isError } = useApi(
     "https://api.noroff.dev/api/v1/online-shop"
   );
+
+  // Get the products and handleSearch function from the useSearch hook
   const { products, handleSearch } = useSearch(data);
+
+  document.title = "Shop";
 
   if (isLoading) return <Loader />;
 
   if (isError) return <Error>Error Loading Products</Error>;
-
-  document.title = "Shop";
 
   return (
     <HomeContainer>

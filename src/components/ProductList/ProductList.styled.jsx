@@ -4,7 +4,7 @@ export const ProductGrid = styled.ul`
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  margin-top: 2rem;
+  margin-block: 2rem;
 
   @media (min-width: 493px) {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
