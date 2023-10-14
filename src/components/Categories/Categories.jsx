@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import ButtonLink from "../ui/ButtonLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
@@ -6,11 +7,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import {
   CategoriesContainer,
-  StyledLink,
   CategoriesList,
   ScrollButton,
 } from "./Categories.styled";
 
+// Component to display the categories list
 const Categories = ({
   categories,
   selectedCategories,
@@ -35,18 +36,19 @@ const Categories = ({
         <FontAwesomeIcon icon={faChevronLeft} />
       </ScrollButton>
       <CategoriesList ref={categoriesRef}>
-        <StyledLink
+        <ButtonLink
           to={`/categories/`}
           className={selectedCategories.length === 0 ? "active" : ""}
           onClick={(e) => {
             e.preventDefault();
             handleCategoryClick(""); // This clears the selected categories
           }}
+          $category
         >
           ALL
-        </StyledLink>
+        </ButtonLink>
         {sortedCategories.map((tag) => (
-          <StyledLink
+          <ButtonLink
             key={tag}
             to={`/categories/${tag}`}
             className={selectedCategories.includes(tag) ? "active" : ""}
@@ -54,9 +56,10 @@ const Categories = ({
               e.preventDefault();
               handleCategoryClick(tag);
             }}
+            $category
           >
             {tag}
-          </StyledLink>
+          </ButtonLink>
         ))}
       </CategoriesList>
       <ScrollButton className="scroll-right" onClick={() => handleScroll(1)}>

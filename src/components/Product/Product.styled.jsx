@@ -26,7 +26,11 @@ export const Heading = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  span {
+  a:hover {
+    border: 2px solid black;
+  }
+  a {
+    border: 2px solid transparent;
     background-color: ${({ theme }) => theme.colors.attention};
     padding: 0.5rem;
     border-radius: ${({ theme }) => theme.borderRadius.regular};
@@ -51,21 +55,6 @@ export const RatingsAndTags = styled.div`
 export const Tags = styled.div`
   display: flex;
   align-items: center;
-
-  span {
-    padding: 0.5rem;
-    border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
-    border-radius: ${({ theme }) => theme.borderRadius.regular};
-    margin-inline-start: 0.5rem;
-    box-shadow: ${({ theme }) =>
-      `${theme.shadows.small} ${theme.colors.black}`};
-    background-color: ${({ theme }) => theme.colors.white};
-    &:hover {
-      background-color: ${({ theme }) => theme.colors.attention};
-      box-shadow: ${({ theme }) =>
-        `${theme.shadows.medium} ${theme.colors.black}`};
-    }
-  }
 `;
 
 export const AddToCart = styled.div`
