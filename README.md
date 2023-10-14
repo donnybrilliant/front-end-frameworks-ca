@@ -10,7 +10,7 @@ See brief below.
 ## Description
 
 "Shop is a mock e-commerce store with cart capabilities and simulated checkout. For the cart it uses context and reducer. It also has settings to adjust the theme colors and borders that persists in local storage.
-I also added a Cart page before a Checkout - an extra step in regards to the Brief"
+I also added a Cart page before the Checkout, Sales and Categories Routes - extra steps in regards to the Brief."
 
 ## Deployment
 

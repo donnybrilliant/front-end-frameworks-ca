@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const SearchContainer = styled.div`
   position: relative;
-  margin-bottom: 1.5rem !important;
+  margin-top: 1rem !important;
+  margin-bottom: 3rem !important;
 `;
 
 export const SearchInput = styled.input`

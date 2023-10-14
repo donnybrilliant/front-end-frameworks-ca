@@ -60,6 +60,11 @@ export const Tags = styled.div`
     box-shadow: ${({ theme }) =>
       `${theme.shadows.small} ${theme.colors.black}`};
     background-color: ${({ theme }) => theme.colors.white};
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.attention};
+      box-shadow: ${({ theme }) =>
+        `${theme.shadows.medium} ${theme.colors.black}`};
+    }
   }
 `;
 
