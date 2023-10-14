@@ -11,6 +11,7 @@ const ThemeWrapper = ({ children }) => {
   );
 };
 
+// Component to wrap the styled-components theme provider
 const Theme = ({ children }) => {
   const { appliedTheme } = useTheme();
   return <ThemeProvider theme={appliedTheme}>{children}</ThemeProvider>;

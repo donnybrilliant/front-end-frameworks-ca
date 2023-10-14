@@ -1,9 +1,11 @@
 import useCart from "../../hooks/useCart";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Button from "../ui/Button";
 import Rating from "../ui/Rating";
 import NotFound from "../../pages/NotFoundPage";
 import { isOnSale } from "../../utils";
+import ButtonLink from "../ui/ButtonLink";
 import {
   ProductContainer,
   AddToCart,
@@ -21,6 +23,7 @@ const Product = ({ product }) => {
   const { addToCart } = useCart();
   const [isAdded, setIsAdded] = useState(false);
 
+  // Function to handle the add to cart functionality
   const handleAddToCart = (product) => {
     addToCart(product);
     setIsAdded(true);
@@ -32,7 +35,7 @@ const Product = ({ product }) => {
           <Info>
             <Heading>
               <h1>{product.title}</h1>
-              {isOnSale(product) && <span>ON SALE</span>}
+              {isOnSale(product) && <Link to="/sale">ON SALE</Link>}
             </Heading>
             <RatingsAndTags>
               <Rating rating={product.rating} />
@@ -42,7 +45,9 @@ const Product = ({ product }) => {
                 {product.tags?.length ? (
                   <div>
                     {product.tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
+                      <ButtonLink key={tag} to={`/categories/${tag}`}>
+                        {tag}
+                      </ButtonLink>
                     ))}
                   </div>
                 ) : (

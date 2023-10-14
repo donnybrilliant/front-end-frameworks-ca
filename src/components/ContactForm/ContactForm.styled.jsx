@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const StyledForm = styled.form`
-  max-width: 500px;
-  margin-inline: auto;
+  h1 {
+    margin-bottom: 2rem;
+  }
   div {
     margin-block: 1rem;
   }

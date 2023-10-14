@@ -23,13 +23,15 @@ const CartIcon = () => {
       return; // Exit the useEffect, not proceeding to the animation logic
     }
 
+    // Check if not currently animating
     if (itemCount > prevItemCount.current && !isAnimating) {
-      // Check if not currently animating
-      setIsAnimating(true); // Lock to prevent further animations
+      // Lock to prevent further animations
+      setIsAnimating(true);
       setAnimate(true);
+      // Release the lock after the animation
       setTimeout(() => {
         setAnimate(false);
-        setIsAnimating(false); // Release the lock after the animation
+        setIsAnimating(false);
       }, 500);
     }
     prevItemCount.current = itemCount;

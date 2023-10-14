@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
-import { Nav, StyledNavLink } from "./Breadcrumbs.styled";
+import ButtonLink from "../ButtonLink";
+import { Nav } from "./Breadcrumbs.styled";
 
 // Component to display the breadcrumbs in the Cart - Checkout page
 const Breadcrumbs = () => {
@@ -24,19 +25,20 @@ const Breadcrumbs = () => {
           stage.path === "/checkout/success";
 
         return (
-          <StyledNavLink
+          <ButtonLink
             key={stage.path}
             to={stage.path}
             className={
               disabledSuccess || disabledCheckout ? "disabled-link" : ""
             }
             end
-            onClick={(event) => {
-              isSuccess && event.preventDefault();
+            onClick={(e) => {
+              isSuccess && e.preventDefault();
             }}
+            $nav
           >
             {stage.label}
-          </StyledNavLink>
+          </ButtonLink>
         );
       })}
     </Nav>

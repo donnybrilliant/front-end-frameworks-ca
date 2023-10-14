@@ -1,32 +1,72 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { getTotalPrice } from "../../../utils";
 import PaymentOptions from "./PaymentOptions/PaymentOptions";
 import Button from "../../ui/Button";
-import { getTotalPrice } from "../../../utils";
 import { StyledForm, Coupons } from "./CheckoutForm.styled";
+
+// Initial state for form data
+const initialFormData = {
+  email: "",
+  firstName: "",
+  lastName: "",
+  telephone: "",
+  shippingAddress: "",
+  shippingCity: "",
+  shippingZip: "",
+  shippingCountry: "",
+  billingFirstName: "",
+  billingLastName: "",
+  billingAddress: "",
+  billingCity: "",
+  billingZip: "",
+  billingCountry: "",
+  paymentOption: "",
+  creditCardNumber: "",
+  expirationDate: "",
+  cvv: "",
+  coupon: "",
+  shippingOption: "",
+};
+
+// Object to hold the shipping costs
+const shippingCosts = {
+  standard: 5,
+  express: 15,
+  sameDay: 30,
+};
+
+// Function to calculate discounts
+const calculateDiscounts = (couponValue, shippingOption) => {
+  let isValidCoupon = false;
+  let newShippingDiscount = 0;
+  let newCouponDiscount = 0;
+
+  switch (couponValue) {
+    case "FREE":
+      newShippingDiscount = shippingCosts[shippingOption];
+      isValidCoupon = true;
+      break;
+    case "10OFF":
+      newCouponDiscount = 0.1;
+      isValidCoupon = true;
+      break;
+    case "20OFF":
+      newCouponDiscount = 0.2;
+      isValidCoupon = true;
+      break;
+    default:
+      break;
+  }
+
+  return { isValidCoupon, newShippingDiscount, newCouponDiscount };
+};
 
 // Component to display the checkout form in the Checkout page
 const CheckoutForm = ({ cart }) => {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    email: "",
-    firstName: "",
-    lastName: "",
-    telephone: "",
-    shippingAddress: "",
-    shippingCity: "",
-    shippingZip: "",
-    shippingCountry: "",
-    billingFirstName: "",
-    billingLastName: "",
-    billingAddress: "",
-    billingCity: "",
-    billingZip: "",
-    billingCountry: "",
-    creditCardNumber: "",
-    expirationDate: "",
-    cvv: "",
-  });
+  const [formData, setFormData] = useState(initialFormData);
+
   const [skipRequired, setSkipRequired] = useState(false);
   const [useSameAddress, setUseSameAddress] = useState(true);
   const [coupon, setCoupon] = useState("");
@@ -35,88 +75,72 @@ const CheckoutForm = ({ cart }) => {
   const [shippingDiscount, setShippingDiscount] = useState(0);
   const [shippingOption, setShippingOption] = useState("standard");
 
-  const formatExpirationDate = (value) => {
-    const cleanValue = value.replace(/[^0-9]/g, "");
-    if (cleanValue.length >= 3) {
-      const month = cleanValue.slice(0, 2);
-      const year = cleanValue.slice(2);
-      return `${month}/${year}`;
-    }
-    return cleanValue;
+  // Update formData with the coupon on change
+  useEffect(() => {
+    setFormData((prevData) => ({
+      ...prevData,
+      coupon: validCoupon ? coupon : "",
+    }));
+  }, [validCoupon, coupon]);
+
+  // Function to handle the coupon change
+  const handleCouponChange = (e) => {
+    const couponValue = e.target.value;
+    setCoupon(couponValue); // Update the coupon state
+    const { isValidCoupon, newShippingDiscount, newCouponDiscount } =
+      calculateDiscounts(couponValue, shippingOption);
+    setShippingDiscount(newShippingDiscount);
+    setCouponDiscount(newCouponDiscount);
+    setValidCoupon(isValidCoupon);
   };
 
-  const formatCreditCardNumber = (value) => {
-    const cleanValue = value.replace(/[^0-9]/g, "");
-    const parts = [];
-    for (let i = 0; i < cleanValue.length; i += 4) {
-      parts.push(cleanValue.slice(i, i + 4));
-    }
-    return parts.join(" ");
-  };
-
+  // Function to handle the checkbox change
   const handleCheckboxChange = (e) => {
     setUseSameAddress(e.target.checked);
   };
 
-  const handleCouponChange = (e) => {
-    const coupon = e.target.value;
-    setCoupon(coupon);
+  // Function to handle the shipping option change
+  const handleShippingChange = (e) => {
+    const selectedShippingOption = e.target.value;
+    setShippingOption(selectedShippingOption);
+    setFormData((prevData) => ({
+      ...prevData,
+      shippingOption: selectedShippingOption,
+    }));
 
-    // should be based on coupons array instead
-    switch (coupon) {
-      case "FREE":
-        setShippingDiscount(shippingCosts[shippingOption]);
-        setCouponDiscount(0);
-        setValidCoupon(true);
-        break;
-      case "10OFF":
-        setShippingDiscount(0);
-        setCouponDiscount(0.1);
-        setValidCoupon(true);
-        break;
-      case "20OFF":
-        setShippingDiscount(0);
-        setCouponDiscount(0.2);
-        setValidCoupon(true);
-        break;
-      default:
-        setShippingDiscount(0);
-        setCouponDiscount(0);
-        setValidCoupon(false);
-        break;
+    // Re-calculate discounts if coupon is 'FREE'
+    if (coupon === "FREE") {
+      const { newShippingDiscount } = calculateDiscounts(
+        coupon,
+        selectedShippingOption
+      );
+      setShippingDiscount(newShippingDiscount);
+    } else {
+      // Reset the shipping discount if the coupon is not 'FREE'
+      setShippingDiscount(0);
     }
   };
-  const shippingCosts = {
-    standard: 5,
-    express: 15,
-    sameDay: 30,
+
+  // Function to handle the form change
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
+  // Calculate the total price
   const totalPrice = parseFloat(
     getTotalPrice(cart) * (1 - couponDiscount) +
       (shippingCosts[shippingOption] - shippingDiscount)
   ).toFixed(2);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    let formattedValue = value;
-
-    if (name === "expirationDate") {
-      formattedValue = formatExpirationDate(value);
-    } else if (name === "creditCardNumber") {
-      formattedValue = formatCreditCardNumber(value);
-    }
-
-    setFormData((prevData) => ({ ...prevData, [name]: formattedValue }));
-  };
-
+  // Function to handle the form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Create a new object to hold the final form data
     let finalData = { ...formData };
 
-    // If useSameAddress is true, sync the data right here
+    // If useSameAddress is true, sync the data with the shipping address
     if (useSameAddress) {
       finalData = {
         ...finalData,
@@ -132,10 +156,6 @@ const CheckoutForm = ({ cart }) => {
     const data = { formData: finalData, cart, totalPrice };
     console.log(data);
     navigate("/checkout/success", { replace: true, state: data });
-  };
-
-  const handleShippingChange = (e) => {
-    setShippingOption(e.target.value);
   };
 
   return (
@@ -174,7 +194,7 @@ const CheckoutForm = ({ cart }) => {
           id="firstName"
           name="firstName"
           placeholder="John"
-          min="2"
+          minLength="3"
           required={!skipRequired}
           value={formData.firstName}
           onChange={handleChange}
@@ -187,7 +207,7 @@ const CheckoutForm = ({ cart }) => {
           id="lastName"
           name="lastName"
           placeholder="Doe"
-          min="2"
+          minLength="2"
           required={!skipRequired}
           value={formData.lastName}
           onChange={handleChange}
@@ -249,7 +269,7 @@ const CheckoutForm = ({ cart }) => {
           id="shippingCountry"
           name="shippingCountry"
           placeholder="Any Country"
-          min="3"
+          minLength="3"
           required={!skipRequired}
           value={formData.shippingCountry}
           onChange={handleChange}
@@ -275,7 +295,7 @@ const CheckoutForm = ({ cart }) => {
               id="billingFirstName"
               name="billingFirstName"
               placeholder="John"
-              min="2"
+              minLength="2"
               required={!skipRequired}
               value={formData.billingFirstName}
               onChange={handleChange}
@@ -288,7 +308,7 @@ const CheckoutForm = ({ cart }) => {
               id="billingLastName"
               name="billingLastName"
               placeholder="Doe"
-              min="2"
+              minLength="2"
               required={!skipRequired}
               value={formData.billingLastName}
               onChange={handleChange}
@@ -301,7 +321,7 @@ const CheckoutForm = ({ cart }) => {
               id="billingAddress"
               name="billingAddress"
               placeholder="123 Main St."
-              min="5"
+              minLength="5"
               required={!skipRequired}
               value={formData.billingAddress}
               onChange={handleChange}
@@ -314,7 +334,7 @@ const CheckoutForm = ({ cart }) => {
               id="billingCity"
               name="billingCity"
               placeholder="Anytown"
-              min="3"
+              minLength="3"
               required={!skipRequired}
               value={formData.billingCity}
               onChange={handleChange}
@@ -327,7 +347,7 @@ const CheckoutForm = ({ cart }) => {
               id="billingZip"
               name="billingZip"
               placeholder="12345"
-              min="2"
+              minLength="2"
               required={!skipRequired}
               value={formData.billingZip}
               onChange={handleChange}
@@ -340,7 +360,7 @@ const CheckoutForm = ({ cart }) => {
               id="billingCountry"
               name="billingCountry"
               placeholder="Any Country"
-              min="2"
+              minLength="2"
               required={!skipRequired}
               value={formData.billingCountry}
               onChange={handleChange}
@@ -350,7 +370,7 @@ const CheckoutForm = ({ cart }) => {
       )}
       <PaymentOptions
         formData={formData}
-        handleChange={handleChange}
+        setFormData={setFormData}
         skipRequired={skipRequired}
       />
       <div>
@@ -360,7 +380,6 @@ const CheckoutForm = ({ cart }) => {
           id="coupon"
           name="coupon"
           placeholder="Have a look around..."
-          value={coupon}
           onChange={handleCouponChange}
           className={validCoupon ? "valid-coupon" : ""}
         />

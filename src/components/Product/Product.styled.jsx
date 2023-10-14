@@ -1,8 +1,7 @@
 import styled from "styled-components";
+import { StyledContainer } from "../ui/Container/Container.styled";
 
-export const ProductContainer = styled.div`
-  max-width: 1000px;
-  margin-inline: auto;
+export const ProductContainer = styled(StyledContainer)`
   @media (min-width: 768px) {
     display: flex;
     gap: 5rem;
@@ -26,7 +25,11 @@ export const Heading = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  span {
+  a:hover {
+    border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
+  }
+  a {
+    border: ${({ theme }) => `${theme.borders.regular} transparent`};
     background-color: ${({ theme }) => theme.colors.attention};
     padding: 0.5rem;
     border-radius: ${({ theme }) => theme.borderRadius.regular};
@@ -51,21 +54,6 @@ export const RatingsAndTags = styled.div`
 export const Tags = styled.div`
   display: flex;
   align-items: center;
-
-  span {
-    padding: 0.5rem;
-    border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
-    border-radius: ${({ theme }) => theme.borderRadius.regular};
-    margin-inline-start: 0.5rem;
-    box-shadow: ${({ theme }) =>
-      `${theme.shadows.small} ${theme.colors.black}`};
-    background-color: ${({ theme }) => theme.colors.white};
-    &:hover {
-      background-color: ${({ theme }) => theme.colors.attention};
-      box-shadow: ${({ theme }) =>
-        `${theme.shadows.medium} ${theme.colors.black}`};
-    }
-  }
 `;
 
 export const AddToCart = styled.div`

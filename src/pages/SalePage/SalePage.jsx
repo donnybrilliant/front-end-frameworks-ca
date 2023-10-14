@@ -1,9 +1,9 @@
 import useApi from "../../hooks/useApi";
 import { isOnSale } from "../../utils";
+import Container from "../../components/ui/Container";
 import ProductList from "../../components/ProductList";
 import Loader from "../../components/ui/Loader";
 import Error from "../../components/ui/Error";
-import { SalesContainer } from "./SalePage.styled";
 
 // Page to display the Home Page
 const SalesPage = () => {
@@ -21,9 +21,9 @@ const SalesPage = () => {
   const productsOnSale = data.filter((product) => isOnSale(product));
 
   return (
-    <SalesContainer>
+    <Container $width={"1400px"}>
       {data && <ProductList products={productsOnSale} />}
-    </SalesContainer>
+    </Container>
   );
 };
 

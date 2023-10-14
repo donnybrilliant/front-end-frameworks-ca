@@ -1,8 +1,7 @@
 import styled from "styled-components";
+import { StyledContainer } from "../ui/Container/Container.styled";
 
-export const CartContainer = styled.div`
-  max-width: 1000px;
-  margin-inline: auto;
+export const CartContainer = styled(StyledContainer)`
   > a {
     cursor: pointer;
     margin-left: 1rem;
