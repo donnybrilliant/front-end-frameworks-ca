@@ -11,15 +11,18 @@ import {
   ScrollButton,
 } from "./Categories.styled";
 
-// Component to display the Categories
-const Categories = ({ categories, selectedCategory }) => {
-  // Create a ref to the categories list
+const Categories = ({
+  categories,
+  selectedCategories,
+  handleCategoryClick,
+}) => {
+  // Reference to the categories list element
   const categoriesRef = useRef(null);
 
   // Sort the categories alphabetically
   const sortedCategories = [...categories].sort((a, b) => a.localeCompare(b));
 
-  // Function to handle the scroll buttons
+  // Handle scrolling the categories list
   const handleScroll = (direction) => {
     if (categoriesRef.current) {
       categoriesRef.current.scrollLeft += direction * 100;
@@ -34,7 +37,11 @@ const Categories = ({ categories, selectedCategory }) => {
       <CategoriesList ref={categoriesRef}>
         <StyledLink
           to={`/categories/`}
-          className={selectedCategory === "" ? "active" : ""}
+          className={selectedCategories.length === 0 ? "active" : ""}
+          onClick={(e) => {
+            e.preventDefault();
+            handleCategoryClick(""); // This clears the selected categories
+          }}
         >
           ALL
         </StyledLink>
@@ -42,7 +49,11 @@ const Categories = ({ categories, selectedCategory }) => {
           <StyledLink
             key={tag}
             to={`/categories/${tag}`}
-            className={selectedCategory === tag ? "active" : ""}
+            className={selectedCategories.includes(tag) ? "active" : ""}
+            onClick={(e) => {
+              e.preventDefault();
+              handleCategoryClick(tag);
+            }}
           >
             {tag}
           </StyledLink>
