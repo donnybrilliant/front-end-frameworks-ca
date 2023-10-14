@@ -26,10 +26,10 @@ export const Heading = styled.div`
   align-items: center;
 
   a:hover {
-    border: 2px solid black;
+    border: ${({ theme }) => `${theme.borders.regular} ${theme.colors.black}`};
   }
   a {
-    border: 2px solid transparent;
+    border: ${({ theme }) => `${theme.borders.regular} transparent`};
     background-color: ${({ theme }) => theme.colors.attention};
     padding: 0.5rem;
     border-radius: ${({ theme }) => theme.borderRadius.regular};

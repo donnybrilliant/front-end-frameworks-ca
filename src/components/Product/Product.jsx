@@ -23,6 +23,7 @@ const Product = ({ product }) => {
   const { addToCart } = useCart();
   const [isAdded, setIsAdded] = useState(false);
 
+  // Function to handle the add to cart functionality
   const handleAddToCart = (product) => {
     addToCart(product);
     setIsAdded(true);

@@ -16,8 +16,8 @@ const Header = () => {
   const location = useLocation();
   const headerRef = useRef(null);
 
+  // Add an event listener to the document to close the menu when the user clicks outside of it
   useEffect(() => {
-    // Add a click event listener to the document
     const closeMenuOnOutsideClick = (event) => {
       // Check if the click target is within the Header component
       if (headerRef.current && headerRef.current.contains(event.target)) {
@@ -31,12 +31,13 @@ const Header = () => {
     // Attach the event listener
     document.addEventListener("click", closeMenuOnOutsideClick);
 
-    // Cleanup: Remove the event listener when the component unmounts
+    // Remove the event listener when the component unmounts
     return () => {
       document.removeEventListener("click", closeMenuOnOutsideClick);
     };
   }, []);
 
+  // Close the mobile menu when the location changes
   useEffect(() => {
     setExtendedNav(false);
   }, [location]);

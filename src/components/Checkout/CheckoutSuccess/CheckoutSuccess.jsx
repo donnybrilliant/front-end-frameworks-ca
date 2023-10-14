@@ -7,12 +7,10 @@ import Container from "../../ui/Container";
 import OrderSummary from "../OrderSummary";
 import Information from "./Information";
 import BackLink from "../../ui/BackLink";
-import {
-  LinkContainer,
-  CheckoutContainer,
-  Heading,
-} from "../CheckoutSuccess/CheckoutSuccess.styled";
+import { CheckoutContainer, Heading } from "../Checkout.styled";
+import { LinkContainer } from "../CheckoutSuccess/CheckoutSuccess.styled";
 
+// CheckoutSuccess component that displays the order summary and the information of the user
 const CheckoutSuccess = () => {
   const { clearCart } = useCart();
   const location = useLocation();
@@ -20,13 +18,16 @@ const CheckoutSuccess = () => {
   const theme = useTheme();
   const { formData, cart, totalPrice } = location.state || {};
 
+  // If there are no items in the cart, redirect to the home page
   useEffect(() => {
     if (!formData || !cart || cart.length === 0) {
       navigate("/");
     } else {
+      // Change the background color of the page to the success color
       document.querySelector("main").style.backgroundColor =
         theme.appliedTheme.colors.success;
       clearCart();
+      // Return the background color to the default color
       return () => {
         document.querySelector("main").style.backgroundColor =
           theme.appliedTheme.colors.background;

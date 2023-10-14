@@ -11,9 +11,6 @@ export const StyledForm = styled.form`
     margin-top: 3rem;
     text-align: right;
   }
-  input.valid-coupon {
-    background-color: ${({ theme }) => theme.colors.success};
-  }
 `;
 
 export const Coupons = styled.div`

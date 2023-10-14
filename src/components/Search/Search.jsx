@@ -8,11 +8,13 @@ const Search = ({ onSearch, products }) => {
   const [showAutocomplete, setShowAutocomplete] = useState(false);
   const containerRef = useRef(null);
 
+  // Function to handle the input change
   const handleInputChange = (event) => {
     setQuery(event.target.value);
     onSearch(event.target.value);
   };
 
+  // Add an event listener to the document to close the autocomplete when the user clicks outside of it
   useEffect(() => {
     function handleClickOutside(event) {
       if (

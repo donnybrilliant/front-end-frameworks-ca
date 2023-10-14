@@ -15,11 +15,13 @@ const ContactForm = () => {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Function to handle the change of the input fields
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  // Function to handle the submission of the form
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitted(true);

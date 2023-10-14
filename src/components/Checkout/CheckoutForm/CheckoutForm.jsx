@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getTotalPrice } from "../../../utils";
 import PaymentOptions from "./PaymentOptions/PaymentOptions";
 import Button from "../../ui/Button";
-import { getTotalPrice } from "../../../utils";
 import { StyledForm, Coupons } from "./CheckoutForm.styled";
 
 // Component to display the checkout form in the Checkout page
@@ -35,34 +35,18 @@ const CheckoutForm = ({ cart }) => {
   const [shippingDiscount, setShippingDiscount] = useState(0);
   const [shippingOption, setShippingOption] = useState("standard");
 
-  const formatExpirationDate = (value) => {
-    const cleanValue = value.replace(/[^0-9]/g, "");
-    if (cleanValue.length >= 3) {
-      const month = cleanValue.slice(0, 2);
-      const year = cleanValue.slice(2);
-      return `${month}/${year}`;
-    }
-    return cleanValue;
+  // Object to hold the shipping costs
+  const shippingCosts = {
+    standard: 5,
+    express: 15,
+    sameDay: 30,
   };
 
-  const formatCreditCardNumber = (value) => {
-    const cleanValue = value.replace(/[^0-9]/g, "");
-    const parts = [];
-    for (let i = 0; i < cleanValue.length; i += 4) {
-      parts.push(cleanValue.slice(i, i + 4));
-    }
-    return parts.join(" ");
-  };
-
-  const handleCheckboxChange = (e) => {
-    setUseSameAddress(e.target.checked);
-  };
-
+  // Function to handle the coupon change
   const handleCouponChange = (e) => {
     const coupon = e.target.value;
     setCoupon(coupon);
 
-    // should be based on coupons array instead
     switch (coupon) {
       case "FREE":
         setShippingDiscount(shippingCosts[shippingOption]);
@@ -86,17 +70,18 @@ const CheckoutForm = ({ cart }) => {
         break;
     }
   };
-  const shippingCosts = {
-    standard: 5,
-    express: 15,
-    sameDay: 30,
+
+  // Function to handle the checkbox change
+  const handleCheckboxChange = (e) => {
+    setUseSameAddress(e.target.checked);
   };
 
-  const totalPrice = parseFloat(
-    getTotalPrice(cart) * (1 - couponDiscount) +
-      (shippingCosts[shippingOption] - shippingDiscount)
-  ).toFixed(2);
+  // Function to handle the shipping option change
+  const handleShippingChange = (e) => {
+    setShippingOption(e.target.value);
+  };
 
+  // Function to handle the form change
   const handleChange = (e) => {
     const { name, value } = e.target;
     let formattedValue = value;
@@ -110,6 +95,7 @@ const CheckoutForm = ({ cart }) => {
     setFormData((prevData) => ({ ...prevData, [name]: formattedValue }));
   };
 
+  // Function to handle the form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -134,8 +120,31 @@ const CheckoutForm = ({ cart }) => {
     navigate("/checkout/success", { replace: true, state: data });
   };
 
-  const handleShippingChange = (e) => {
-    setShippingOption(e.target.value);
+  // Calculate the total price
+  const totalPrice = parseFloat(
+    getTotalPrice(cart) * (1 - couponDiscount) +
+      (shippingCosts[shippingOption] - shippingDiscount)
+  ).toFixed(2);
+
+  // Function to format and add / to the expiration date
+  const formatExpirationDate = (value) => {
+    const cleanValue = value.replace(/[^0-9]/g, "");
+    if (cleanValue.length >= 3) {
+      const month = cleanValue.slice(0, 2);
+      const year = cleanValue.slice(2);
+      return `${month}/${year}`;
+    }
+    return cleanValue;
+  };
+
+  // Function to format the credit card number
+  const formatCreditCardNumber = (value) => {
+    const cleanValue = value.replace(/[^0-9]/g, "");
+    const parts = [];
+    for (let i = 0; i < cleanValue.length; i += 4) {
+      parts.push(cleanValue.slice(i, i + 4));
+    }
+    return parts.join(" ");
   };
 
   return (

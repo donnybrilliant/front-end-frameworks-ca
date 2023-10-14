@@ -73,7 +73,9 @@ ul {
 label {
   font-weight: 400;
 
-}/* Default styles for most inputs */
+}
+
+// Default styles for most inputs
 input:not([type="checkbox"],[type="range"], [type="radio"]),
 select,
 textarea {
@@ -85,12 +87,12 @@ textarea {
   box-shadow: ${({ theme }) => `${theme.shadows.small} ${theme.colors.black}`};
 }
 
-/* Specific style for checkboxes */
+// Specific style for checkboxes 
 input[type="checkbox"] {
   margin-block: 1rem;
 }
 
-/* Styles when focused */
+// Styles when focused 
 input:not([type="checkbox"],[type="range"], [type="radio"]):focus, 
 textarea:focus, select:focus {
   outline: none;
@@ -98,26 +100,26 @@ textarea:focus, select:focus {
     `${theme.shadows.regular} ${theme.colors.black}`};
 }
 
-/* Styles for valid required fields */
+// Styles for valid required fields 
 input:not(:focus):required:valid,
 textarea:not(:focus):required:valid {
   box-shadow: ${({ theme }) =>
     `${theme.shadows.small} ${theme.colors.success}`};
 }
 
-/* Special background color for valid required fields in focus */
+// Special background color for valid required fields in focus 
 input:required:focus:valid {
   background-color: ${({ theme }) => theme.colors.success};
   background-size: 25px;
 }
 
-/* Background color for invalid fields that aren't focused and don't have a placeholder */
+// Background color for invalid fields that aren't focused and don't have a placeholder 
 input:required:not(:focus):not(:placeholder-shown):invalid,
 textarea:required:not(:focus):not(:placeholder-shown):invalid {
   background-color: ${({ theme }) => theme.colors.warning};
 }
 
-/* Styling for select elements */
+// Styling for select elements 
 select {
 font-size: 1rem;
 background-color: ${({ theme }) => theme.colors.white};

@@ -8,7 +8,6 @@ export const OrderSummaryContainer = styled.div`
   }
 `;
 export const CartItem = styled.li`
-  max-width: 500px;
   padding-bottom: 1rem;
   @media (min-width: 267px) {
     display: flex;
