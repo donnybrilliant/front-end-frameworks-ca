@@ -1,12 +1,13 @@
 import useApi from "../../hooks/useApi";
 import useCategorySelection from "../../hooks/useCategories";
+import Container from "../../components/ui/Container";
 import Categories from "../../components/Categories";
 import ProductList from "../../components/ProductList";
 import Loader from "../../components/ui/Loader";
 import Error from "../../components/ui/Error";
-import { CategoriesContainer } from "./CategoriesPage.styled";
 
 const CategoriesPage = () => {
+  document.title = "Categories | Shop";
   const { data, isLoading, isError } = useApi(
     "https://api.noroff.dev/api/v1/online-shop"
   );
@@ -29,14 +30,14 @@ const CategoriesPage = () => {
 
   return (
     data && (
-      <CategoriesContainer>
+      <Container $width={"1400px"}>
         <Categories
           categories={categories}
           selectedCategories={selectedCategories}
           handleCategoryClick={handleCategoryClick}
         />
         <ProductList products={filteredProducts} />
-      </CategoriesContainer>
+      </Container>
     )
   );
 };

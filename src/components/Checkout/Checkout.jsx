@@ -4,13 +4,15 @@ import useCart from "../../hooks/useCart";
 import Breadcrumbs from "../ui/Breadcrumbs";
 import OrderSummary from "./OrderSummary";
 import CheckoutForm from "./CheckoutForm";
-import { CheckoutContainer, Container, Heading } from "./Checkout.styled";
+import Container from "../ui/Container";
+import { CheckoutContainer, Heading } from "./Checkout.styled";
 
 // Checkout component that displays the order summary and the checkout form
 const Checkout = () => {
   const { cart } = useCart();
   const navigate = useNavigate();
 
+  // If there are no items in the cart, redirect to the home page
   useEffect(() => {
     if (!cart || cart.length === 0) {
       navigate("/");

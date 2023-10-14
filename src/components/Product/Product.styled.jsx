@@ -1,8 +1,7 @@
 import styled from "styled-components";
+import { StyledContainer } from "../ui/Container/Container.styled";
 
-export const ProductContainer = styled.div`
-  max-width: 1000px;
-  margin-inline: auto;
+export const ProductContainer = styled(StyledContainer)`
   @media (min-width: 768px) {
     display: flex;
     gap: 5rem;
