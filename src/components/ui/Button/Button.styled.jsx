@@ -11,7 +11,6 @@ export const StyledButton = styled.button`
     props.$proceed
       ? props.theme.colors.secondary
       : props.theme.colors.tertiary};
-  transition: all 0.2s ease-out;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.attention};

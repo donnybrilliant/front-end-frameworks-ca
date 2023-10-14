@@ -43,7 +43,7 @@ const Search = ({ onSearch, products }) => {
         onFocus={() => setShowAutocomplete(true)}
         onBlur={() => setTimeout(() => setShowAutocomplete(false), 100)}
       ></SearchInput>
-      {showAutocomplete && (
+      {showAutocomplete && products.length > 0 && (
         <Autocomplete>
           {products.map((product) => (
             <Link to={`/product/${product.id}`} key={product.id}>
