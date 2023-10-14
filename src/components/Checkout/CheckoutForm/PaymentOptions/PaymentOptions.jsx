@@ -11,8 +11,48 @@ import {
 import { PaymentIcons, PaymentLoginContainer } from "./PaymentOptions.styled";
 
 // Component to display the payment options in the Checkout page
-const PaymentOptions = ({ formData, handleChange, skipRequired }) => {
+const PaymentOptions = ({ formData, setFormData, skipRequired }) => {
   const [selectedPayment, setSelectedPayment] = useState(null);
+
+  // Function to format and add / to the expiration date
+  const formatExpirationDate = (value) => {
+    const cleanValue = value.replace(/[^0-9]/g, "");
+    if (cleanValue.length >= 3) {
+      const month = cleanValue.slice(0, 2);
+      const year = cleanValue.slice(2);
+      return `${month}/${year}`;
+    }
+    return cleanValue;
+  };
+
+  // Function to format the credit card number
+  const formatCreditCardNumber = (value) => {
+    const cleanValue = value.replace(/[^0-9]/g, "");
+    const parts = [];
+    for (let i = 0; i < cleanValue.length; i += 4) {
+      parts.push(cleanValue.slice(i, i + 4));
+    }
+    return parts.join(" ");
+  };
+
+  const handlePaymentChange = (e) => {
+    const { name, value } = e.target;
+    let formattedValue = value;
+
+    // Function to format the credit card number
+    if (name === "expirationDate") {
+      formattedValue = formatExpirationDate(value);
+      // Function to format the expiration date
+    } else if (name === "creditCardNumber") {
+      formattedValue = formatCreditCardNumber(value);
+    }
+    // Update formData with the selected payment option and card details
+    setFormData((prevData) => ({ ...prevData, [name]: formattedValue }));
+    // Update selectedPayment if the payment option has changed
+    if (name === "paymentOption") {
+      setSelectedPayment(value);
+    }
+  };
 
   return (
     <>
@@ -23,7 +63,7 @@ const PaymentOptions = ({ formData, handleChange, skipRequired }) => {
           name="paymentOption"
           value="Visa"
           required={!skipRequired}
-          onChange={() => setSelectedPayment("Visa")}
+          onChange={handlePaymentChange}
         />
         <label htmlFor="visa">
           <FontAwesomeIcon icon={faCcVisa} />
@@ -33,7 +73,7 @@ const PaymentOptions = ({ formData, handleChange, skipRequired }) => {
           id="applePay"
           name="paymentOption"
           value="Apple Pay"
-          onChange={() => setSelectedPayment("Apple Pay")}
+          onChange={handlePaymentChange}
         />
         <label htmlFor="applePay">
           <FontAwesomeIcon icon={faApplePay} />
@@ -43,7 +83,7 @@ const PaymentOptions = ({ formData, handleChange, skipRequired }) => {
           id="googlePay"
           name="paymentOption"
           value="Google Pay"
-          onChange={() => setSelectedPayment("Google Pay")}
+          onChange={handlePaymentChange}
         />
         <label htmlFor="googlePay">
           <FontAwesomeIcon icon={faGooglePay} />
@@ -53,7 +93,7 @@ const PaymentOptions = ({ formData, handleChange, skipRequired }) => {
           id="paypal"
           name="paymentOption"
           value="PayPal"
-          onChange={() => setSelectedPayment("PayPal")}
+          onChange={handlePaymentChange}
         />
         <label htmlFor="paypal">
           <FontAwesomeIcon icon={faPaypal} />
@@ -63,7 +103,7 @@ const PaymentOptions = ({ formData, handleChange, skipRequired }) => {
           id="bitcoin"
           name="paymentOption"
           value="BitCoin"
-          onChange={() => setSelectedPayment("BitCoin")}
+          onChange={handlePaymentChange}
         />
         <label htmlFor="bitcoin">
           <FontAwesomeIcon icon={faBitcoin} />
@@ -81,7 +121,7 @@ const PaymentOptions = ({ formData, handleChange, skipRequired }) => {
                 placeholder="1234 5678 9012 3456"
                 required={!skipRequired}
                 value={formData.creditCardNumber}
-                onChange={handleChange}
+                onChange={handlePaymentChange}
                 pattern="^\d{4} \d{4} \d{4} \d{4}$"
                 maxLength="19"
               />
@@ -95,7 +135,7 @@ const PaymentOptions = ({ formData, handleChange, skipRequired }) => {
                 placeholder="MM/YY"
                 required={!skipRequired}
                 value={formData.expirationDate}
-                onChange={handleChange}
+                onChange={handlePaymentChange}
                 pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$"
                 maxLength="5"
               />
@@ -109,7 +149,7 @@ const PaymentOptions = ({ formData, handleChange, skipRequired }) => {
                 placeholder="123"
                 required={!skipRequired}
                 value={formData.cvv}
-                onChange={handleChange}
+                onChange={handlePaymentChange}
                 pattern="\d{3,4}"
                 maxLength="3"
               />
