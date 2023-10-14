@@ -1,29 +1,22 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useApi from "../../hooks/useApi";
 import ProductList from "../../components/ProductList";
 import Loader from "../../components/ui/Loader";
 import Error from "../../components/ui/Error";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronLeft,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  CategoriesContainer,
-  StyledLink,
-  CategoriesList,
-  ScrollButton,
-} from "./CategoriesPage.styled";
+import Categories from "../../components/Categories"; // Import the Categories component
+import { CategoriesContainer } from "./CategoriesPage.styled";
 
+// Page to display the Categories Page
 const CategoriesPage = () => {
+  // Get the category from the url
   let { category } = useParams();
   const [selectedCategory, setSelectedCategory] = useState("");
-  const categoriesRef = useRef(null);
   const { data, isLoading, isError } = useApi(
     "https://api.noroff.dev/api/v1/online-shop"
   );
 
+  // Set the document title based on the category
   useEffect(() => {
     if (category) {
       setSelectedCategory(category);
@@ -35,53 +28,31 @@ const CategoriesPage = () => {
     }
   }, [category]);
 
-  useEffect(() => {
-    if (categoriesRef.current) {
-      categoriesRef.current.scrollLeft = 0;
-    }
-  }, [selectedCategory]);
-
-  const handleScroll = (direction) => {
-    if (categoriesRef.current) {
-      categoriesRef.current.scrollLeft += direction * 100; // Adjust the scroll amount as needed
-    }
-  };
-
   if (isLoading) return <Loader />;
 
   if (isError) return <Error>Error Loading Products</Error>;
 
+  // Get unique categories from the data.tags array
   const categories = Array.from(
     new Set(data.flatMap((product) => product.tags))
   );
 
+  // Filter the products based on the selected category
   const filteredProducts = data.filter((product) =>
     selectedCategory === "" ? true : product.tags.includes(selectedCategory)
   );
 
   return (
-    <CategoriesContainer>
-      <div>
-        <ScrollButton className="scroll-left" onClick={() => handleScroll(-1)}>
-          <FontAwesomeIcon icon={faChevronLeft} />
-        </ScrollButton>
-        <CategoriesList ref={categoriesRef}>
-          {categories.map((tag) => (
-            <StyledLink
-              key={tag}
-              to={`/categories/${tag}`}
-              className={selectedCategory === tag ? "active" : ""}
-            >
-              {tag}
-            </StyledLink>
-          ))}
-        </CategoriesList>
-        <ScrollButton className="scroll-right" onClick={() => handleScroll(1)}>
-          <FontAwesomeIcon icon={faChevronRight} />
-        </ScrollButton>
-      </div>
-      {data && <ProductList products={filteredProducts} />}
-    </CategoriesContainer>
+    data && (
+      <CategoriesContainer>
+        <Categories
+          categories={categories}
+          selectedCategory={selectedCategory}
+          filteredProducts={filteredProducts}
+        />
+        <ProductList products={filteredProducts} />
+      </CategoriesContainer>
+    )
   );
 };
 
