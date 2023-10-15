@@ -1,7 +1,10 @@
 {
-  "name": "front-end-frameworks-ca",
+  "name": "javascript-frameworks-ca",
+  "description": "Shop is a mock e-commerce store with cart capabilities and simulated checkout.",
+  "author": "Daniel Vier",
+  "homepage": "https://javascript-frameworks-ca.netlify.com",
   "private": true,
-  "version": "2.4.0",
+  "version": "2.4.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
