@@ -57,11 +57,11 @@ export const SliderInput = styled.input`
   }
 
   &:focus::-webkit-slider-runnable-track {
-    background: ${({ theme }) => theme.colors.grey};
+    background: ${({ theme }) => theme.colors.dsabled};
   }
 
   &:hover::-webkit-slider-runnable-track,
   &:active::-webkit-slider-runnable-track {
-    background: ${({ theme }) => theme.colors.grey};
+    background: ${({ theme }) => theme.colors.disabled};
   }
 `;
