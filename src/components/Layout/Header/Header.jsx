@@ -48,7 +48,7 @@ const Header = () => {
         <FontAwesomeIcon icon={faCreditCard} size="2x" />
         <span>SHOP</span>
       </Logo>
-      <Navigation extend={extendedNav} />
+      <Navigation isExtended={extendedNav} />
       <MenuContainer>
         <CartIcon />
         <MenuButton

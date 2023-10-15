@@ -1,9 +1,9 @@
 import { Nav, NavItem, NavUl, StyledLink } from "./Navigation.styled";
 
 // Component to display the navigation links
-const Navigation = ({ extend }) => {
+const Navigation = ({ isExtended }) => {
   return (
-    <Nav $extend={extend}>
+    <Nav $isExtended={isExtended}>
       <NavUl>
         <NavItem>
           <StyledLink to="/">Home</StyledLink>

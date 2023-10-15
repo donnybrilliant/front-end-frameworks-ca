@@ -4,13 +4,13 @@ import { NavLink } from "react-router-dom";
 export const Nav = styled.nav`
   display: none;
   list-style: none;
-  display: ${(props) => props.$extend && "block"};
-  position: ${(props) => props.$extend && "absolute"};
-  top: ${(props) => props.$extend && "calc(3rem - 1px)"};
-  left: ${(props) => props.$extend && "0"};
-  width: ${(props) => props.$extend && "100vw"};
+  display: ${(props) => props.$isExtended && "block"};
+  position: ${(props) => props.$isExtended && "absolute"};
+  top: ${(props) => props.$isExtended && "calc(3rem - 1px)"};
+  left: ${(props) => props.$isExtended && "0"};
+  width: ${(props) => props.$isExtended && "100vw"};
   background-color: ${({ theme }) => theme.colors.white};
-  padding-block: ${(props) => props.$extend && "1rem"};
+  padding-block: ${(props) => props.$isExtended && "1rem"};
   border-bottom: ${({ theme }) =>
     `${theme.borders.regular} ${theme.colors.black}`};
   font-family: ${({ theme }) => theme.fonts.heading};
