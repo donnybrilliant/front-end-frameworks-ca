@@ -114,10 +114,12 @@ input:required:focus:valid {
 }
 
 // Background color for invalid fields that aren't focused and don't have a placeholder 
-input:required:not(:focus):not(:placeholder-shown):invalid,
-textarea:required:not(:focus):not(:placeholder-shown):invalid {
+input:required:invalid:not(:focus):not(:placeholder-shown),
+textarea:required:invalid:not(:focus):not(:placeholder-shown) {
   background-color: ${({ theme }) => theme.colors.warning};
 }
+
+
 
 // Styling for select elements 
 select {

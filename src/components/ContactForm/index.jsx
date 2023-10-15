@@ -8,8 +8,8 @@ import { StyledForm } from "./styled";
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     fullName: "",
-    subject: "",
     email: "",
+    subject: "",
     body: "",
   });
 
